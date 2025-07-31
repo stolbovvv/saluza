@@ -1,0 +1,69 @@
+@use "sass:meta";
+@use "../helpers/tokens" as *;
+
+/* Custom properties
+
+	01.Colors
+	02.Font family
+	03.Font sizes
+	04.Font weights
+	05.Spacings
+	06.Border radius
+	07.Transitions
+	08.Z-indexes
+
+*/
+
+:root {
+	/* Colors */
+	@each $color-name, $color-value in $colors {
+		@if meta.type-of($color-value) == "map" {
+			@each $shade, $value in $color-value {
+				--color-#{$color-name}-#{$shade}: #{$value};
+			}
+		} @else {
+			--color-#{$color-name}: #{$color-value};
+		}
+	}
+
+	/* Font family */
+	@each $font-name, $font-name-value in $font-family {
+		--font-family-#{$font-name}: #{$font-name-value};
+	}
+
+	/* Font sizes */
+	@each $font-size, $font-size-value in $font-sizes {
+		--font-size-#{$font-size}: #{$font-size-value};
+	}
+
+	/* Font weights */
+	@each $font-weight, $font-weight-value in $font-weights {
+		--font-weight-#{$font-weight}: #{$font-weight-value};
+	}
+
+	/* Spacings */
+	@each $space-name, $space-value in $spacings {
+		--space-#{$space-name}: #{$space-value};
+	}
+
+	/* Border radius */
+	@each $radius-name, $radius-value in $radius {
+		--radius-#{$radius-name}: #{$radius-value};
+	}
+
+	/* Transitions */
+	@each $type-name, $type-value in $transitions {
+		@if meta.type-of($type-value) == "map" {
+			@each $speed, $value in $type-value {
+				--transition-#{$type-name}-#{$speed}: #{$value};
+			}
+		} @else {
+			--transition-#{$type-name}: #{$type-value};
+		}
+	}
+
+	/* Z-indexes */
+	@each $z-name, $z-value in $z-indexes {
+		--z-#{$z-name}: #{$z-value};
+	}
+}

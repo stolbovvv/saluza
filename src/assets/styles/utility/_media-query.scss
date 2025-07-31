@@ -1,0 +1,41 @@
+@use "../helpers/tokens" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/generators" as *;
+
+/* Media query utility
+
+	01.Typography utility
+	02.Hidden utility
+
+*/
+
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+	@include media($breakpoint-name) {
+		/* Typography utility */
+		@include generate-typography-utility("#{$breakpoint-name}\\:");
+
+		/* Hidden utility */
+		@include generate-hidden-utility("#{$breakpoint-name}\\:");
+	}
+}
+
+@each $breakpoint-name, $value in $breakpoints {
+	@include max-media($breakpoint-name) {
+		/* Typography utility */
+		@include generate-typography-utility("max-#{$breakpoint-name}\\:");
+
+		/* Hidden utility */
+		@include generate-hidden-utility("max-#{$breakpoint-name}\\:");
+	}
+}
+
+@each $breakpoint-name-min, $breakpoint-value-min in $breakpoints {
+	@each $breakpoint-name-max, $breakpoint-value-max in $breakpoints {
+		@if $breakpoint-value-min < $breakpoint-value-max {
+			@include media($breakpoint-name-min, $breakpoint-name-max) {
+				/* Hidden utility */
+				@include generate-hidden-utility("#{$breakpoint-name-min}\\:max-#{$breakpoint-name-max}\\:");
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+@use "../helpers/generators" as *;
+
+/* Color utility */
+
+@include generate-color-utility;
+
+@media (hover: hover) {
+	@include generate-color-utility("hover\\:");
+}

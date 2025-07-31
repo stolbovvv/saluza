@@ -1,0 +1,5 @@
+@use "../helpers/generators" as *;
+
+/* Typography utility */
+
+@include generate-typography-utility;

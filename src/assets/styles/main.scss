@@ -1,0 +1,30 @@
+/* Main style file
+
+	01.Globals
+	02.Layouts
+	03.Components
+	04.Utility
+
+*/
+
+/* Globals */
+@use "globals/font-face";
+@use "globals/root";
+@use "globals/base";
+
+/* Layouts */
+@use "layouts/wrapper";
+@use "layouts/section";
+@use "layouts/header";
+@use "layouts/footer";
+
+/* Components */
+@use "components/burger";
+@use "components/button";
+
+/* Utility */
+@use "utility/container";
+@use "utility/typography";
+@use "utility/colors";
+@use "utility/hidden";
+@use "utility/media-query";

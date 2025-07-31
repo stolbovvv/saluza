@@ -1,0 +1,6 @@
+/* Container utility */
+
+.container {
+	margin-inline: auto;
+	width: min(100%, 120rem - 2.5rem * 2);
+}

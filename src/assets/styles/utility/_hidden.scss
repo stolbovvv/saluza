@@ -1,0 +1,5 @@
+@use "../helpers/generators" as *;
+
+/* Hidden utility */
+
+@include generate-hidden-utility;

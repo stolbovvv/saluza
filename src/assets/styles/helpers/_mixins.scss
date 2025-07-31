@@ -1,0 +1,52 @@
+@use "tokens" as *;
+
+// Mixins
+
+// 01.Media
+// 02.Focus
+// 03.Hover
+
+// Media
+@mixin media($min, $max: false) {
+	@if $max {
+		@media (breakpoint($min) <= width < breakpoint($max)) {
+			@content;
+		}
+	} @else {
+		@media (width >= breakpoint($min)) {
+			@content;
+		}
+	}
+}
+
+@mixin max-media($max) {
+	@media (width < breakpoint($max)) {
+		@content;
+	}
+}
+
+// Focus
+@mixin focus($type) {
+	@if $type == "visible" {
+		&:focus-visible {
+			@content;
+		}
+	} @else if $type == "within" {
+		&:focus-within {
+			@content;
+		}
+	} @else {
+		&:focus {
+			@content;
+		}
+	}
+}
+
+// Hover
+@mixin hover() {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}

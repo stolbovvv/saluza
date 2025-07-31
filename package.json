@@ -1,0 +1,71 @@
+{
+	"name": "saluza",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "npx gulp",
+		"clean": "npx gulp clean",
+		"build": "npx gulp build --production",
+		"preview": "npx gulp preview --production",
+		"lint": "npm run lint:scripts && npm run lint:styles",
+		"lint:styles": "npx stylelint src/**/*.{css,sass,scss}",
+		"lint:scripts": "npx eslint src/**/*.{js,mjs,cjs}",
+		"format": "npx prettier --write src",
+		"prepare": "husky"
+	},
+	"lint-staged": {
+		"*.{js,mjs,cjs}": [
+			"eslint --fix"
+		],
+		"*.{css,sass,scss}": [
+			"stylelint --fix"
+		]
+	},
+	"browserslist": {
+		"production": [
+			"> 0.5%",
+			"last 2 versions",
+			"Firefox ESR",
+			"not dead",
+			"not ie <= 11",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.32.0",
+		"@prettier/plugin-pug": "^3.4.0",
+		"browser-sync": "^3.0.4",
+		"css-loader": "^7.1.2",
+		"del": "^8.0.0",
+		"eslint": "^9.32.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-import": "^2.32.0",
+		"eslint-plugin-prettier": "^5.5.3",
+		"globals": "^16.3.0",
+		"gulp": "^5.0.1",
+		"gulp-beautify": "^3.0.0",
+		"gulp-cli": "^3.1.0",
+		"gulp-plumber": "^1.2.1",
+		"gulp-postcss": "^10.0.0",
+		"gulp-pug": "^5.0.0",
+		"gulp-sass": "^6.0.1",
+		"gulp-svg-sprite": "^2.0.3",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.1.2",
+		"postcss": "^8.5.6",
+		"postcss-load-config": "^6.0.1",
+		"postcss-preset-env": "^10.2.4",
+		"prettier": "^3.6.2",
+		"sass-embedded": "^1.89.2",
+		"stylelint": "^16.22.0",
+		"stylelint-config-standard": "^38.0.0",
+		"stylelint-config-standard-scss": "^15.0.1",
+		"stylelint-order": "^7.0.0"
+	}
+}

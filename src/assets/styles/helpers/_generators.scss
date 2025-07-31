@@ -1,0 +1,112 @@
+@use "sass:meta";
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Generator
+
+// 01.Typography utility
+// 02.Colors utility
+// 03.Hidden utility
+
+// Typography utility
+@mixin generate-typography-utility($prefix: "") {
+	@each $family-name, $family-value in $font-family {
+		.#{$prefix}font-#{$family-name} {
+			font-family: var(--font-family-#{$family-name});
+		}
+	}
+
+	@each $size-name, $size-value in $font-sizes {
+		.#{$prefix}text-#{$size-name} {
+			font-size: var(--font-size-#{$size-name});
+		}
+	}
+
+	@each $weight-name, $weight-value in $font-weights {
+		.#{$prefix}font-#{$weight-name} {
+			font-weight: var(--font-weight-#{$weight-name});
+		}
+	}
+
+	.#{$prefix}text-left {
+		text-align: left;
+	}
+
+	.#{$prefix}text-center {
+		text-align: center;
+	}
+
+	.#{$prefix}text-right {
+		text-align: right;
+	}
+
+	.#{$prefix}text-justify {
+		text-align: justify;
+	}
+
+	.#{$prefix}uppercase {
+		text-transform: uppercase;
+	}
+
+	.#{$prefix}lowercase {
+		text-transform: lowercase;
+	}
+
+	.#{$prefix}capitalize {
+		text-transform: capitalize;
+	}
+
+	.#{$prefix}normal-case {
+		text-transform: none;
+	}
+
+	.#{$prefix}underline {
+		text-decoration: underline;
+	}
+
+	.#{$prefix}line-through {
+		text-decoration: line-through;
+	}
+
+	.#{$prefix}no-underline {
+		text-decoration: none;
+	}
+}
+
+// Colors utility
+@mixin generate-color-utility($prefix: "") {
+	@each $color-name, $color-value in $colors {
+		@if meta.type-of($color-value) == "map" {
+			@each $shade, $value in $color-value {
+				.#{$prefix}text-#{$color-name}-#{$shade} {
+					color: var(--color-#{$color-name}-#{$shade});
+				}
+			}
+		} @else {
+			.#{$prefix}text-#{$color-name} {
+				color: var(--color-#{$color-name});
+			}
+		}
+	}
+
+	@each $color-name, $color-value in $colors {
+		@if meta.type-of($color-value) == "map" {
+			@each $shade, $value in $color-value {
+				.#{$prefix}bg-#{$color-name}-#{$shade} {
+					background-color: var(--color-#{$color-name}-#{$shade});
+				}
+			}
+		} @else {
+			.#{$prefix}bg-#{$color-name} {
+				background-color: var(--color-#{$color-name});
+			}
+		}
+	}
+}
+
+// Hidden utility
+@mixin generate-hidden-utility($prefix: "") {
+	.#{$prefix}hidden {
+		display: none;
+	}
+}
