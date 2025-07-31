@@ -1,1 +1,33 @@
+-
+	var menu = [
+		{text: 'Каталог', href: '/catalog.html'},
+		{text: 'Коллекции', href: '/catalog.html'},
+		{text: 'Bridal', href: '/catalog.html'},
+		{text: 'О бренде', href: '/about.html'},
+		{text: 'Контакты', href: '/contacts.html'},
+	]
+
+	var btns = [
+		{icon: 'search', href: '/search.html', count: false},
+		{icon: 'user', href: '/account.html', count: false},
+		{icon: 'heart', href: '/favorite.html', count: false},
+		{icon: 'bag', href: '/cart.html', count: 3},
+	]
+
+include ../mixins/ui/icon.pug
+
 header.header
+	.container.header__container
+		.header__logo
+			img.header__logo-image(src='/assets/images/logo-black.svg', alt='')
+		.header__menu
+			ul.header__menu-list
+				each item in menu
+					li.header__menu-item
+						a.header__menu-link(href=item.href) #{ item.text }
+		.header__btns
+			each btn in btns
+				a.icon-button(href=btn.href)
+					if btn.count
+						span.icon-button__count #{ btn.count }
+					+icon({ className: 'icon-button__icon', icon: btn.icon })

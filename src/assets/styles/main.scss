@@ -16,9 +16,11 @@
 @use "layouts/wrapper";
 @use "layouts/section";
 @use "layouts/header";
+@use "layouts/navbar";
 @use "layouts/footer";
 
 /* Components */
+@use "components/icon";
 @use "components/burger";
 @use "components/button";
 

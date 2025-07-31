@@ -46,7 +46,7 @@ $colors: (
 // Font family
 // prettier-ignore
 $font-family: (
-	"default": (Arial, Helvetica, sans-serif),
+	"default": ("Montserrat", Arial, Helvetica, sans-serif),
 );
 
 @function font-family($type) {

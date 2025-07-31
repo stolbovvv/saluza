@@ -1,5 +1,5 @@
 import { create } from 'browser-sync';
-import { deleteAsync } from 'del';
+import { deleteAsync, deleteSync } from 'del';
 import { dest, parallel, series, src, watch } from 'gulp';
 import beautify from 'gulp-beautify';
 import plumber from 'gulp-plumber';
@@ -156,12 +156,10 @@ function handleIcons() {
 		.pipe(plumber())
 		.pipe(dest(PATH.icons.dist))
 		.pipe(
-			sprite(
-				sprite({
-					mode: spriteMode,
-					shape: spriteShape,
-				}),
-			),
+			sprite({
+				mode: spriteMode,
+				shape: spriteShape,
+			}),
 		)
 		.pipe(dest(PATH.icons.dist))
 		.pipe(server.stream());
@@ -206,7 +204,7 @@ const copyMedia = () => copy({ from: PATH.media.src, to: PATH.media.dist });
 const copyImages = () => copy({ from: PATH.images.src, to: PATH.images.dist });
 const copyPublic = () => copy({ from: PATH.public.src, to: PATH.public.dist });
 
-const copyFunctions = [copyPublic, copyFonts, copyImages, copyMedia];
+const copyFunctions = [copyFonts, copyImages, copyMedia];
 
 /**
  * Command functions
@@ -231,15 +229,53 @@ function runServe() {
 	});
 }
 
-function runWatch() {
-	watch(PATH.fonts.watch, server.reload);
-	watch(PATH.media.watch, server.reload);
-	watch(PATH.images.watch, server.reload);
-	watch(PATH.icons.watch, handleIcons);
-	watch(PATH.pages.watch, handlePages);
-	watch(PATH.styles.watch, handleStyles);
-	watch(PATH.scripts.watch, handleScripts);
-}
+export const runWatch = () => {
+	const pages = watch(PATH.pages.watch);
+	const fonts = watch(PATH.fonts.watch);
+	const icons = watch(PATH.icons.watch);
+	const images = watch(PATH.images.watch);
+	const styles = watch(PATH.styles.watch);
+	const scripts = watch(PATH.scripts.watch);
+
+	const deleteFiles = (path) => {
+		deleteSync(path.replace(DIR.src, DIR.build));
+	};
+
+	pages.on('all', () => {
+		handlePages();
+		server.reload();
+	});
+
+	fonts.on('all', () => {
+		copyFonts();
+		server.reload();
+	});
+
+	icons.on('all', () => {
+		handleIcons();
+		server.reload();
+	});
+
+	images.on('all', () => {
+		copyImages();
+		server.reload();
+	});
+
+	styles.on('all', () => {
+		handleStyles();
+		server.reload();
+	});
+
+	scripts.on('all', async () => {
+		handleScripts();
+		server.reload();
+	});
+
+	fonts.on(['unlink'], deleteFiles);
+	images.on(['unlink'], deleteFiles);
+	styles.on(['unlink'], deleteFiles);
+	scripts.on(['unlink'], deleteFiles);
+};
 
 /**
  * CLI tasks
@@ -252,6 +288,6 @@ function runWatch() {
 
 export const clean = series(runClean);
 export const build = series(runClean, ...copyFunctions, ...handleFunctions);
-export const preview = series(runClean, ...copyFunctions, ...handleFunctions, runServe);
+export const preview = series(runClean, copyPublic, ...copyFunctions, ...handleFunctions, runServe);
 
 export default series(runClean, ...copyFunctions, ...handleFunctions, parallel(runServe, runWatch));
