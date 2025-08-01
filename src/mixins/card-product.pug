@@ -1,0 +1,8 @@
+mixin card-product({ className, image, name, price })
+	.card-product(class=className)
+		.card-product__head
+			a(href='/details.html')
+				img(src=image, alt=name)
+		.card-product__body
+			a.link.card-product__link(href='/details.html') #{ name }
+			p.card-product__price #{ price }

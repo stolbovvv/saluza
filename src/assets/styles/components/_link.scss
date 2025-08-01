@@ -22,13 +22,19 @@
 	align-items: center;
 	width: 1.5rem;
 	height: 1.5rem;
-	border: 1px solid transparent;
+	outline: 1px solid transparent;
+	outline-offset: 0.25rem;
 	border-radius: 50%;
 	color: var(--color-black);
-	transition: all var(--transition-100) 0s;
+	transition: all var(--transition-ease-100) 0s;
+
+	&:focus {
+		outline-color: currentColor;
+		outline-width: 2px;
+	}
 
 	@include hover {
-		border-color: currentColor;
+		outline-color: currentColor;
 	}
 
 	&__badge {

@@ -109,7 +109,7 @@
 		}
 
 		@include max-media("lg") {
-			font-size: 0.875rem;
+			font-size: var(--font-size-sm);
 		}
 	}
 
@@ -168,7 +168,7 @@
 
 	&__submenu-link {
 		@include media("md") {
-			font-size: 0.875rem;
+			font-size: var(--font-size-sm);
 		}
 	}
 

@@ -1,0 +1,68 @@
+@use "../helpers/mixins" as *;
+
+/* Catalog filters styles */
+
+.catalog-filters {
+	padding-block: 1.875rem;
+
+	@include max-media("sm") {
+		padding-block: 1.25rem;
+	}
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: 1rem;
+
+		@include max-media("sm") {
+			flex-direction: column;
+			row-gap: 1rem;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1rem;
+		list-style: none;
+
+		@include max-media("sm") {
+			justify-content: center;
+			text-align: center;
+		}
+	}
+
+	&__item {
+		display: inline-flex;
+		align-items: 1;
+	}
+
+	&__link {
+		font-size: var(--font-size-sm);
+
+		&:is(.is-active) {
+			font-weight: 600;
+			text-decoration: underline;
+			text-underline-offset: 0.25rem;
+			pointer-events: none;
+		}
+	}
+
+	&__button {
+		display: flex;
+		align-items: center;
+		column-gap: 0.5rem;
+		padding: 0;
+		border: none;
+		background: none;
+		font-size: var(--font-size-sm);
+		line-height: 1;
+		cursor: pointer;
+
+		@include hover {
+			outline: 1px solid currentColor;
+			outline-offset: 0.5rem;
+		}
+	}
+}

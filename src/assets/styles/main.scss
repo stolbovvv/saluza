@@ -18,6 +18,9 @@
 @use "layouts/page-navbar";
 @use "layouts/page-footer";
 @use "layouts/home-slider";
+@use "layouts/catalog-filters";
+@use "layouts/catalog-products";
+@use "layouts/catalog-previews";
 @use "layouts/section";
 
 /* Components */
@@ -25,6 +28,7 @@
 @use "components/link";
 @use "components/burger";
 @use "components/button";
+@use "components/card-product";
 
 /* Utility */
 @use "utility/container";

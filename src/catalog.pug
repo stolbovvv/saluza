@@ -1,6 +1,8 @@
 extends ./layouts/page.pug
 
 include ./mixins/page-navbar.pug
+include ./mixins/card-product.pug
+include ./mixins/ui/icon.pug
 
 block head
 	-
@@ -16,3 +18,56 @@ block content
 	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
 
 	main.main
+		.catalog-filters
+			.container.catalog-filters__container
+				ul.catalog-filters__list
+					li.catalog-filters__item
+						a.link.catalog-filters__link.is-active(href='#') Все товары
+					li.catalog-filters__item
+						a.link.catalog-filters__link(href='#') Горячие товары
+					li.catalog-filters__item
+						a.link.catalog-filters__link(href='#') Новое поступление
+					li.catalog-filters__item
+						a.link.catalog-filters__link(href='#') Скидки
+				button.catalog-filters__button
+					+icon({ className: 'catalog-filters__button-icon', icon: 'filter' })
+					span.catalog-filters__button-text Фильтр
+		section.catalog-products
+			.container
+				.catalog-products__grid
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-2.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-3.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-4.jpg', price: '35.000 ₽' })
+		section.catalog-previews
+			.container.catalog-previews__container
+				.catalog-previews__grid
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
+		section.catalog-products
+			.container
+				.catalog-products__grid
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-2.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-3.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-4.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-2.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-3.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-4.jpg', price: '35.000 ₽' })
+		section.catalog-previews
+			.container.catalog-previews__container
+				.catalog-previews__grid
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
+		section.catalog-products
+			.container
+				.catalog-products__grid
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-2.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-3.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-4.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-2.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-3.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-4.jpg', price: '35.000 ₽' })
