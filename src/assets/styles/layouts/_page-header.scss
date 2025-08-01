@@ -3,24 +3,37 @@
 @use "../helpers/mixins" as *;
 
 .page-header {
+	--header-h: 6.25rem;
+
 	position: fixed;
 	top: 0;
+	z-index: var(--z-sticky);
 	padding-block: 2.5rem;
 	width: 100%;
-	height: 6.5rem;
+	height: var(--header-h);
+
+	@include max-media("md") {
+		--header-h: 5.25rem;
+
+		padding-block: 1.875rem;
+	}
 
 	&__container {
 		display: flex;
+		align-items: center;
 		column-gap: 1.25rem;
 	}
 
 	&__logo {
+		position: relative;
+		z-index: var(--z-banner);
 		display: inline-flex;
+		flex: 0 0 auto;
 	}
 
 	&__logo-image {
 		width: 100%;
-		height: 1.5rem;
+		height: 1.25rem;
 		object-fit: contain;
 		object-position: center;
 	}
@@ -28,18 +41,60 @@
 	&__menu {
 		display: flex;
 		flex: 0 0 auto;
+
+		@include media("md") {
+			position: relative;
+		}
+
+		@include max-media("md") {
+			position: fixed;
+			inset: 0;
+			z-index: var(--z-dropdown);
+			flex-direction: column;
+			overflow: hidden auto;
+			background-color: var(--color-white);
+
+			&::before {
+				content: "";
+				position: fixed;
+				z-index: 1;
+				width: 100%;
+				height: var(--header-h);
+				background: linear-gradient(to bottom, var(--color-white) 75%, transparent);
+			}
+
+			&:not(.is-active) {
+				display: none;
+			}
+		}
 	}
 
 	&__menu-list {
 		display: flex;
 		column-gap: 1rem;
 		list-style: none;
+
+		@include media("md") {
+			position: relative;
+		}
+
+		@include max-media("md") {
+			flex-direction: column;
+			row-gap: 1rem;
+			padding-top: var(--header-h);
+			padding-bottom: 1.875rem;
+			padding-inline: var(--container-offset, 0.625rem);
+		}
 	}
 
 	&__menu-item {
 		display: flex;
-		align-items: center;
+		flex-direction: column;
 		line-height: 1.2;
+
+		@include media("md") {
+			position: relative;
+		}
 	}
 
 	&__menu-link {
@@ -47,11 +102,84 @@
 		color: currentColor;
 		font-weight: 600;
 		text-transform: uppercase;
+
+		@include media("md") {
+			position: relative;
+			z-index: 1;
+		}
+
+		@include max-media("lg") {
+			font-size: 0.875rem;
+		}
+	}
+
+	&__submenu {
+		display: flex;
+
+		@include media("md") {
+			position: absolute;
+			top: calc(50% + var(--header-h) / 2);
+			column-gap: 1.25rem;
+			width: max-content;
+			opacity: 0;
+			visibility: hidden;
+			transition: all var(--transition-ease-100) 0s;
+
+			&::before {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: min(100vh, 20rem);
+				box-shadow:
+					0 4px 6px -1px rgb(0, 0, 0, 0.1),
+					0 2px 4px -2px rgb(0, 0, 0, 0.1);
+				background: var(--color-white);
+				opacity: 0.875;
+				content: "";
+			}
+		}
+
+		@include max-media("md") {
+			flex-direction: column;
+		}
+	}
+
+	@include media("md") {
+		&__menu-item:hover > &__menu-link {
+			text-underline-offset: 0.25rem;
+			text-decoration: underline;
+		}
+
+		&__menu-item:hover > &__submenu {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	&__submenu-list {
+		position: relative;
+		list-style: none;
+	}
+
+	&__submenu-item {
+		margin-top: 0.75rem;
+	}
+
+	&__submenu-link {
+		@include media("md") {
+			font-size: 0.875rem;
+		}
 	}
 
 	&__btns {
 		display: flex;
-		gap: 1.5rem;
+		gap: 1rem;
 		margin-inline-start: auto;
+
+		@include max-media("md") {
+			position: relative;
+			z-index: var(--z-banner);
+		}
 	}
 }

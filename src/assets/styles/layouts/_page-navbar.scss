@@ -3,13 +3,26 @@
 /* Navbar styles */
 
 .page-navbar {
-	padding-block: 2rem;
+	padding-block: 1.875rem;
 	background-color: var(--color-neutral-100);
+
+	@include max-media("md") {
+		padding-block: 1.25rem;
+	}
+
+	@include max-media("sm") {
+		padding-block: 0.625rem;
+	}
 
 	&__container {
 		display: flex;
 		justify-content: space-between;
 		column-gap: 1rem;
+
+		@include max-media("md") {
+			flex-direction: column;
+			row-gap: 0.25rem;
+		}
 	}
 
 	&__heading {

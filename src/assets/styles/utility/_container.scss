@@ -1,6 +1,22 @@
+@use "../helpers/mixins" as *;
+
 /* Container utility */
 
 .container {
+	--container-offset: 2.5rem;
+
 	margin-inline: auto;
-	width: min(100% - 2.5rem * 2, 120rem);
+	width: min(100% - var(--container-offset) * 2, 120rem);
+
+	@include max-media("lg") {
+		--container-offset: 1.875rem;
+	}
+
+	@include max-media("md") {
+		--container-offset: 1.25rem;
+	}
+
+	@include max-media("sm") {
+		--container-offset: 0.625rem;
+	}
 }

@@ -20,29 +20,54 @@
 <body>
     <div class="page-wrapper">
         <header class="page-header">
-            <div class="container page-header__container">
-                <div class="page-header__logo"><img class="page-header__logo-image" src="/assets/images/logo-black.svg" alt=""></div>
+            <div class="container page-header__container"><a class="page-header__logo" href="/"><img class="page-header__logo-image" src="/assets/images/logo-black.svg" alt=""></a>
                 <div class="page-header__menu">
                     <ul class="page-header__menu-list">
-                        <li class="page-header__menu-item"><a class="link page-header__menu-link" href="/catalog.html">Каталог</a></li>
-                        <li class="page-header__menu-item"><a class="link page-header__menu-link" href="/catalog.html">Коллекции</a></li>
-                        <li class="page-header__menu-item"><a class="link page-header__menu-link" href="/catalog.html">Bridal</a></li>
-                        <li class="page-header__menu-item"><a class="link page-header__menu-link" href="/about.html">О бренде</a></li>
-                        <li class="page-header__menu-item"><a class="link page-header__menu-link" href="/contacts.html">Контакты</a></li>
+                        <li class="page-header__menu-item"><a class="link page-header__menu-link" href="/catalog.html">Каталог</a>
+                            <div class="page-header__submenu">
+                                <ul class="page-header__submenu-list">
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Смотреть все</a></li>
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Новые поступления</a></li>
+                                </ul>
+                                <ul class="page-header__submenu-list">
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Платья</a></li>
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Платья-макси</a></li>
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Платья-мини</a></li>
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Коктейльные-платья</a></li>
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Топы</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="page-header__menu-item"><a class="link page-header__menu-link" href="/catalog.html">Коллекции</a>
+                            <div class="page-header__submenu">
+                                <ul class="page-header__submenu-list">
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Вечерняя коллекция</a></li>
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Свадебная коллекция</a></li>
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Spring-summer 25</a></li>
+                                    <li class="page-header__submenu-item"><a class="link page-header__submenu-link" href="./catalog.html">Fall-Winter 24-25</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="page-header__menu-item"><a class="link page-header__menu-link" href="/catalog.html">Bridal</a>
+                        </li>
+                        <li class="page-header__menu-item"><a class="link page-header__menu-link" href="/about.html">О бренде</a>
+                        </li>
+                        <li class="page-header__menu-item"><a class="link page-header__menu-link" href="/contacts.html">Контакты</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="page-header__btns"><a class="icon-link" href="/search.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754037029358#search"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754045777380#search"></use>
                         </svg></a><a class="icon-link" href="/account.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754037029358#user"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754045777380#user"></use>
                         </svg></a><a class="icon-link" href="/favorite.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754037029358#heart"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754045777380#heart"></use>
                         </svg></a><a class="icon-link" href="/cart.html"><span class="icon-link__badge">3</span>
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754037029358#bag"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754045777380#bag"></use>
                         </svg></a>
                 </div>
             </div>
@@ -77,8 +102,8 @@
                         </ul>
                     </div>
                     <div class="page-footer__menu"><a class="link page-footer__menu-header" href="/bridal.html">Bridal</a></div>
-                    <div class="page-footer__menu"><a class="link page-footer__menu-header" href="/contacts.html">Контакты</a></div>
-                    <div class="page-footer__menu page-footer__menu--ms-auto">
+                    <div class="page-footer__menu page-footer__menu--me-auto"><a class="link page-footer__menu-header" href="/contacts.html">Контакты</a></div>
+                    <div class="page-footer__menu">
                         <p class="link page-footer__menu-header">Доп. информация</p>
                         <ul class="page-footer__menu-list">
                             <li class="page-footer__menu-item"><a class="page-footer__menu-link" href="/privacy-policy.html">Политика конфиденциальности</a></li>
@@ -92,19 +117,19 @@
                 <div class="page-footer__foot">
                     <div class="page-footer__social"><a class="icon-link page-footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754037029358#facebook-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754045777381#facebook-logo"></use>
                             </svg></a><a class="icon-link page-footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754037029358#instagram-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754045777381#instagram-logo"></use>
                             </svg></a><a class="icon-link page-footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754037029358#pinterest-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754045777381#pinterest-logo"></use>
                             </svg></a><a class="icon-link page-footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754037029358#twitter-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754045777381#twitter-logo"></use>
                             </svg></a><a class="icon-link page-footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754037029358#google-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754045777381#google-logo"></use>
                             </svg></a></div>
                 </div>
             </div>

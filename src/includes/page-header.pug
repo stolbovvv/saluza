@@ -1,10 +1,46 @@
 -
 	var menu = [
-		{text: 'Каталог', href: '/catalog.html'},
-		{text: 'Коллекции', href: '/catalog.html'},
-		{text: 'Bridal', href: '/catalog.html'},
-		{text: 'О бренде', href: '/about.html'},
-		{text: 'Контакты', href: '/contacts.html'},
+		{
+			text: 'Каталог',
+			href: '/catalog.html',
+			menu: [
+				[
+					{text: 'Смотреть все', href: './catalog.html'},
+					{text: 'Новые поступления', href: './catalog.html'},
+				],
+				[
+					{text: 'Платья', href: './catalog.html'},
+					{text: 'Платья-макси', href: './catalog.html'},
+					{text: 'Платья-мини', href: './catalog.html'},
+					{text: 'Коктейльные-платья', href: './catalog.html'},
+					{text: 'Топы', href: './catalog.html'},
+				]
+			],
+		},
+		{
+			text: 'Коллекции',
+			href: '/catalog.html',
+			menu: [
+				[
+					{text: 'Вечерняя коллекция', href: './catalog.html'},
+					{text: 'Свадебная коллекция', href: './catalog.html'},
+					{text: 'Spring-summer 25', href: './catalog.html'},
+					{text: 'Fall-Winter 24-25', href: './catalog.html'},
+				]
+			],
+		},
+		{
+			text: 'Bridal',
+			href: '/catalog.html',
+		},
+		{
+			text: 'О бренде',
+			href: '/about.html',
+		},
+		{
+			text: 'Контакты',
+			href: '/contacts.html',
+		},
 	]
 
 	var btns = [
@@ -18,13 +54,21 @@ include ../mixins/ui/icon.pug
 
 header.page-header
 	.container.page-header__container
-		.page-header__logo
+		a.page-header__logo(href='/')
 			img.page-header__logo-image(src='/assets/images/logo-black.svg', alt='')
 		.page-header__menu
 			ul.page-header__menu-list
 				each item in menu
 					li.page-header__menu-item
 						a.link.page-header__menu-link(href=item.href) #{ item.text }
+						if item.menu
+							.page-header__submenu
+								each links in item.menu
+									if links
+										ul.page-header__submenu-list
+											each link in links
+												li.page-header__submenu-item
+													a.link.page-header__submenu-link(href=link.href) #{ link.text }
 		.page-header__btns
 			each btn in btns
 				a.icon-link(href=btn.href)
