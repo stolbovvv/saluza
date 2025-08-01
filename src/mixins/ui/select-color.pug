@@ -1,0 +1,8 @@
+mixin select-color({ className, name = 'color', colors = [] } = {})
+	.select-color(class=className)
+		p.select-color__heading Цвет
+		.select-color__body
+			each color in colors
+				.select-color__item
+					label.select-color__label(style=`background: ${color}`, checked)
+						input.select-color__input(type='radio', name=name, value=color)

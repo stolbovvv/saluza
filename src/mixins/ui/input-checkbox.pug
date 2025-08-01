@@ -1,0 +1,7 @@
+include ./icon.pug
+
+mixin input-checkbox({ className, label, name } = {})
+	label.input-checkbox(class=className)
+		input.input-checkbox__input(type='checkbox', name=name)
+		+icon({ className: 'input-checkbox__icon', icon: 'check' })
+		span.input-checkbox__text #{ label }

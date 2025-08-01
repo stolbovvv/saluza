@@ -41,6 +41,7 @@ $colors: (
 	),
 	"white": hsl(0, 0%, 100%),
 	"black": hsl(0, 0%, 0%),
+	"gold": hsl(37, 100%, 61%),
 	"transparent": transparent,
 );
 
@@ -60,7 +61,7 @@ $font-sizes: (
 	"sm": 0.875rem,
 	"base": 1rem,
 	"lg": 1.125rem,
-	"xl": 2.25rem,
+	"xl": 2rem,
 );
 
 @function font-size($size) {

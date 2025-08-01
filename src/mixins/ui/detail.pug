@@ -1,0 +1,14 @@
+include ./icon.pug
+
+mixin detail({ className, heading, content } = {})
+	.detail(class=className)
+		.detail__head
+			span.detail__heading #{ heading }
+			button.detail__button(type='button')
+				+icon({ icon: 'arrow-right' })
+		.detail__body
+			.detail__content
+				if block
+					block
+				else
+					p Нет контента

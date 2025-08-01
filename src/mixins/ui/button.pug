@@ -1,0 +1,10 @@
+include ./icon.pug
+
+mixin button({ className, variant, icon, text, type = 'button' } = {})
+	- var classVariant = `${variant ? `button--${variant}` : ''}`;
+
+	button.button(class=[className, classVariant], type=type)
+		if icon
+			+icon({ className: `button__icon`, icon: icon })
+		if text
+			span.button__text #{ text }

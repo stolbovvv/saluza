@@ -1,6 +1,14 @@
 extends ./layouts/page.pug
 
 include ./mixins/page-navbar.pug
+include ./mixins/card-product.pug
+include ./mixins/ui/select-color.pug
+include ./mixins/ui/select-size.pug
+include ./mixins/ui/input-checkbox.pug
+include ./mixins/ui/input-counter.pug
+include ./mixins/ui/button.pug
+include ./mixins/ui/detail.pug
+include ./mixins/ui/icon.pug
 
 block head
 	-
@@ -17,3 +25,62 @@ block content
 	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
 
 	main.main
+		section.product-details
+			.container
+				.product-details__body
+					.product-details__gallery
+						.product-details__gallery-slide
+							video(src='./assets/media/catalog-preview-1.mp4', poster='./assets/images/catalog-preview-1.jpg', controls)
+						.product-details__gallery-slide
+							img(src='./assets/images/catalog-product-2.jpg', alt='')
+						.product-details__gallery-slide
+							img(src='./assets/images/catalog-product-3.jpg', alt='')
+					.product-details__body
+						h1.text-xl.text-center.font-light Andromeda Saluza
+						.product-details__description.text-sm.text-neutral-400
+							p Легкое и элегантное платье из мягкой ткани с идеальной посадкой. Подходит для повседневной носки и особых случаев. Подчеркивает фигуру и обеспечивает комфорт весь день.
+						p.product-details__price.text-xl.text-center 35.000 ₽
+						.product-details__rating
+							+icon({ className: 'fill-gold', icon: 'star-fill' })
+							+icon({ className: 'fill-gold', icon: 'star-fill' })
+							+icon({ className: 'fill-gold', icon: 'star-fill' })
+							+icon({ className: 'fill-gold', icon: 'star-fill' })
+							+icon({ className: 'fill-gold', icon: 'star' })
+						p.product-details__review.text-sm.text-center (2 отзыва)
+						.product-details__form
+							.product-details__form-row
+								+input-counter({ name: 'product_count' })
+								+button({ icon: 'bag', text: 'Добавить в корзину', type: 'submit' })
+								+button({ icon: 'heart', variant: 'outline' })
+							+input-checkbox({ label: 'Индивидуальный пошив', name: 'individual_tailoring' })
+							span.text-xs.text-neutral-400 Короткая информация о функции “Индивидуальный пошив”. Рассказать для чего может использоваться, в каких случаях и т.д.
+							+detail({ heading: 'Материалы и их качество' })
+								p Платье выполнено из легкой, дышащей ткани, обеспечивающей комфорт в жаркую погоду и элегантный силуэт.
+							+select-color({ name: 'product_color', colors: ['#cecece', '#ffffff', '#003254'] })
+							+select-size({ name: 'product_size', sizes: ['L', 'M', 'S'] })
+							.product-details__form-category
+								span Категория: #{ ' ' }
+								span вечерние платья
+							.product-details__form-social
+								a.icon-link(href='#')
+									+icon({ icon: 'facebook-logo' })
+								a.icon-link(href='#')
+									+icon({ icon: 'instagram-logo' })
+								a.icon-link(href='#')
+									+icon({ icon: 'pinterest-logo' })
+								a.icon-link(href='#')
+									+icon({ icon: 'twitter-logo' })
+								a.icon-link(href='#')
+									+icon({ icon: 'google-logo' })
+
+		section.catalog-products
+			.container
+				.catalog-products__grid
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-2.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-3.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-4.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-2.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-3.jpg', price: '35.000 ₽' })
+					+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-4.jpg', price: '35.000 ₽' })

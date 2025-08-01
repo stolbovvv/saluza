@@ -1,0 +1,9 @@
+mixin select-size({ className, name = 'size', sizes = [] } = {})
+	.select-size(class=className)
+		p.select-size__heading Размер
+		.select-size__body
+			each size in sizes
+				.select-size__item
+					label.select-size__label
+						span.label__text #{ size }
+						input.select-size__input(type='radio', name=name, value=size, checked)

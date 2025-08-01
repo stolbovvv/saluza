@@ -102,6 +102,34 @@
 			}
 		}
 	}
+
+	@each $color-name, $color-value in $colors {
+		@if meta.type-of($color-value) == "map" {
+			@each $shade, $value in $color-value {
+				.#{$prefix}fill-#{$color-name}-#{$shade} {
+					fill: var(--color-#{$color-name}-#{$shade});
+				}
+			}
+		} @else {
+			.#{$prefix}fill-#{$color-name} {
+				fill: var(--color-#{$color-name});
+			}
+		}
+	}
+
+	@each $color-name, $color-value in $colors {
+		@if meta.type-of($color-value) == "map" {
+			@each $shade, $value in $color-value {
+				.#{$prefix}stroke-#{$color-name}-#{$shade} {
+					stroke: var(--color-#{$color-name}-#{$shade});
+				}
+			}
+		} @else {
+			.#{$prefix}stroke-#{$color-name} {
+				stroke: var(--color-#{$color-name});
+			}
+		}
+	}
 }
 
 // Hidden utility

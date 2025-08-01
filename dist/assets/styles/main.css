@@ -103,6 +103,7 @@
   --color-neutral-900: hsl(0, 0%, 10%);
   --color-white: hsl(0, 0%, 100%);
   --color-black: hsl(0, 0%, 0%);
+  --color-gold: hsl(37, 100%, 61%);
   --color-transparent: transparent;
   /* Font family */
   --font-family-default: Montserrat, Arial, Helvetica, sans-serif;
@@ -111,7 +112,7 @@
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
-  --font-size-xl: 2.25rem;
+  --font-size-xl: 2rem;
   /* Font weights */
   --font-weight-thin: 100;
   --font-weight-extralight: 200;
@@ -911,11 +912,121 @@ picture {
 /* Button styles */
 .button {
   display: inline-flex;
+  column-gap: 0.625rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+  line-height: 1.25rem;
+  transition: all var(--transition-ease-100) 0s;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .button:hover {
+    border-color: var(--color-neutral-700);
+    background-color: var(--color-neutral-700);
+  }
+}
+.button:active {
+  border-color: var(--color-neutral-600);
+  background-color: var(--color-neutral-600);
+}
+@media (max-width: 63.999rem) {
+  .button {
+    padding: 0.875rem;
+  }
+}
+.button--outline {
+  border-color: var(--color-neutral-700);
+  background-color: transparent;
+  color: var(--color-neutral-700);
+}
+@media (hover: hover) {
+  .button--outline:hover {
+    background-color: var(--color-neutral-700);
+    color: var(--color-white);
+  }
+}
+.button--outline:active {
+  border-color: var(--color-neutral-600);
+  background-color: var(--color-neutral-600);
 }
 
-/* Icon button */
-.icon-button {
+/* Input checkbox styles */
+.input-checkbox {
+  position: relative;
+  display: flex;
+  column-gap: 0.5rem;
+}
+.input-checkbox__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+.input-checkbox__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--color-neutral-300);
+  fill: var(--color-neutral-300);
+  cursor: pointer;
+}
+.input-checkbox__input:checked + .input-checkbox__icon {
+  fill: var(--color-white);
+}
+.input-checkbox__text {
+  margin-block-start: 0.2rem;
+  color: var(--color-neutral-500);
+  font-size: var(--font-size-sm);
+}
+
+/* Input counter styles */
+.input-counter {
   display: inline-flex;
+  border: 1px solid var(--color-neutral-700);
+}
+.input-counter__button {
+  display: flex;
+  flex: 0 0 auto;
+  padding: 1.25rem;
+  border: none;
+  background-color: transparent;
+  transition: all var(--transition-ease-100) 0s;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .input-counter__button:hover {
+    background-color: var(--color-neutral-700);
+    color: var(--color-white);
+  }
+}
+.input-counter__button:active {
+  border-color: var(--color-neutral-600);
+  background-color: var(--color-neutral-600);
+}
+@media (max-width: 63.999rem) {
+  .input-counter__button {
+    padding: 0.875rem;
+  }
+}
+.input-counter__button-text {
+  width: 1.25rem;
+  font-size: 1.25rem;
+  line-height: 1em;
+  text-align: center;
+}
+.input-counter__input {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  padding: 0;
+  width: 3.75rem;
+  outline: none;
+  border: none;
+  font-size: var(--font-size-sm);
+  line-height: 1.25rem;
+  text-align: center;
 }
 
 /* Card product styles */
@@ -1152,6 +1263,10 @@ picture {
   color: var(--color-black);
 }
 
+.text-gold {
+  color: var(--color-gold);
+}
+
 .text-transparent {
   color: var(--color-transparent);
 }
@@ -1204,8 +1319,124 @@ picture {
   background-color: var(--color-black);
 }
 
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
 .bg-transparent {
   background-color: var(--color-transparent);
+}
+
+.fill-neutral-50 {
+  fill: var(--color-neutral-50);
+}
+
+.fill-neutral-100 {
+  fill: var(--color-neutral-100);
+}
+
+.fill-neutral-200 {
+  fill: var(--color-neutral-200);
+}
+
+.fill-neutral-300 {
+  fill: var(--color-neutral-300);
+}
+
+.fill-neutral-400 {
+  fill: var(--color-neutral-400);
+}
+
+.fill-neutral-500 {
+  fill: var(--color-neutral-500);
+}
+
+.fill-neutral-600 {
+  fill: var(--color-neutral-600);
+}
+
+.fill-neutral-700 {
+  fill: var(--color-neutral-700);
+}
+
+.fill-neutral-800 {
+  fill: var(--color-neutral-800);
+}
+
+.fill-neutral-900 {
+  fill: var(--color-neutral-900);
+}
+
+.fill-white {
+  fill: var(--color-white);
+}
+
+.fill-black {
+  fill: var(--color-black);
+}
+
+.fill-gold {
+  fill: var(--color-gold);
+}
+
+.fill-transparent {
+  fill: var(--color-transparent);
+}
+
+.stroke-neutral-50 {
+  stroke: var(--color-neutral-50);
+}
+
+.stroke-neutral-100 {
+  stroke: var(--color-neutral-100);
+}
+
+.stroke-neutral-200 {
+  stroke: var(--color-neutral-200);
+}
+
+.stroke-neutral-300 {
+  stroke: var(--color-neutral-300);
+}
+
+.stroke-neutral-400 {
+  stroke: var(--color-neutral-400);
+}
+
+.stroke-neutral-500 {
+  stroke: var(--color-neutral-500);
+}
+
+.stroke-neutral-600 {
+  stroke: var(--color-neutral-600);
+}
+
+.stroke-neutral-700 {
+  stroke: var(--color-neutral-700);
+}
+
+.stroke-neutral-800 {
+  stroke: var(--color-neutral-800);
+}
+
+.stroke-neutral-900 {
+  stroke: var(--color-neutral-900);
+}
+
+.stroke-white {
+  stroke: var(--color-white);
+}
+
+.stroke-black {
+  stroke: var(--color-black);
+}
+
+.stroke-gold {
+  stroke: var(--color-gold);
+}
+
+.stroke-transparent {
+  stroke: var(--color-transparent);
 }
 
 @media (hover: hover) {
@@ -1244,6 +1475,9 @@ picture {
   }
   .hover\:text-black {
     color: var(--color-black);
+  }
+  .hover\:text-gold {
+    color: var(--color-gold);
   }
   .hover\:text-transparent {
     color: var(--color-transparent);
@@ -1284,8 +1518,95 @@ picture {
   .hover\:bg-black {
     background-color: var(--color-black);
   }
+  .hover\:bg-gold {
+    background-color: var(--color-gold);
+  }
   .hover\:bg-transparent {
     background-color: var(--color-transparent);
+  }
+  .hover\:fill-neutral-50 {
+    fill: var(--color-neutral-50);
+  }
+  .hover\:fill-neutral-100 {
+    fill: var(--color-neutral-100);
+  }
+  .hover\:fill-neutral-200 {
+    fill: var(--color-neutral-200);
+  }
+  .hover\:fill-neutral-300 {
+    fill: var(--color-neutral-300);
+  }
+  .hover\:fill-neutral-400 {
+    fill: var(--color-neutral-400);
+  }
+  .hover\:fill-neutral-500 {
+    fill: var(--color-neutral-500);
+  }
+  .hover\:fill-neutral-600 {
+    fill: var(--color-neutral-600);
+  }
+  .hover\:fill-neutral-700 {
+    fill: var(--color-neutral-700);
+  }
+  .hover\:fill-neutral-800 {
+    fill: var(--color-neutral-800);
+  }
+  .hover\:fill-neutral-900 {
+    fill: var(--color-neutral-900);
+  }
+  .hover\:fill-white {
+    fill: var(--color-white);
+  }
+  .hover\:fill-black {
+    fill: var(--color-black);
+  }
+  .hover\:fill-gold {
+    fill: var(--color-gold);
+  }
+  .hover\:fill-transparent {
+    fill: var(--color-transparent);
+  }
+  .hover\:stroke-neutral-50 {
+    stroke: var(--color-neutral-50);
+  }
+  .hover\:stroke-neutral-100 {
+    stroke: var(--color-neutral-100);
+  }
+  .hover\:stroke-neutral-200 {
+    stroke: var(--color-neutral-200);
+  }
+  .hover\:stroke-neutral-300 {
+    stroke: var(--color-neutral-300);
+  }
+  .hover\:stroke-neutral-400 {
+    stroke: var(--color-neutral-400);
+  }
+  .hover\:stroke-neutral-500 {
+    stroke: var(--color-neutral-500);
+  }
+  .hover\:stroke-neutral-600 {
+    stroke: var(--color-neutral-600);
+  }
+  .hover\:stroke-neutral-700 {
+    stroke: var(--color-neutral-700);
+  }
+  .hover\:stroke-neutral-800 {
+    stroke: var(--color-neutral-800);
+  }
+  .hover\:stroke-neutral-900 {
+    stroke: var(--color-neutral-900);
+  }
+  .hover\:stroke-white {
+    stroke: var(--color-white);
+  }
+  .hover\:stroke-black {
+    stroke: var(--color-black);
+  }
+  .hover\:stroke-gold {
+    stroke: var(--color-gold);
+  }
+  .hover\:stroke-transparent {
+    stroke: var(--color-transparent);
   }
 }
 /* Hidden utility */

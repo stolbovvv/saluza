@@ -1,0 +1,32 @@
+/* Input checkbox styles */
+
+.input-checkbox {
+	position: relative;
+	display: flex;
+	column-gap: 0.5rem;
+
+	&__input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+	}
+
+	&__icon {
+		width: 1.25rem;
+		height: 1.25rem;
+		background-color: var(--color-neutral-300);
+		fill: var(--color-neutral-300);
+		cursor: pointer;
+	}
+
+	&__input:checked + &__icon {
+		fill: var(--color-white);
+	}
+
+	&__text {
+		margin-block-start: 0.2rem;
+		color: var(--color-neutral-500);
+		font-size: var(--font-size-sm);
+	}
+}
