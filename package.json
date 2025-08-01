@@ -15,10 +15,10 @@
 		"prepare": "husky"
 	},
 	"lint-staged": {
-		"*.{js,mjs,cjs}": [
+		"./src/**/*.{js,mjs,cjs}": [
 			"eslint --fix"
 		],
-		"*.{css,sass,scss}": [
+		"./src/**/*.{css,sass,scss}": [
 			"stylelint --fix"
 		]
 	},

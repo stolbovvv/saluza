@@ -1,0 +1,18 @@
+extends ./layouts/page.pug
+
+include ./mixins/page-navbar.pug
+
+block head
+	-
+		var title = 'Договор-оферта - SALUZA';
+
+block content
+	-
+		var heading = 'Договор-оферта';
+		var breadcrumbs = [
+			{ text: 'Главная', href: '/' },
+		];
+
+	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
+
+	main.main

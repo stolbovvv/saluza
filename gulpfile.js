@@ -243,7 +243,14 @@ export const runWatch = () => {
 
 	pages.on('all', () => {
 		handlePages();
-		server.reload();
+	});
+
+	styles.on('all', () => {
+		handleStyles();
+	});
+
+	scripts.on('all', async () => {
+		handleScripts();
 	});
 
 	fonts.on('all', () => {
@@ -258,16 +265,6 @@ export const runWatch = () => {
 
 	images.on('all', () => {
 		copyImages();
-		server.reload();
-	});
-
-	styles.on('all', () => {
-		handleStyles();
-		server.reload();
-	});
-
-	scripts.on('all', async () => {
-		handleScripts();
 		server.reload();
 	});
 

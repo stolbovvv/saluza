@@ -1,10 +1,18 @@
 extends ./layouts/page.pug
 
-block vars
-	- var title = 'Контакты - SALUZA';
+include ./mixins/page-navbar.pug
 
-block navbar
-	include ./includes/navbar.pug
+block head
+	-
+		var title = 'Контакты - SALUZA';
 
 block content
+	-
+		var heading = 'Контакты';
+		var breadcrumbs = [
+			{ text: 'Главная', href: '/' }
+		];
+
+	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
+
 	main.main

@@ -1,0 +1,23 @@
+/* Wrapper styles */
+
+.page-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	& > header {
+		flex: 0 0 auto;
+
+		& + .offset-header {
+			margin-top: 6.5rem;
+		}
+	}
+
+	& > main {
+		flex: 1 1 auto;
+	}
+
+	& > footer {
+		flex: 0 0 auto;
+	}
+}

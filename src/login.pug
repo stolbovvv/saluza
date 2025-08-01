@@ -1,10 +1,8 @@
 extends ./layouts/page.pug
 
-block vars
-	- var title = 'Вход - SALUZA';
-
-block navbar
-	include ./includes/navbar.pug
+block head
+	-
+		var title = 'Вход - SALUZA';
 
 block content
-	main.main
+	main.main.offset-header

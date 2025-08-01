@@ -1,0 +1,9 @@
+mixin page-navbar({ className, heading = 'Название страницы', links = [] })
+	nav.page-navbar(class=className)
+		.container.page-navbar__container
+			p.heading #{ heading }
+			.page-navbar__breadcrumbs
+				each link in links
+					span.page-navbar__breadcrumbs-link
+						a(href=link.href) #{ link.text }
+				span.page-navbar__breadcrumbs-text #{ heading }

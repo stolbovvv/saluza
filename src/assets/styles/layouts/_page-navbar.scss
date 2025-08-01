@@ -1,0 +1,52 @@
+@use "../helpers/mixins" as *;
+
+/* Navbar styles */
+
+.page-navbar {
+	padding-block: 2rem;
+	background-color: var(--color-neutral-100);
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		column-gap: 1rem;
+	}
+
+	&__heading {
+		line-height: 1.2rem;
+	}
+
+	&__breadcrumbs {
+		display: flex;
+		align-items: center;
+		font-size: 0.875rem;
+
+		> * + * {
+			margin-inline-start: 0.5em;
+		}
+
+		&-link {
+			display: inline-flex;
+
+			> a {
+				color: currentColor;
+				text-decoration: none;
+
+				@include hover {
+					text-decoration: underline;
+					text-underline-offset: 0.25em;
+				}
+			}
+
+			&::after {
+				content: "→";
+				margin-inline-start: 0.5em;
+				pointer-events: none;
+			}
+		}
+
+		&-text {
+			font-weight: 600;
+		}
+	}
+}

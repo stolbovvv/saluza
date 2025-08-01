@@ -1,10 +1,19 @@
 extends ./layouts/page.pug
 
-block vars
-	- var title = 'Товар - SALUZA';
+include ./mixins/page-navbar.pug
 
-block navbar
-	include ./includes/navbar.pug
+block head
+	-
+		var title = 'Andromeda Saluza - SALUZA';
 
 block content
+	-
+		var heading = 'Andromeda Saluza';
+		var breadcrumbs = [
+			{ text: 'Главная', href: '/' },
+			{ text: 'Каталог', href: '/catalog.html' },
+		];
+
+	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
+
 	main.main

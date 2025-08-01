@@ -13,14 +13,15 @@
 @use "globals/base";
 
 /* Layouts */
-@use "layouts/wrapper";
+@use "layouts/page-wrapper";
+@use "layouts/page-header";
+@use "layouts/page-navbar";
+@use "layouts/page-footer";
 @use "layouts/section";
-@use "layouts/header";
-@use "layouts/navbar";
-@use "layouts/footer";
 
 /* Components */
 @use "components/icon";
+@use "components/link";
 @use "components/burger";
 @use "components/button";
 

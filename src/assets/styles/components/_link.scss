@@ -1,0 +1,54 @@
+@use "../helpers/mixins" as *;
+
+/* Link styles */
+
+.link:where(a) {
+	display: inline-flex;
+	color: currentColor;
+	text-decoration: none;
+
+	@include hover {
+		text-decoration: underline;
+		text-underline-offset: 0.25em;
+	}
+}
+
+/* Icon link styles */
+
+.icon-link {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1.5rem;
+	height: 1.5rem;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	color: var(--color-black);
+	transition: all var(--transition-100) 0s;
+
+	@include hover {
+		border-color: currentColor;
+	}
+
+	&__badge {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		aspect-ratio: 1/1;
+		width: 1rem;
+		border-radius: 50%;
+		background-color: var(--color-black);
+		color: var(--color-white);
+		font-size: 0.625rem;
+		line-height: 0.75;
+		transform: translate(25%, -25%);
+	}
+
+	&__image {
+		color: currentColor;
+	}
+}

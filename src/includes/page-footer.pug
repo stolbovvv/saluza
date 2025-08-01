@@ -1,0 +1,60 @@
+include ../mixins/ui/icon.pug
+
+footer.page-footer
+	.container.page-footer__container
+		.page-footer__body
+			.page-footer__menu
+				a.link.page-footer__menu-header(href='/catalog.html') Каталог
+				ul.page-footer__menu-list
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/catalog.html') Новые поступления
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/catalog.html') Платья
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/catalog.html') Платья-макси
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/catalog.html') Платья-мини
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/catalog.html') Коктейльные-платья
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/catalog.html') Топы
+			.page-footer__menu
+				a.link.page-footer__menu-header(href='/catalog.html') Коллекции
+				ul.page-footer__menu-list
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/catalog.html') Вечерняя коллекция
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/catalog.html') Свадебная коллекция
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/catalog.html') Spring-summer 25
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/catalog.html') Fall-Winter 24-25
+			.page-footer__menu
+				a.link.page-footer__menu-header(href='/bridal.html') Bridal
+			.page-footer__menu
+				a.link.page-footer__menu-header(href='/contacts.html') Контакты
+			.page-footer__menu.page-footer__menu--ms-auto
+				p.link.page-footer__menu-header Доп. информация
+				ul.page-footer__menu-list
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/privacy-policy.html') Политика конфиденциальности
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/user-agreement.html') Пользовательское соглашение
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/offer-agreement.html') Договор-оферта
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/delivery-and-payment.html#payment') Оплата
+					li.page-footer__menu-item
+						a.page-footer__menu-link(href='/delivery-and-payment.html#delivery') Доставка
+		.page-footer__foot
+			.page-footer__social
+				a.icon-link.page-footer__social-link(href='#')
+					+icon({ className: 'footer__social-icon', icon: 'facebook-logo' })
+				a.icon-link.page-footer__social-link(href='#')
+					+icon({ className: 'footer__social-icon', icon: 'instagram-logo' })
+				a.icon-link.page-footer__social-link(href='#')
+					+icon({ className: 'footer__social-icon', icon: 'pinterest-logo' })
+				a.icon-link.page-footer__social-link(href='#')
+					+icon({ className: 'footer__social-icon', icon: 'twitter-logo' })
+				a.icon-link.page-footer__social-link(href='#')
+					+icon({ className: 'footer__social-icon', icon: 'google-logo' })
