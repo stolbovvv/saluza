@@ -11,6 +11,12 @@
 		text-decoration: underline;
 		text-underline-offset: 0.25em;
 	}
+
+	&.is-current {
+		text-decoration: underline;
+		text-underline-offset: 0.25em;
+		pointer-events: none;
+	}
 }
 
 /* Icon link styles */
