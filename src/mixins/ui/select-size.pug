@@ -5,5 +5,5 @@ mixin select-size({ className, name = 'size', sizes = [] } = {})
 			each size in sizes
 				.select-size__item
 					label.select-size__label
-						span.label__text #{ size }
+						span.select-size__value #{ size }
 						input.select-size__input(type='radio', name=name, value=size, checked)

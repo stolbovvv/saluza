@@ -1,0 +1,132 @@
+@use "../helpers/mixins" as *;
+
+/* Product details styles */
+
+.product-details {
+	margin-block: 2.5rem 6.25rem;
+
+	@include max-media("lg") {
+		margin-block: 1.875rem 3.75rem;
+	}
+
+	@include max-media("md") {
+		margin-block: 1.25rem 1.875rem;
+	}
+
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.875rem;
+
+		@include max-media("lg") {
+			grid-template-columns: 2fr 3fr;
+			gap: 1.25rem;
+		}
+
+		@include max-media("sm") {
+			grid-template-columns: repeat(1, 1fr);
+			gap: 0.625rem;
+		}
+	}
+
+	&__gallery {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.875rem;
+
+		@include max-media("lg") {
+			row-gap: 1.25rem;
+		}
+	}
+
+	&__gallery-slide {
+		position: relative;
+		aspect-ratio: 4/5;
+		width: 100%;
+		overflow: hidden;
+
+		> img,
+		> video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__content-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-inline: auto;
+		width: min(100%, 35rem);
+	}
+
+	&__description {
+		margin-top: 1.875rem;
+		text-align: center;
+
+		> * + * {
+			margin-block-start: 0;
+		}
+	}
+
+	&__rating {
+		display: flex;
+		align-items: center;
+		margin-block-start: 0.625rem;
+	}
+
+	&__review {
+		margin-block-start: 0.5rem;
+		text-align: center;
+	}
+
+	&__price {
+		margin-block-start: 1.875rem;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.875rem;
+		margin-block-start: 1.875rem;
+	}
+
+	&__form-row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.25rem;
+
+		@include max-media("xs") {
+			> :nth-child(1) {
+				width: 100%;
+			}
+
+			> :nth-child(2) {
+				flex: 1 0 auto;
+			}
+		}
+	}
+
+	&__form-category {
+		padding-block: 1.875rem;
+		border-top: 1px solid var(--color-neutral-400);
+		border-bottom: 1px solid var(--color-neutral-400);
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	&__form-social {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		column-gap: 1rem;
+	}
+}

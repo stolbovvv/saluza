@@ -1,0 +1,55 @@
+@use "../helpers/mixins" as *;
+
+/* Detail styles */
+
+.detail {
+	display: flex;
+	flex-direction: column;
+
+	&__button {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: 0.5rem;
+		padding: 0;
+		padding-bottom: 1rem;
+		border: none;
+		background: none;
+	}
+
+	&__heading {
+		color: var(--color-neutral-400);
+	}
+
+	&__arrow {
+		display: flex;
+		flex: 0 0 auto;
+		padding: 0.25rem;
+		transition: all var(--transition-ease-100) 0s;
+		cursor: pointer;
+
+		@include hover {
+			outline: 1px solid var(--color-black);
+		}
+	}
+
+	&__button:is(.is-active) &__arrow {
+		transform: rotate(0.25turn);
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		border-bottom: 1px solid var(--color-neutral-400);
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 1rem;
+
+		> * {
+			margin-top: 0;
+		}
+	}
+}

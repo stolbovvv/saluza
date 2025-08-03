@@ -1,0 +1,47 @@
+/* Select size styles */
+
+.select-size {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+
+	&__heading {
+		color: var(--color-neutral-400);
+		font-size: var(--font-size-sm);
+	}
+
+	&__body {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	&__item {
+		flex: 0 0 auto;
+	}
+
+	&__label {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		border: 1px solid var(--color-neutral-300);
+		border-radius: 50%;
+		cursor: pointer;
+	}
+
+	&__label:has(> &__input:checked) {
+		border-color: var(--color-black);
+	}
+
+	&__value {
+		font-size: var(--font-size-xs);
+		font-weight: 600;
+	}
+
+	&__input {
+		position: absolute;
+		visibility: hidden;
+	}
+}

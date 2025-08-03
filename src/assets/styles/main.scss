@@ -17,19 +17,23 @@
 @use "layouts/page-header";
 @use "layouts/page-navbar";
 @use "layouts/page-footer";
+@use "layouts/section";
 @use "layouts/home-slider";
 @use "layouts/catalog-filters";
 @use "layouts/catalog-products";
 @use "layouts/catalog-previews";
-@use "layouts/section";
+@use "layouts/product-details";
 
 /* Components */
 @use "components/icon";
 @use "components/link";
 @use "components/burger";
 @use "components/button";
+@use "components/detail";
 @use "components/input-checkbox";
 @use "components/input-counter";
+@use "components/select-color";
+@use "components/select-size";
 @use "components/card-product";
 
 /* Utility */

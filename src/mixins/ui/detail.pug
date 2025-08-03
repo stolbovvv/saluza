@@ -2,9 +2,9 @@ include ./icon.pug
 
 mixin detail({ className, heading, content } = {})
 	.detail(class=className)
-		.detail__head
+		button.detail__button(type='button')
 			span.detail__heading #{ heading }
-			button.detail__button(type='button')
+			span.detail__arrow
 				+icon({ icon: 'arrow-right' })
 		.detail__body
 			.detail__content
