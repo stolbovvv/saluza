@@ -1,0 +1,31 @@
+@use "../helpers/mixins" as *;
+
+/* Blog article style */
+
+.blog-article {
+	margin-bottom: 1.875rem;
+
+	@include max-media("sm") {
+		padding-block: 1.25rem;
+	}
+
+	&__image {
+		margin-inline: auto;
+		width: min(100%, 90rem);
+	}
+
+	&__text {
+		margin-inline: auto;
+		width: min(100%, 56.25rem);
+		color: var(--color-neutral-400);
+
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: var(--color-black);
+			font-weight: 400;
+		}
+	}
+}

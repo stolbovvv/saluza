@@ -1,1 +1,46 @@
+@use "../helpers/mixins" as *;
+
 /* Section styles */
+
+.section {
+	padding-block: 3.75rem;
+
+	@include max-media("lg") {
+		padding-block: 1.875rem;
+	}
+
+	@include max-media("sm") {
+		padding-block: 1.25rem;
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.875rem;
+
+		@include max-media("sm") {
+			row-gap: 1.25rem;
+		}
+	}
+
+	&__head {
+		display: flex;
+		column-gap: 1rem;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.875rem;
+
+		@include max-media("sm") {
+			row-gap: 1.25rem;
+		}
+	}
+
+	&__foot {
+		display: flex;
+		justify-content: center;
+		column-gap: 1rem;
+	}
+}

@@ -23,6 +23,7 @@
 @use "layouts/catalog-products";
 @use "layouts/catalog-previews";
 @use "layouts/product-details";
+@use "layouts/blog-grid";
 @use "layouts/section-auth";
 @use "layouts/section-not-found";
 
@@ -38,6 +39,8 @@
 @use "components/select-color";
 @use "components/select-size";
 @use "components/card-product";
+@use "components/card-blog";
+@use "components/blog-article";
 
 /* Utility */
 @use "utility/container";

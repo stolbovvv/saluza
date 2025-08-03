@@ -1,0 +1,11 @@
+mixin card-blog({ className, image, name, text })
+	.card-blog(class=className)
+		.card-blog__head
+			a(href='/article.html')
+				img(src=image, alt=name)
+		.card-blog__body
+			a.link.card-blog__heading(href='/article.html') #{ name }
+			.card-blog__text
+				p #{ text }
+		.card-blog__foot
+			a.link(href='/article.html') Читать подробнее
