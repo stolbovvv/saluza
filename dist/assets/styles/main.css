@@ -92,6 +92,7 @@
 :root {
   /* Colors */
   --color-neutral-50: hsl(0, 0%, 98%);
+  --color-neutral-75: hsl(0, 0%, 94%);
   --color-neutral-100: hsl(0, 0%, 90%);
   --color-neutral-200: hsl(0, 0%, 80%);
   --color-neutral-300: hsl(0, 0%, 70%);
@@ -1030,6 +1031,13 @@ picture {
   }
 }
 
+/* Faq grid styles */
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+}
+
 /* Section auth styles */
 .section-auth {
   display: flex;
@@ -1294,6 +1302,95 @@ picture {
 }
 .detail__content > * {
   margin-top: 0;
+}
+
+/* Detail faq styles */
+.detail-faq {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background-color: var(--color-neutral-75);
+}
+@media (max-width: 47.999rem) {
+  .detail-faq {
+    padding: 0.625rem;
+  }
+}
+.detail-faq__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1rem;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.detail-faq__heading {
+  flex: 1 1 auto;
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  text-align: left;
+}
+@media (max-width: 47.999rem) {
+  .detail-faq__heading {
+    font-size: var(--font-size-base);
+  }
+}
+.detail-faq__icon {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: var(--color-neutral-500);
+  transition: all var(--transition-ease-100) 0s;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .detail-faq__icon:hover {
+    color: var(--color-black);
+  }
+}
+.detail-faq__icon > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1px;
+  background-color: currentColor;
+  transform: translate(-50%, -50%);
+  transition: all var(--transition-ease-100) 0s;
+}
+.detail-faq__icon > span:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(0.25turn);
+}
+@media (max-width: 47.999rem) {
+  .detail-faq__icon {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+  .detail-faq__icon > span {
+    width: 0.625rem;
+  }
+}
+.detail-faq__body {
+  display: flex;
+  flex-direction: column;
+}
+.detail-faq__content {
+  padding-top: 1.25rem;
+}
+@media (max-width: 47.999rem) {
+  .detail-faq__content {
+    font-size: var(--font-size-sm);
+  }
+}
+.detail-faq__content > *:first-child {
+  margin-block-start: 0;
 }
 
 /* Input styles */
@@ -1615,6 +1712,11 @@ picture {
   }
 }
 
+/* Flow utility */
+.text-flow > * + * {
+  margin-block-start: 0.67em;
+}
+
 /* Typography utility */
 .font-default {
   font-family: var(--font-family-default);
@@ -1728,6 +1830,10 @@ picture {
   color: var(--color-neutral-50);
 }
 
+.text-neutral-75 {
+  color: var(--color-neutral-75);
+}
+
 .text-neutral-100 {
   color: var(--color-neutral-100);
 }
@@ -1782,6 +1888,10 @@ picture {
 
 .bg-neutral-50 {
   background-color: var(--color-neutral-50);
+}
+
+.bg-neutral-75 {
+  background-color: var(--color-neutral-75);
 }
 
 .bg-neutral-100 {
@@ -1840,6 +1950,10 @@ picture {
   fill: var(--color-neutral-50);
 }
 
+.fill-neutral-75 {
+  fill: var(--color-neutral-75);
+}
+
 .fill-neutral-100 {
   fill: var(--color-neutral-100);
 }
@@ -1894,6 +2008,10 @@ picture {
 
 .stroke-neutral-50 {
   stroke: var(--color-neutral-50);
+}
+
+.stroke-neutral-75 {
+  stroke: var(--color-neutral-75);
 }
 
 .stroke-neutral-100 {
@@ -1952,6 +2070,9 @@ picture {
   .hover\:text-neutral-50 {
     color: var(--color-neutral-50);
   }
+  .hover\:text-neutral-75 {
+    color: var(--color-neutral-75);
+  }
   .hover\:text-neutral-100 {
     color: var(--color-neutral-100);
   }
@@ -1993,6 +2114,9 @@ picture {
   }
   .hover\:bg-neutral-50 {
     background-color: var(--color-neutral-50);
+  }
+  .hover\:bg-neutral-75 {
+    background-color: var(--color-neutral-75);
   }
   .hover\:bg-neutral-100 {
     background-color: var(--color-neutral-100);
@@ -2036,6 +2160,9 @@ picture {
   .hover\:fill-neutral-50 {
     fill: var(--color-neutral-50);
   }
+  .hover\:fill-neutral-75 {
+    fill: var(--color-neutral-75);
+  }
   .hover\:fill-neutral-100 {
     fill: var(--color-neutral-100);
   }
@@ -2077,6 +2204,9 @@ picture {
   }
   .hover\:stroke-neutral-50 {
     stroke: var(--color-neutral-50);
+  }
+  .hover\:stroke-neutral-75 {
+    stroke: var(--color-neutral-75);
   }
   .hover\:stroke-neutral-100 {
     stroke: var(--color-neutral-100);

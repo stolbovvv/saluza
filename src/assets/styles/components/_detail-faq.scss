@@ -1,0 +1,95 @@
+@use "../helpers/mixins" as *;
+
+/* Detail faq styles */
+
+.detail-faq {
+	display: flex;
+	flex-direction: column;
+	padding: 1.25rem;
+	background-color: var(--color-neutral-75);
+
+	@include max-media("sm") {
+		padding: 0.625rem;
+	}
+
+	&__button {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: 1rem;
+		padding: 0;
+		border: none;
+		background: none;
+	}
+
+	&__heading {
+		flex: 1 1 auto;
+		font-size: var(--font-size-lg);
+		font-weight: 500;
+		text-align: left;
+
+		@include max-media("sm") {
+			font-size: var(--font-size-base);
+		}
+	}
+
+	&__icon {
+		position: relative;
+		display: flex;
+		flex: 0 0 auto;
+		justify-content: center;
+		align-items: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		border: 1px solid currentColor;
+		border-radius: 50%;
+		color: var(--color-neutral-500);
+		transition: all var(--transition-ease-100) 0s;
+		cursor: pointer;
+
+		@include hover {
+			color: var(--color-black);
+		}
+
+		> span {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 1rem;
+			height: 1px;
+			background-color: currentColor;
+			transform: translate(-50%, -50%);
+			transition: all var(--transition-ease-100) 0s;
+
+			&:nth-child(1) {
+				transform: translate(-50%, -50%) rotate(0.25turn);
+			}
+		}
+
+		@include max-media("sm") {
+			width: 1.875rem;
+			height: 1.875rem;
+
+			> span {
+				width: 0.625rem;
+			}
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__content {
+		padding-top: 1.25rem;
+
+		@include max-media("sm") {
+			font-size: var(--font-size-sm);
+		}
+
+		> *:first-child {
+			margin-block-start: 0;
+		}
+	}
+}

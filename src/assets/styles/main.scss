@@ -24,6 +24,7 @@
 @use "layouts/catalog-previews";
 @use "layouts/product-details";
 @use "layouts/blog-grid";
+@use "layouts/faq-grid";
 @use "layouts/section-auth";
 @use "layouts/section-not-found";
 
@@ -33,6 +34,7 @@
 @use "components/burger";
 @use "components/button";
 @use "components/detail";
+@use "components/detail-faq";
 @use "components/input";
 @use "components/input-checkbox";
 @use "components/input-counter";
@@ -44,6 +46,7 @@
 
 /* Utility */
 @use "utility/container";
+@use "utility/flow";
 @use "utility/typography";
 @use "utility/colors";
 @use "utility/hidden";

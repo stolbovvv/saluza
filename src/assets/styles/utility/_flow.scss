@@ -1,0 +1,5 @@
+/* Flow utility */
+
+.text-flow > * + * {
+	margin-block-start: 0.67em;
+}
