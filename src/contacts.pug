@@ -1,6 +1,7 @@
 extends ./layouts/page.pug
 
 include ./mixins/page-navbar.pug
+include ./mixins/ui/button.pug
 
 block head
 	-
@@ -16,3 +17,25 @@ block content
 	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
 
 	main.main
+		section.section
+			.container.section__container
+				.section__head
+					h1.text-xl.font-base Контакты
+				.section__body
+					.contacts
+						iframe.contacts__map(
+							src='https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d67645.79958492701!2d56.215514668164026!3d58.00593252017153!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1754496517216!5m2!1sru!2sru',
+							width='690',
+							height='380',
+							style='border: 0',
+							allowfullscreen='',
+							loading='lazy',
+							referrerpolicy='no-referrer-when-downgrade'
+						)
+						form.contacts__form
+							h2.text-xl.font-base Связаться с нами
+							input.input(type='text', name='contact_name', placeholder='Имя', required)
+							input.input(type='email', name='contact_email', placeholder='Email', required)
+							input.input(type='text', name='contact_theme', placeholder='Тема сообщения', required)
+							textarea.textarea(name='contact_message', rows=3, placeholder='Сообщение', required)
+							+button({ text: 'Связаться с нами', type: 'submit' })

@@ -25,6 +25,7 @@
 @use "layouts/product-details";
 @use "layouts/blog-grid";
 @use "layouts/faq-grid";
+@use "layouts/contacts";
 @use "layouts/section-auth";
 @use "layouts/section-not-found";
 
@@ -36,6 +37,7 @@
 @use "components/detail";
 @use "components/detail-faq";
 @use "components/input";
+@use "components/textarea";
 @use "components/input-checkbox";
 @use "components/input-counter";
 @use "components/select-color";

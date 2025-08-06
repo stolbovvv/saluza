@@ -1,0 +1,41 @@
+@use "../helpers/mixins" as *;
+
+/* Contacts styles */
+
+.contacts {
+	display: flex;
+	justify-content: space-between;
+	gap: 1.25rem;
+	padding: 1.875rem;
+	background-color: var(--color-neutral-75);
+
+	@include max-media("md") {
+		flex-direction: column;
+		padding: 1.875rem;
+	}
+
+	@include max-media("sm") {
+		padding: 0.625rem;
+	}
+
+	&__map {
+		width: min(50% - 1.875rem / 2, 43.125rem);
+		height: 23.75rem;
+
+		@include max-media("md") {
+			width: 100%;
+		}
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.5rem;
+		width: min(50% - 1.875rem / 2, 34.375rem);
+
+		@include max-media("md") {
+			margin-inline: auto;
+			width: min(34.375rem, 100%);
+		}
+	}
+}
