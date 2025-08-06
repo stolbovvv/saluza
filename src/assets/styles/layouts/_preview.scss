@@ -1,0 +1,23 @@
+@use "../helpers/mixins" as *;
+
+/* Preview layout styles */
+
+.preview {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.875rem;
+	width: min(60%, 70rem);
+
+	@include max-media("lg") {
+		width: min(100%, 48rem);
+	}
+
+	@include max-media("md") {
+		gap: 1.25rem;
+	}
+
+	@include max-media("sm") {
+		grid-template-columns: repeat(1, 1fr);
+		gap: 0.625rem;
+	}
+}

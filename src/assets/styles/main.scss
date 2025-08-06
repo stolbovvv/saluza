@@ -13,21 +13,18 @@
 @use "globals/base";
 
 /* Layouts */
-@use "layouts/page-wrapper";
-@use "layouts/page-header";
-@use "layouts/page-navbar";
-@use "layouts/page-footer";
+@use "layouts/wrapper";
+@use "layouts/header";
+@use "layouts/navbar";
+@use "layouts/footer";
 @use "layouts/section";
-@use "layouts/home-slider";
-@use "layouts/catalog-filters";
-@use "layouts/catalog-products";
-@use "layouts/catalog-previews";
-@use "layouts/product-details";
+@use "layouts/filters";
 @use "layouts/blog-grid";
-@use "layouts/faq-grid";
-@use "layouts/contacts";
-@use "layouts/section-auth";
-@use "layouts/section-not-found";
+@use "layouts/catalog-grid";
+@use "layouts/preview";
+@use "layouts/product";
+@use "layouts/contact";
+@use "layouts/not-found";
 
 /* Components */
 @use "components/icon";
@@ -42,9 +39,11 @@
 @use "components/input-counter";
 @use "components/select-color";
 @use "components/select-size";
+@use "components/form-auth";
 @use "components/card-product";
 @use "components/card-blog";
-@use "components/blog-article";
+@use "components/slider-fullscreen";
+@use "components/article";
 
 /* Utility */
 @use "utility/container";

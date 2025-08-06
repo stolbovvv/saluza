@@ -16,11 +16,13 @@ block content
 	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
 
 	main.main
-		section.section-not-found
-			.container.section-not-found__container
-				.section-not-found__image
-					img(src='/assets/images/not-found-1.jpg', alt='')
-				.section-not-found__content
-					p.section-not-found__number 404
-					p.section-not-found__text Здесь нет нужного платья, но вы можете поискать его на странице магазина
-					a.link.text-lg(href='/catalog.html') Перейти в магазин
+		section.section
+			.container.section__container
+				.section__body
+					.not-found
+						.not-found__image
+							img(src='/assets/images/not-found-1.jpg', alt='')
+						.not-found__content
+							p.not-found__number 404
+							p.not-found__text Здесь нет нужного платья, но вы можете поискать его на странице магазина
+							a.link.text-lg(href='/catalog.html') Перейти в магазин

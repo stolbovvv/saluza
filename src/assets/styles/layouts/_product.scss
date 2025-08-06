@@ -1,32 +1,20 @@
 @use "../helpers/mixins" as *;
 
-/* Product details styles */
+/* Product styles */
 
-.product-details {
-	margin-block: 2.5rem 6.25rem;
+.product {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.875rem;
 
 	@include max-media("lg") {
-		margin-block: 1.875rem 3.75rem;
+		grid-template-columns: 2fr 3fr;
+		gap: 1.25rem;
 	}
 
 	@include max-media("md") {
-		margin-block: 1.25rem 1.875rem;
-	}
-
-	&__body {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.875rem;
-
-		@include max-media("lg") {
-			grid-template-columns: 2fr 3fr;
-			gap: 1.25rem;
-		}
-
-		@include max-media("sm") {
-			grid-template-columns: repeat(1, 1fr);
-			gap: 0.625rem;
-		}
+		grid-template-columns: repeat(1, 1fr);
+		gap: 0.625rem;
 	}
 
 	&__gallery {

@@ -1,26 +1,14 @@
 @use "../helpers/mixins" as *;
 
-/* Section not found styles */
+/* Not found styles */
 
-.section-not-found {
-	padding-block: 3.75rem;
+.not-found {
+	display: flex;
+	align-items: center;
+	gap: 1.875rem;
 
 	@include max-media("lg") {
-		padding-block: 1.875rem;
-	}
-
-	@include max-media("sm") {
-		padding-block: 1.25rem;
-	}
-
-	&__container {
-		display: flex;
-		align-items: center;
-		gap: 1.875rem;
-
-		@include max-media("lg") {
-			flex-direction: column;
-		}
+		flex-direction: column;
 	}
 
 	&__image {
@@ -61,6 +49,7 @@
 
 	&__text {
 		font-size: 1.5rem;
+		text-wrap: balance;
 
 		@include max-media("sm") {
 			font-size: 1rem;

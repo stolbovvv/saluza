@@ -1,0 +1,27 @@
+/* Form auth */
+
+.form-auth {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1.25rem;
+	padding-block: 2.5rem;
+	width: min(100%, 18rem);
+
+	&__head {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		column-gap: 1.875rem;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.25rem;
+	}
+
+	&__foot {
+		display: flex;
+		align-items: flex-start;
+	}
+}

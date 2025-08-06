@@ -8,12 +8,14 @@ block head
 
 block content
 	main.main.offset-header
-		section.section-auth
-			.container.section-auth__container
-				form.section-auth__form
-					.section-auth__form-head
-						a.link.text-neutral-400(href='/login.html') Вход
-						a.link.is-current(href='/registration.html') Регистрация
-					input.input(name='user_email', type='email', placeholder='E-mail', required)
-					input.input(name='user_password', type='password', placeholder='Пароль', required)
-					+button({ text: 'Зарегистрироваться', type: 'submit' })
+		section.section.section--grow
+			.container.section__container
+				.section__body.section__body--items-center.section__body--justify-center
+					form.form-auth(action='#')
+						.form-auth__head
+							a.link.text-neutral-400(href='/login.html') Вход
+							a.link.is-current(href='/registration.html') Регистрация
+						.form-auth__body
+							input.input(name='user_email', type='email', placeholder='E-mail', required)
+							input.input(name='user_password', type='password', placeholder='Пароль', required)
+							+button({ text: 'Зарегистрироваться', type: 'submit' })

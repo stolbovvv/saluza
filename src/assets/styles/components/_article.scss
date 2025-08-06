@@ -1,8 +1,6 @@
 @use "../helpers/mixins" as *;
 
-/* Blog article style */
-
-.blog-article {
+.article {
 	margin-bottom: 1.875rem;
 
 	@include max-media("sm") {

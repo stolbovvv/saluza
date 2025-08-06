@@ -1,9 +1,12 @@
+@use "../helpers/tokens" as *;
 @use "../helpers/mixins" as *;
 
 /* Section styles */
 
 .section {
-	padding-block: 3.75rem;
+	display: flex;
+	flex-direction: column;
+	padding-block: 2.5rem;
 
 	@include max-media("lg") {
 		padding-block: 1.875rem;
@@ -13,10 +16,42 @@
 		padding-block: 1.25rem;
 	}
 
+	&--grow {
+		flex-grow: 1;
+	}
+
+	&--fullscreen {
+		min-height: 100vh;
+		min-height: 100dvh;
+	}
+
+	@each $breakpoint-name, $breakpoint-value in $breakpoints {
+		@include media($breakpoint-name) {
+			&--#{$breakpoint-name}\:fullscreen {
+				min-height: 100vh;
+				min-height: 100dvh;
+			}
+		}
+	}
+
+	@each $breakpoint-name, $breakpoint-value in $breakpoints {
+		@include max-media($breakpoint-name) {
+			&--max-#{$breakpoint-name}\:fullscreen {
+				min-height: 100vh;
+				min-height: 100dvh;
+			}
+		}
+	}
+
 	&__container {
 		display: flex;
+		flex: 1 1 auto;
 		flex-direction: column;
 		row-gap: 1.875rem;
+
+		@include max-media("lg") {
+			row-gap: 1.875rem;
+		}
 
 		@include max-media("sm") {
 			row-gap: 1.25rem;
@@ -30,11 +65,24 @@
 
 	&__body {
 		display: flex;
+		flex: 1 1 auto;
 		flex-direction: column;
 		row-gap: 1.875rem;
 
+		@include max-media("lg") {
+			row-gap: 1.875rem;
+		}
+
 		@include max-media("sm") {
 			row-gap: 1.25rem;
+		}
+
+		&--items-center {
+			align-items: center;
+		}
+
+		&--justify-center {
+			justify-content: center;
 		}
 	}
 
