@@ -1,6 +1,8 @@
 extends ./layouts/page.pug
 
 include ./mixins/page-navbar.pug
+include ./mixins/ui/button.pug
+include ./mixins/ui/icon.pug
 
 block head
 	-
@@ -20,11 +22,44 @@ block content
 			.container.section__container
 				.section__body
 					.account
-						nav.account__menu
-							a.account__menu-link(href='/account.html') Личный кабинет
-							a.account__menu-link(href='/orders.html') Заказы
-							a.account__menu-link.is-current(href='/address.html') Адрес
-							a.account__menu-link(href='/favorite.html') Избранное
-							button.account__menu-link Выйти
+						.account__menu
+							.account__menu-head
+								button.account__menu-button
+									span.account__menu-button-text Меню
+									+icon({ className: 'account__menu-button-icon', icon: 'caret-right' })
+							nav.account__menu-body
+								a.account__menu-link(href='/account.html') Личный кабинет
+								a.account__menu-link(href='/orders.html') Заказы
+								a.account__menu-link.is-current(href='/address.html') Адрес
+								a.account__menu-link(href='/favorite.html') Избранное
+								button.account__menu-link Выйти
 						.account__body
-							h1.text-2xl.font-base Адрес
+							h1.text-2xl.font-base Адрес для доставки
+							form.account__form(action='#')
+								.account__field-group
+									.field
+										label.field__label.field__label--required.text-sm ФИО
+										input.input.field__input(type='text', name='delivery_full_name', placeholder='ФИО', required)
+									.field
+										label.field__label.field__label--required.text-sm Страна
+										input.input.field__input(type='text', name='delivery_country', placeholder='Страна', required)
+									.field
+										label.field__label.field__label--required.text-sm Город
+										select.select.field__input(type='text', name='delivery_city', placeholder='Город', required)
+											option(value='', disabled, selected) Город
+											option(value='Пермь') Пермь
+											option(value='Москва') Москва
+											option(value='Санкт-Петербург') Санкт-Петербург
+									.field
+										label.field__label.field__label--required.text-sm Адрес
+										input.input.field__input(type='text', name='delivery_address', placeholder='Адрес', required)
+									.field
+										label.field__label.field__label--required.text-sm Индекс
+										input.input.field__input(type='text', name='delivery_zip_code', placeholder='Индекс', required)
+									.field
+										label.field__label.field__label--required.text-sm Телефон
+										input.input.field__input(type='tel', name='delivery_phone', placeholder='Телефон', required)
+									.field
+										label.field__label.field__label--required.text-sm E-mail
+										input.input.field__input(type='email', name='delivery_email', placeholder='E-mail', required)
+								+button({ className: 'account__form-submit', type: 'submit', text: 'Сохранить изменения' })

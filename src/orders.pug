@@ -1,6 +1,7 @@
 extends ./layouts/page.pug
 
 include ./mixins/page-navbar.pug
+include ./mixins/ui/icon.pug
 
 block head
 	-
@@ -20,11 +21,78 @@ block content
 			.container.section__container
 				.section__body
 					.account
-						nav.account__menu
-							a.account__menu-link(href='/account.html') Личный кабинет
-							a.account__menu-link.is-current(href='/orders.html') Заказы
-							a.account__menu-link(href='/address.html') Адрес
-							a.account__menu-link(href='/favorite.html') Избранное
-							button.account__menu-link Выйти
+						.account__menu
+							.account__menu-head
+								button.account__menu-button
+									span.account__menu-button-text Меню
+									+icon({ className: 'account__menu-button-icon', icon: 'caret-right' })
+							nav.account__menu-body
+								a.account__menu-link(href='/account.html') Личный кабинет
+								a.account__menu-link.is-current(href='/orders.html') Заказы
+								a.account__menu-link(href='/address.html') Адрес
+								a.account__menu-link(href='/favorite.html') Избранное
+								button.account__menu-link Выйти
 						.account__body
 							h1.text-2xl.font-base Заказы
+								.table-orders
+									.table-orders__head
+										.table-orders__head-row
+											.table-orders__head-col
+												span Заказ
+											.table-orders__head-col
+												span Дата
+											.table-orders__head-col
+												span Статус
+											.table-orders__head-col
+												span Информация
+											.table-orders__head-col
+												span Действие
+									.table-orders__body
+										.table-orders__body-row
+											.table-orders__body-col
+												span.table-orders__body-label Заказ
+												span # 4328
+											.table-orders__body-col
+												span.table-orders__body-label Дата
+												span 15.09.2023
+											.table-orders__body-col
+												span.table-orders__body-label Статус
+												span В обработке
+											.table-orders__body-col
+												span.table-orders__body-label Информация
+												span 35.000 ₽, кол-во 1
+											.table-orders__body-col
+												span.table-orders__body-label Действие
+												a.link(href='#') Просмотр
+										.table-orders__body-row
+											.table-orders__body-col
+												span.table-orders__body-label Заказ
+												span # 4329
+											.table-orders__body-col
+												span.table-orders__body-label Дата
+												span 24.04.2024
+											.table-orders__body-col
+												span.table-orders__body-label Статус
+												span В обработке
+											.table-orders__body-col
+												span.table-orders__body-label Информация
+												span 70.000 ₽, кол-во 2
+											.table-orders__body-col
+												span.table-orders__body-label Действие
+												a.link(href='#') Просмотр
+										.table-orders__body-row
+											.table-orders__body-col
+												span.table-orders__body-label Заказ
+												span # 4330
+											.table-orders__body-col
+												span.table-orders__body-label Дата
+												span 05.05.2024
+											.table-orders__body-col
+												span.table-orders__body-label Статус
+												span В обработке
+											.table-orders__body-col
+												span.table-orders__body-label Информация
+												span 65.000 ₽, кол-во 1
+											.table-orders__body-col
+												span.table-orders__body-label Действие
+												a.link(href='#') Просмотр

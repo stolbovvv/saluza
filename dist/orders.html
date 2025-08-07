@@ -58,16 +58,16 @@
                 </div>
                 <div class="header__btns"><a class="icon-link" href="/search.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754572451799#search"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754586395336#search"></use>
                         </svg></a><a class="icon-link" href="/account.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754572451799#user"></use>
-                        </svg></a><a class="icon-link" href="/favorite.html">
+                            <use href="./assets/icons/sprite.svg?v=1754586395336#user"></use>
+                        </svg></a><a class="icon-link" href="/favorite.html"><span class="icon-link__badge">2</span>
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754572451799#heart"></use>
-                        </svg></a><a class="icon-link" href="/cart.html"><span class="icon-link__badge">3</span>
+                            <use href="./assets/icons/sprite.svg?v=1754586395336#heart"></use>
+                        </svg></a><a class="icon-link" href="/cart.html"><span class="icon-link__badge">4</span>
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754572451799#bag"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754586395336#bag"></use>
                         </svg></a>
                 </div>
             </div>
@@ -84,11 +84,55 @@
                 <div class="container section__container">
                     <div class="section__body">
                         <div class="account">
-                            <nav class="account__menu"><a class="account__menu-link" href="/account.html">Личный кабинет</a><a class="account__menu-link is-current" href="/orders.html">Заказы</a><a class="account__menu-link" href="/address.html">Адрес</a><a class="account__menu-link" href="/favorite.html">Избранное</a>
-                                <button class="account__menu-link">Выйти</button>
-                            </nav>
+                            <div class="account__menu">
+                                <div class="account__menu-head">
+                                    <button class="account__menu-button"><span class="account__menu-button-text">Меню</span>
+                                        <svg class="icon account__menu-button-icon">
+                                            <use href="./assets/icons/sprite.svg?v=1754586395336#caret-right"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <nav class="account__menu-body"><a class="account__menu-link" href="/account.html">Личный кабинет</a><a class="account__menu-link is-current" href="/orders.html">Заказы</a><a class="account__menu-link" href="/address.html">Адрес</a><a class="account__menu-link" href="/favorite.html">Избранное</a>
+                                    <button class="account__menu-link">Выйти</button>
+                                </nav>
+                            </div>
                             <div class="account__body">
-                                <h1 class="text-2xl font-base">Заказы</h1>
+                                <h1 class="text-2xl font-base">Заказы
+                                    <div class="table-orders">
+                                        <div class="table-orders__head">
+                                            <div class="table-orders__head-row">
+                                                <div class="table-orders__head-col"><span>Заказ</span></div>
+                                                <div class="table-orders__head-col"><span>Дата</span></div>
+                                                <div class="table-orders__head-col"><span>Статус</span></div>
+                                                <div class="table-orders__head-col"><span>Информация</span></div>
+                                                <div class="table-orders__head-col"><span>Действие</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="table-orders__body">
+                                            <div class="table-orders__body-row">
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Заказ</span><span># 4328</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Дата</span><span>15.09.2023</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Статус</span><span>В обработке</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Информация</span><span>35.000 ₽, кол-во 1</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Действие</span><a class="link" href="#">Просмотр</a></div>
+                                            </div>
+                                            <div class="table-orders__body-row">
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Заказ</span><span># 4329</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Дата</span><span>24.04.2024</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Статус</span><span>В обработке</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Информация</span><span>70.000 ₽, кол-во 2</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Действие</span><a class="link" href="#">Просмотр</a></div>
+                                            </div>
+                                            <div class="table-orders__body-row">
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Заказ</span><span># 4330</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Дата</span><span>05.05.2024</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Статус</span><span>В обработке</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Информация</span><span>65.000 ₽, кол-во 1</span></div>
+                                                <div class="table-orders__body-col"><span class="table-orders__body-label">Действие</span><a class="link" href="#">Просмотр</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </h1>
                             </div>
                         </div>
                     </div>
@@ -133,19 +177,19 @@
                 <div class="footer__foot">
                     <div class="footer__social"><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754572451799#facebook-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754586395336#facebook-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754572451799#instagram-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754586395336#instagram-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754572451799#pinterest-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754586395336#pinterest-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754572451799#twitter-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754586395336#twitter-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754572451799#google-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754586395336#google-logo"></use>
                             </svg></a></div>
                 </div>
             </div>

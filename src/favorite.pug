@@ -1,6 +1,8 @@
 extends ./layouts/page.pug
 
 include ./mixins/page-navbar.pug
+include ./mixins/ui/icon.pug
+include ./mixins/ui/button.pug
 
 block head
 	-
@@ -20,11 +22,53 @@ block content
 			.container.section__container
 				.section__body
 					.account
-						nav.account__menu
-							a.account__menu-link(href='/account.html') Личный кабинет
-							a.account__menu-link(href='/orders.html') Заказы
-							a.account__menu-link(href='/address.html') Адрес
-							a.account__menu-link.is-current(href='/favorite.html') Избранное
-							button.account__menu-link Выйти
+						.account__menu
+							.account__menu-head
+								button.account__menu-button
+									span.account__menu-button-text Меню
+									+icon({ className: 'account__menu-button-icon', icon: 'caret-right' })
+							nav.account__menu-body
+								a.account__menu-link(href='/account.html') Личный кабинет
+								a.account__menu-link(href='/orders.html') Заказы
+								a.account__menu-link(href='/address.html') Адрес
+								a.account__menu-link.is-current(href='/favorite.html') Избранное
+								button.account__menu-link Выйти
 						.account__body
 							h1.text-2xl.font-base Избранное
+							.table-favorite
+								.table-favorite__head
+									.table-favorite__head-row
+										.table-favorite__head-col
+											span Товар
+										.table-favorite__head-col
+											span Цена
+										.table-favorite__head-col
+											span Наличие
+										.table-favorite__head-col
+								.table-favorite__body
+									.table-favorite__body-row
+										.table-favorite__body-col
+											img(src='/assets/images/catalog-product-1.jpg', alt='')
+											span Andromeda Saluza
+										.table-favorite__body-col
+											span.table-favorite__body-col-label Цена
+											span 35.000 ₽
+										.table-favorite__body-col
+											span В наличии
+										.table-favorite__body-col
+											+button({ className: 'button--sm:max-lg:text-hidden', text: 'Добавить в корзину', icon: 'bag' })
+											button.button-icon
+												+icon({ className: 'button-icon__icon', icon: 'trash' })
+									.table-favorite__body-row
+										.table-favorite__body-col
+											img(src='/assets/images/catalog-product-2.jpg', alt='')
+											span Andromeda Saluza
+										.table-favorite__body-col
+											span.table-favorite__body-col-label Цена
+											span 35.000 ₽
+										.table-favorite__body-col
+											span Нет в наличии
+										.table-favorite__body-col
+											+button({ className: 'button--sm:max-lg:text-hidden', text: 'Добавить в корзину', icon: 'bag' })
+											button.button-icon
+												+icon({ className: 'button-icon__icon', icon: 'trash' })

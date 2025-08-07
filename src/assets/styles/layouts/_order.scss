@@ -8,10 +8,6 @@
 	row-gap: 1.875rem;
 
 	@include max-media("lg") {
-		row-gap: 1.875rem;
-	}
-
-	@include max-media("sm") {
 		row-gap: 1.25rem;
 	}
 
@@ -23,7 +19,7 @@
 		background-color: var(--color-neutral-75);
 
 		@include max-media("md") {
-			padding: 1.875rem;
+			padding: 1.25rem;
 		}
 
 		@include max-media("sm") {

@@ -1,26 +1,28 @@
 @use "../helpers/mixins" as *;
 
-/* Filed styles */
+/* Field styles */
 
 .field {
 	display: flex;
 	column-gap: 0.625rem;
+	container-name: field;
+	container-type: inline-size;
 
 	&__label {
 		flex: 0 0 auto;
 		align-self: center;
-		width: 12.5rem;
+		width: 10rem;
 		line-height: 1.2;
 
 		&--required {
 			&::after {
 				content: " *";
-				color: hsl(9, 100%, 64%);
+				color: var(--color-danger);
 				font-size: var(--font-size-lg);
 			}
 		}
 
-		@include max-media("xs") {
+		@container field (width < 40rem) {
 			display: none;
 		}
 	}

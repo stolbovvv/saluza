@@ -1,3 +1,4 @@
+@use "../helpers/tokens" as *;
 @use "../helpers/mixins" as *;
 
 /* Button styles */
@@ -47,6 +48,34 @@
 		&:active {
 			border-color: var(--color-neutral-600);
 			background-color: var(--color-neutral-600);
+		}
+	}
+
+	@each $breakpoint-name, $value in $breakpoints {
+		@include media($breakpoint-name) {
+			&--#{$breakpoint-name}\:text-hidden &__text {
+				display: none;
+			}
+		}
+	}
+
+	@each $breakpoint-name, $value in $breakpoints {
+		@include max-media($breakpoint-name) {
+			&--max-#{$breakpoint-name}\:text-hidden &__text {
+				display: none;
+			}
+		}
+	}
+
+	@each $breakpoint-name-min, $breakpoint-value-min in $breakpoints {
+		@each $breakpoint-name-max, $breakpoint-value-max in $breakpoints {
+			@if $breakpoint-value-min < $breakpoint-value-max {
+				@include media($breakpoint-name-min, $breakpoint-name-max) {
+					&--#{$breakpoint-name-min}\:max-#{$breakpoint-name-max}\:text-hidden &__text {
+						display: none;
+					}
+				}
+			}
 		}
 	}
 }

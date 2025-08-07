@@ -21,16 +21,21 @@ block content
 			.container.section__container
 				.section__body
 					.account
-						nav.account__menu
-							a.account__menu-link.is-current(href='/account.html') Личный кабинет
-							a.account__menu-link(href='/orders.html') Заказы
-							a.account__menu-link(href='/address.html') Адрес
-							a.account__menu-link(href='/favorite.html') Избранное
-							button.account__menu-link Выйти
+						.account__menu
+							.account__menu-head
+								button.account__menu-button
+									span.account__menu-button-text Меню
+									+icon({ className: 'account__menu-button-icon', icon: 'caret-right' })
+							nav.account__menu-body
+								a.account__menu-link.is-current(href='/account.html') Личный кабинет
+								a.account__menu-link(href='/orders.html') Заказы
+								a.account__menu-link(href='/address.html') Адрес
+								a.account__menu-link(href='/favorite.html') Избранное
+								button.account__menu-link Выйти
 						.account__body
 							h1.text-2xl.font-base Личный кабинет
 							form.account__form(action='#')
-								.account__filed-group
+								.account__field-group
 									.field
 										label.field__label.text-sm ФИО
 										input.input.field__input(type='text', name='user_full_name', placeholder='ФИО', required)
@@ -41,7 +46,7 @@ block content
 										label.field__label.text-sm E-mail
 										input.input.field__input(type='email', name='user_email', placeholder='E-mail', required)
 								h2.text-2xl.font-base Пароль
-								.account__filed-group
+								.account__field-group
 									.field
 										label.field__label.text-sm Текущий пароль
 										input.input.field__input(type='password', name='user_password', placeholder='Пароль', required)
@@ -55,4 +60,4 @@ block content
 									.field
 										label.field__label.text-sm Подтвердите пароль
 										input.input.field__input(type='password', name='user_repeat_password', placeholder='')
-								+button({ type: 'submit', text: 'Сохранить изменения' })
+								+button({ className: 'account__form-submit', type: 'submit', text: 'Сохранить изменения' })

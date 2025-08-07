@@ -58,16 +58,16 @@
                 </div>
                 <div class="header__btns"><a class="icon-link" href="/search.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754572451460#search"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754586394658#search"></use>
                         </svg></a><a class="icon-link" href="/account.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754572451460#user"></use>
-                        </svg></a><a class="icon-link" href="/favorite.html">
+                            <use href="./assets/icons/sprite.svg?v=1754586394658#user"></use>
+                        </svg></a><a class="icon-link" href="/favorite.html"><span class="icon-link__badge">2</span>
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754572451460#heart"></use>
-                        </svg></a><a class="icon-link" href="/cart.html"><span class="icon-link__badge">3</span>
+                            <use href="./assets/icons/sprite.svg?v=1754586394658#heart"></use>
+                        </svg></a><a class="icon-link" href="/cart.html"><span class="icon-link__badge">4</span>
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754572451460#bag"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754586394658#bag"></use>
                         </svg></a>
                 </div>
             </div>
@@ -84,13 +84,22 @@
                 <div class="container section__container">
                     <div class="section__body">
                         <div class="account">
-                            <nav class="account__menu"><a class="account__menu-link is-current" href="/account.html">Личный кабинет</a><a class="account__menu-link" href="/orders.html">Заказы</a><a class="account__menu-link" href="/address.html">Адрес</a><a class="account__menu-link" href="/favorite.html">Избранное</a>
-                                <button class="account__menu-link">Выйти</button>
-                            </nav>
+                            <div class="account__menu">
+                                <div class="account__menu-head">
+                                    <button class="account__menu-button"><span class="account__menu-button-text">Меню</span>
+                                        <svg class="icon account__menu-button-icon">
+                                            <use href="./assets/icons/sprite.svg?v=1754586394658#caret-right"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <nav class="account__menu-body"><a class="account__menu-link is-current" href="/account.html">Личный кабинет</a><a class="account__menu-link" href="/orders.html">Заказы</a><a class="account__menu-link" href="/address.html">Адрес</a><a class="account__menu-link" href="/favorite.html">Избранное</a>
+                                    <button class="account__menu-link">Выйти</button>
+                                </nav>
+                            </div>
                             <div class="account__body">
                                 <h1 class="text-2xl font-base">Личный кабинет</h1>
                                 <form class="account__form" action="#">
-                                    <div class="account__filed-group">
+                                    <div class="account__field-group">
                                         <div class="field">
                                             <label class="field__label text-sm">ФИО</label>
                                             <input class="input field__input" type="text" name="user_full_name" placeholder="ФИО" required>
@@ -105,7 +114,7 @@
                                         </div>
                                     </div>
                                     <h2 class="text-2xl font-base">Пароль</h2>
-                                    <div class="account__filed-group">
+                                    <div class="account__field-group">
                                         <div class="field">
                                             <label class="field__label text-sm">Текущий пароль</label>
                                             <input class="input field__input" type="password" name="user_password" placeholder="Пароль" required>
@@ -119,7 +128,7 @@
                                             <input class="input field__input" type="password" name="user_repeat_password" placeholder="">
                                         </div>
                                     </div>
-                                    <button class="button" type="submit"><span class="button__text">Сохранить изменения</span>
+                                    <button class="button account__form-submit" type="submit"><span class="button__text">Сохранить изменения</span>
                                     </button>
                                 </form>
                             </div>
@@ -166,19 +175,19 @@
                 <div class="footer__foot">
                     <div class="footer__social"><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754572451460#facebook-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754586394658#facebook-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754572451460#instagram-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754586394658#instagram-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754572451460#pinterest-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754586394658#pinterest-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754572451460#twitter-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754586394658#twitter-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754572451460#google-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754586394658#google-logo"></use>
                             </svg></a></div>
                 </div>
             </div>

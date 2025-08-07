@@ -1,0 +1,68 @@
+@use "../helpers/mixins" as *;
+
+/* Table orders styles */
+
+.table-orders {
+	font-size: var(--font-size-sm);
+
+	&__head,
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__head {
+		@include max-media("sm") {
+			display: none;
+		}
+	}
+
+	&__head-row,
+	&__body-row {
+		display: grid;
+		grid-template-columns: 15fr 15fr 15fr 27.5fr 27.5fr;
+		column-gap: 0.625rem;
+		padding: 0.625rem;
+		border-bottom: 1px solid var(--color-neutral-100);
+
+		@include max-media("sm") {
+			grid-template-columns: 1fr;
+			row-gap: 0.625rem;
+			padding-block: 1.25rem;
+		}
+	}
+
+	&__head-col,
+	&__body-col {
+		display: flex;
+		align-items: center;
+		column-gap: 0.625rem;
+
+		&:last-child {
+			justify-content: flex-end;
+		}
+
+		& > span:last-child {
+			text-align: right;
+		}
+	}
+
+	&__body-label {
+		display: none;
+
+		@include max-media("sm") {
+			display: flex;
+			flex: 1 1 auto;
+			align-items: center;
+
+			&::after {
+				content: "";
+				flex: 1 1 auto;
+				margin-inline-start: 0.625rem;
+				height: var(--font-size-sm);
+				border-bottom: 1px dotted currentColor;
+				opacity: 0.25;
+			}
+		}
+	}
+}
