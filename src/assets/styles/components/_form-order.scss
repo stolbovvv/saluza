@@ -1,0 +1,134 @@
+@use "../helpers/mixins" as *;
+
+/* Form order styles */
+
+.form-order {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1.875rem;
+
+	@include max-media("lg") {
+		row-gap: 1.875rem;
+	}
+
+	@include max-media("sm") {
+		row-gap: 1.25rem;
+	}
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		gap: 1.25rem;
+		padding: 1.875rem;
+		background-color: var(--color-neutral-75);
+
+		@include max-media("md") {
+			padding: 1.875rem;
+		}
+
+		@include max-media("sm") {
+			padding: 0.625rem;
+		}
+	}
+
+	&__field-group {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.625rem;
+		width: min(100%, 42rem);
+	}
+
+	&__field {
+		display: flex;
+		align-items: center;
+	}
+
+	&__label {
+		flex: 0 0 auto;
+		width: 6.25rem;
+
+		&--required {
+			&::after {
+				content: " *";
+				color: hsl(9, 100%, 64%);
+				font-size: var(--font-size-lg);
+			}
+		}
+
+		@include max-media("xs") {
+			display: none;
+		}
+	}
+
+	&__input {
+		flex: 1 1 auto;
+	}
+
+	&__table {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.625rem;
+		width: min(100%, 42rem);
+		font-size: var(--font-size-sm);
+	}
+
+	&__table-row {
+		display: grid;
+		grid-template-columns: 1fr 3.75rem 7.5rem;
+		padding-block: 0.5em;
+		border-bottom: 1px solid var(--color-neutral-400);
+
+		@include max-media("xs") {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__table-cell {
+		display: flex;
+
+		&:last-child {
+			justify-content: flex-end;
+			text-align: right;
+		}
+	}
+
+	&__table-label {
+		display: none;
+
+		@include max-media("xs") {
+			display: flex;
+			flex: 1 1 auto;
+			align-items: center;
+			color: var(--color-neutral-700);
+
+			&::after {
+				content: "";
+				flex: 1 1 auto;
+				margin-inline: 0.6rem;
+				height: var(--font-size-sm);
+				border-bottom: 1px dotted currentColor;
+				opacity: 0.5;
+			}
+		}
+	}
+
+	&__payment {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: 1rem;
+		padding-block: 1.25rem;
+	}
+
+	&__payment-label {
+		font-size: var(--font-size-lg);
+		font-weight: 500;
+	}
+
+	&__payment-types {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: 0.625rem;
+	}
+}

@@ -37,6 +37,7 @@
 @use "components/detail";
 @use "components/detail-faq";
 @use "components/input";
+@use "components/select";
 @use "components/textarea";
 @use "components/input-checkbox";
 @use "components/input-counter";
@@ -44,6 +45,7 @@
 @use "components/select-size";
 @use "components/form-auth";
 @use "components/form-cart";
+@use "components/form-order";
 @use "components/card-blog";
 @use "components/card-product";
 @use "components/card-service";

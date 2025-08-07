@@ -1,15 +1,15 @@
-/* Input styles */
+/* Select styles */
 
-.input {
-	padding: 0.5em 0.25em;
+.select {
+	padding: 0.5em 0;
 	border: none;
 	border-bottom: 1px solid currentColor;
 	background: none;
-	color: var(--color-neutral-400);
+	color: var(--color-neutral-500);
 	font-size: var(--font-size-sm);
 	transition: all var(--transition-ease-100) 0s;
 
-	&:not(:placeholder-shown),
+	&:valid,
 	&:focus {
 		outline: none;
 		color: var(--color-black);
