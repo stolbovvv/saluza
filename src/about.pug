@@ -1,6 +1,8 @@
 extends ./layouts/page.pug
 
 include ./mixins/page-navbar.pug
+include ./mixins/card-service.pug
+include ./mixins/card-partner.pug
 
 block head
 	-
@@ -8,12 +10,49 @@ block head
 
 block content
 	-
-		var heading = 'Вечерние платья';
+		var heading = 'О компании';
 		var breadcrumbs = [
 			{ text: 'Главная', href: '/' },
-			{ text: 'Каталог', href: '/catalog.html' },
 		];
 
 	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
 
 	main.main
+		section.section.section--pb-none
+			.container.section__container
+				.section__body
+					.article.text-center.text-balance
+						.article__text
+							h1.text-2xl Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.
+							p Далеко-далеко, за словесными горами в стране гласных и согласных живут рыбные тексты. Взгляд большого свой переулка переписали имеет жаренные даль буквенных свое!
+							p Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные тексты. Сих обеспечивает парадигматическая диких, безопасную встретил своих осталось раз силуэт власти переулка пустился коварный большой коварных рукописи возвращайся несколько снова правилами не дороге всеми использовало щеке запятой! Раз, то проектах. Знаках запятых курсивных бросил страна!
+							p Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Маленький правилами взгляд алфавит пунктуация которой наш заглавных журчит его знаках! Рыбного букв речью однажды имеет ему безопасную большой снова?
+		section.section
+			.container.section__container
+				.section__body.section__body--items-center
+					h2.text-2xl.text-center.font-base Далеко-далеко, за словесными
+					.services
+						+card-service({ heading: 'Далеко-далеко', image: '/assets/images/shipping.png', text: 'Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Бросил прямо повстречался пустился составитель.' })
+						+card-service({ heading: 'Далеко-далеко', image: '/assets/images/support.png', text: 'Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Бросил прямо повстречался пустился составитель.' })
+						+card-service({ heading: 'Далеко-далеко', image: '/assets/images/payment.png', text: 'Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Бросил прямо повстречался пустился составитель.' })
+		.banner
+			img.banner__image(src='/assets/images/about-1.jpg', alt='')
+			.container.banner__container
+				.banner__body
+					h2.text-2xl.font-medium Далеко-далеко
+					.flow-text
+						p Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты. Что свой грустный, рот скатился курсивных, города собрал ты снова то залетают дорогу! Рот повстречался правилами, города рукопись страна мир!
+						p Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты. То вершину наш заманивший заголовок моей текстами силуэт залетают приставка!
+					span.text-2xl.font-serif Имя автора
+		section.section
+			.container.section__container
+				.section__body.section__body--items-center
+					h2.text-2xl.font-medium Партнеры
+					.partners
+						+card-partner({ image: '/assets/images/partner-1.png', name: 'Имя партнера' })
+						+card-partner({ image: '/assets/images/partner-2.png', name: 'Имя партнера' })
+						+card-partner({ image: '/assets/images/partner-3.png', name: 'Имя партнера' })
+						+card-partner({ image: '/assets/images/partner-4.png', name: 'Имя партнера' })
+						+card-partner({ image: '/assets/images/partner-5.png', name: 'Имя партнера' })
+						+card-partner({ image: '/assets/images/partner-6.png', name: 'Имя партнера' })
+						+card-partner({ image: '/assets/images/partner-7.png', name: 'Имя партнера' })

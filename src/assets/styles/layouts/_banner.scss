@@ -1,0 +1,63 @@
+@use "../helpers/mixins" as *;
+
+/* Banner styles */
+
+.banner {
+	position: relative;
+	height: 42rem;
+	background-color: var(--color-neutral-100);
+
+	@include max-media("md") {
+		height: auto;
+	}
+
+	&__image {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+
+		@include max-media("md") {
+			opacity: 0.125;
+		}
+
+		@include max-media("sm") {
+			display: none;
+		}
+	}
+
+	&__container {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		justify-items: center;
+		column-gap: 1.25rem;
+		height: 100%;
+
+		@include max-media("lg") {
+			grid-template-columns: 1fr 2fr;
+		}
+
+		@include max-media("md") {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		row-gap: 1.25rem;
+		padding-block: 1.25rem;
+		width: min(48rem, 100%);
+		line-height: 1.75;
+		text-align: center;
+		text-wrap: balance;
+
+		@include media("md") {
+			grid-column-start: 2;
+		}
+	}
+}

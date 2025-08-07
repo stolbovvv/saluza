@@ -1,0 +1,16 @@
+/* Card partner styles */
+
+.card-partner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2.5rem 0.625rem;
+	border: 1px solid var(--color-neutral-100);
+
+	&__image {
+		width: auto;
+		height: 2.5rem;
+		object-fit: contain;
+		object-position: center;
+	}
+}

@@ -12,7 +12,7 @@
 		align-items: center;
 		column-gap: 0.5rem;
 		padding: 0;
-		padding-bottom: 1rem;
+		padding-bottom: 0.5rem;
 		border: none;
 		background: none;
 	}
@@ -25,6 +25,7 @@
 		display: flex;
 		flex: 0 0 auto;
 		padding: 0.25rem;
+		border-radius: 50%;
 		transition: all var(--transition-ease-100) 0s;
 		cursor: pointer;
 
@@ -40,13 +41,14 @@
 	&__body {
 		display: flex;
 		flex-direction: column;
+		overflow: hidden;
 		border-bottom: 1px solid var(--color-neutral-400);
 	}
 
 	&__content {
 		display: flex;
 		flex-direction: column;
-		padding-bottom: 1rem;
+		padding-bottom: 0.5rem;
 
 		> * {
 			margin-top: 0;

@@ -30,15 +30,17 @@ block content
 				.section__body
 					.product
 						.product__gallery
-							.product__gallery-slide
+							a.product__gallery-slide
 								video(src='./assets/media/catalog-preview-1.mp4', poster='./assets/images/catalog-preview-1.jpg', controls)
-							.product__gallery-slide
+							a.product__gallery-slide
+								img(src='./assets/images/catalog-product-1.jpg', alt='')
+							a.product__gallery-slide
 								img(src='./assets/images/catalog-product-2.jpg', alt='')
-							.product__gallery-slide
+							a.product__gallery-slide
 								img(src='./assets/images/catalog-product-3.jpg', alt='')
 						.product__content
 							.product__content-container
-								h1.text-xl.text-center.font-light Andromeda Saluza
+								h1.text-2xl.text-center.font-light Andromeda Saluza
 								.product__description.text-sm.text-neutral-400
 									p Легкое и элегантное платье из мягкой ткани с идеальной посадкой. Подходит для повседневной носки и особых случаев. Подчеркивает фигуру и обеспечивает комфорт весь день.
 								.product__rating
@@ -48,8 +50,8 @@ block content
 									+icon({ className: 'fill-gold', icon: 'star-fill' })
 									+icon({ className: 'fill-gold', icon: 'star' })
 								p.product__review.text-sm.text-center (2 отзыва)
-								p.product__price.text-xl.text-center 35.000 ₽
-								.product__form
+								p.product__price.text-2xl.text-center 35.000 ₽
+								form.product__form(action='#')
 									.product__form-row
 										+input-counter({ name: 'product_count' })
 										+button({ icon: 'bag', text: 'Добавить в корзину', type: 'submit' })

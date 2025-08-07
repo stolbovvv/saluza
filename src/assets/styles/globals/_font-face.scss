@@ -1,6 +1,7 @@
 /* Font family
 
 	01.Montserrat
+	02.Great Vibes
 
 */
 
@@ -76,4 +77,14 @@
 	font-style: normal;
 	font-weight: 900;
 	src: url("../fonts/montserrat/montserrat-900.woff2") format("woff2");
+}
+
+/* Great Vibes */
+
+@font-face {
+	font-display: swap;
+	font-family: "Great Vibes";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/great-vibes/great-vibes-400.woff2") format("woff2");
 }

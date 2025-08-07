@@ -11,6 +11,7 @@
 /* Font family
 
 	01.Montserrat
+	02.Great Vibes
 
 */
 /* Montserrat */
@@ -77,6 +78,14 @@
   font-weight: 900;
   src: url("../fonts/montserrat/montserrat-900.woff2") format("woff2");
 }
+/* Great Vibes */
+@font-face {
+  font-display: swap;
+  font-family: "Great Vibes";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/great-vibes/great-vibes-400.woff2") format("woff2");
+}
 /* Custom properties
 
 	01.Colors
@@ -107,13 +116,15 @@
   --color-gold: hsl(37, 100%, 61%);
   --color-transparent: transparent;
   /* Font family */
-  --font-family-default: Montserrat, Arial, Helvetica, sans-serif;
+  --font-family-default: Montserrat, sans-serif;
+  --font-family-serif: Great Vibes, serif;
   /* Font sizes */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
-  --font-size-xl: 2rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 2rem;
   /* Font weights */
   --font-weight-thin: 100;
   --font-weight-extralight: 200;
@@ -666,6 +677,9 @@ picture {
     padding-block: 1.25rem;
   }
 }
+.section--pb-none {
+  padding-block-end: 0 !important;
+}
 .section--grow {
   flex-grow: 1;
 }
@@ -784,7 +798,6 @@ picture {
 /* Filters styles */
 .filters {
   display: flex;
-  flex: 1 1 auto;
   justify-content: space-between;
   align-items: center;
   column-gap: 1rem;
@@ -877,6 +890,18 @@ picture {
   }
 }
 
+/* Partners styles */
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  width: min(100%, 80rem);
+}
+.partners > * {
+  width: min(100%, 17.5rem);
+}
+
 /* Preview layout styles */
 .preview {
   display: grid;
@@ -905,6 +930,7 @@ picture {
 .product {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: start;
   gap: 1.875rem;
 }
 @media (max-width: 79.999rem) {
@@ -920,13 +946,13 @@ picture {
   }
 }
 .product__gallery {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.875rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
 }
 @media (max-width: 79.999rem) {
   .product__gallery {
-    row-gap: 1.25rem;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 .product__gallery-slide {
@@ -954,7 +980,6 @@ picture {
   width: min(100%, 35rem);
 }
 .product__description {
-  margin-top: 1.875rem;
   text-align: center;
 }
 .product__description > * + * {
@@ -970,13 +995,13 @@ picture {
   text-align: center;
 }
 .product__price {
-  margin-block-start: 1.875rem;
+  margin-block-start: 1.25rem;
 }
 .product__form {
   display: flex;
   flex-direction: column;
-  row-gap: 1.875rem;
-  margin-block-start: 1.875rem;
+  row-gap: 1.25rem;
+  margin-block-start: 1.25rem;
 }
 .product__form-row {
   display: flex;
@@ -1044,6 +1069,85 @@ picture {
   .contacts__form {
     margin-inline: auto;
     width: min(34.375rem, 100%);
+  }
+}
+
+/* Services styles */
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 17.5rem);
+  justify-content: space-evenly;
+  gap: 1.25rem;
+  padding-block: 1.25rem;
+  width: min(100%, 64rem);
+}
+@media (max-width: 63.999rem) {
+  .services {
+    grid-template-columns: repeat(1, min(48rem, 100%));
+  }
+}
+
+/* Banner styles */
+.banner {
+  position: relative;
+  height: 42rem;
+  background-color: var(--color-neutral-100);
+}
+@media (max-width: 63.999rem) {
+  .banner {
+    height: auto;
+  }
+}
+.banner__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 63.999rem) {
+  .banner__image {
+    opacity: 0.125;
+  }
+}
+@media (max-width: 47.999rem) {
+  .banner__image {
+    display: none;
+  }
+}
+.banner__container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-items: center;
+  column-gap: 1.25rem;
+  height: 100%;
+}
+@media (max-width: 79.999rem) {
+  .banner__container {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+@media (max-width: 63.999rem) {
+  .banner__container {
+    grid-template-columns: 1fr;
+  }
+}
+.banner__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1.25rem;
+  padding-block: 1.25rem;
+  width: min(48rem, 100%);
+  line-height: 1.75;
+  text-align: center;
+  text-wrap: balance;
+}
+@media (min-width: 64rem) {
+  .banner__body {
+    grid-column-start: 2;
   }
 }
 
@@ -1229,7 +1333,7 @@ picture {
   align-items: center;
   column-gap: 0.5rem;
   padding: 0;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
   border: none;
   background: none;
 }
@@ -1240,6 +1344,7 @@ picture {
   display: flex;
   flex: 0 0 auto;
   padding: 0.25rem;
+  border-radius: 50%;
   transition: all var(--transition-ease-100) 0s;
   cursor: pointer;
 }
@@ -1254,12 +1359,13 @@ picture {
 .detail__body {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   border-bottom: 1px solid var(--color-neutral-400);
 }
 .detail__content {
   display: flex;
   flex-direction: column;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 .detail__content > * {
   margin-top: 0;
@@ -1414,6 +1520,9 @@ picture {
   color: var(--color-neutral-400);
   font-size: var(--font-size-sm);
 }
+.input-checkbox__input:checked ~ .input-checkbox__text {
+  color: currentColor;
+}
 
 /* Input counter styles */
 .input-counter {
@@ -1561,6 +1670,56 @@ picture {
   align-items: flex-start;
 }
 
+/* Card blog styles */
+.card-blog {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.625rem;
+}
+.card-blog__head {
+  position: relative;
+  aspect-ratio: 43/28;
+  overflow: hidden;
+}
+.card-blog__head > a {
+  width: 100%;
+  height: 100%;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+.card-blog__head img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.card-blog__body {
+  display: flex;
+  flex-direction: column;
+}
+.card-blog__heading {
+  align-self: center;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-align: center;
+}
+.card-blog__text {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-sm);
+}
+.card-blog__text > * {
+  margin-block-start: 0.375em;
+}
+.card-blog__foot {
+  display: flex;
+  justify-content: end;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
 /* Card product styles */
 .card-product {
   display: flex;
@@ -1615,54 +1774,47 @@ picture {
   flex: 0 0 auto;
 }
 
-/* Card blog styles */
-.card-blog {
+/* Card service styles */
+.card-service {
   display: flex;
   flex-direction: column;
-  row-gap: 0.625rem;
+  align-items: center;
 }
-.card-blog__head {
-  position: relative;
-  aspect-ratio: 43/28;
-  overflow: hidden;
+.card-service > * + * {
+  margin-block-start: 0.75rem;
 }
-.card-blog__head > a {
-  width: 100%;
-  height: 100%;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-.card-blog__head img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.card-service__image {
+  width: 3.75rem;
+  height: 3.75rem;
+  object-fit: contain;
   object-position: center;
 }
-.card-blog__body {
-  display: flex;
-  flex-direction: column;
-}
-.card-blog__heading {
-  align-self: center;
-  font-size: var(--font-size-sm);
-  font-weight: 500;
+.card-service__heading {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
   text-align: center;
+  text-wrap: balance;
 }
-.card-blog__text {
+.card-service__text {
+  color: var(--color-neutral-400);
+  line-height: 1.75;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Card partner styles */
+.card-partner {
   display: flex;
-  flex-direction: column;
-  font-size: var(--font-size-sm);
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 0.625rem;
+  border: 1px solid var(--color-neutral-100);
 }
-.card-blog__text > * {
-  margin-block-start: 0.375em;
-}
-.card-blog__foot {
-  display: flex;
-  justify-content: end;
-  font-size: var(--font-size-sm);
-  font-weight: 500;
+.card-partner__image {
+  width: auto;
+  height: 2.5rem;
+  object-fit: contain;
+  object-position: center;
 }
 
 /* Slider fullscreen styles */
@@ -1720,10 +1872,10 @@ picture {
 }
 .article__text {
   margin-inline: auto;
-  width: min(100%, 56.25rem);
+  width: min(100%, 64rem);
   color: var(--color-neutral-400);
 }
-.article__text h2,
+.article__text h1,
 .article__text h3,
 .article__text h4,
 .article__text h5,
@@ -1765,6 +1917,10 @@ picture {
   font-family: var(--font-family-default);
 }
 
+.font-serif {
+  font-family: var(--font-family-serif);
+}
+
 .text-xs {
   font-size: var(--font-size-xs);
 }
@@ -1783,6 +1939,10 @@ picture {
 
 .text-xl {
   font-size: var(--font-size-xl);
+}
+
+.text-2xl {
+  font-size: var(--font-size-2xl);
 }
 
 .font-thin {
@@ -2307,6 +2467,9 @@ picture {
   .xs\:font-default {
     font-family: var(--font-family-default);
   }
+  .xs\:font-serif {
+    font-family: var(--font-family-serif);
+  }
   .xs\:text-xs {
     font-size: var(--font-size-xs);
   }
@@ -2321,6 +2484,9 @@ picture {
   }
   .xs\:text-xl {
     font-size: var(--font-size-xl);
+  }
+  .xs\:text-2xl {
+    font-size: var(--font-size-2xl);
   }
   .xs\:font-thin {
     font-weight: var(--font-weight-thin);
@@ -2395,6 +2561,9 @@ picture {
   .sm\:font-default {
     font-family: var(--font-family-default);
   }
+  .sm\:font-serif {
+    font-family: var(--font-family-serif);
+  }
   .sm\:text-xs {
     font-size: var(--font-size-xs);
   }
@@ -2409,6 +2578,9 @@ picture {
   }
   .sm\:text-xl {
     font-size: var(--font-size-xl);
+  }
+  .sm\:text-2xl {
+    font-size: var(--font-size-2xl);
   }
   .sm\:font-thin {
     font-weight: var(--font-weight-thin);
@@ -2483,6 +2655,9 @@ picture {
   .md\:font-default {
     font-family: var(--font-family-default);
   }
+  .md\:font-serif {
+    font-family: var(--font-family-serif);
+  }
   .md\:text-xs {
     font-size: var(--font-size-xs);
   }
@@ -2497,6 +2672,9 @@ picture {
   }
   .md\:text-xl {
     font-size: var(--font-size-xl);
+  }
+  .md\:text-2xl {
+    font-size: var(--font-size-2xl);
   }
   .md\:font-thin {
     font-weight: var(--font-weight-thin);
@@ -2571,6 +2749,9 @@ picture {
   .lg\:font-default {
     font-family: var(--font-family-default);
   }
+  .lg\:font-serif {
+    font-family: var(--font-family-serif);
+  }
   .lg\:text-xs {
     font-size: var(--font-size-xs);
   }
@@ -2585,6 +2766,9 @@ picture {
   }
   .lg\:text-xl {
     font-size: var(--font-size-xl);
+  }
+  .lg\:text-2xl {
+    font-size: var(--font-size-2xl);
   }
   .lg\:font-thin {
     font-weight: var(--font-weight-thin);
@@ -2659,6 +2843,9 @@ picture {
   .xl\:font-default {
     font-family: var(--font-family-default);
   }
+  .xl\:font-serif {
+    font-family: var(--font-family-serif);
+  }
   .xl\:text-xs {
     font-size: var(--font-size-xs);
   }
@@ -2673,6 +2860,9 @@ picture {
   }
   .xl\:text-xl {
     font-size: var(--font-size-xl);
+  }
+  .xl\:text-2xl {
+    font-size: var(--font-size-2xl);
   }
   .xl\:font-thin {
     font-weight: var(--font-weight-thin);
@@ -2747,6 +2937,9 @@ picture {
   .max-xs\:font-default {
     font-family: var(--font-family-default);
   }
+  .max-xs\:font-serif {
+    font-family: var(--font-family-serif);
+  }
   .max-xs\:text-xs {
     font-size: var(--font-size-xs);
   }
@@ -2761,6 +2954,9 @@ picture {
   }
   .max-xs\:text-xl {
     font-size: var(--font-size-xl);
+  }
+  .max-xs\:text-2xl {
+    font-size: var(--font-size-2xl);
   }
   .max-xs\:font-thin {
     font-weight: var(--font-weight-thin);
@@ -2835,6 +3031,9 @@ picture {
   .max-sm\:font-default {
     font-family: var(--font-family-default);
   }
+  .max-sm\:font-serif {
+    font-family: var(--font-family-serif);
+  }
   .max-sm\:text-xs {
     font-size: var(--font-size-xs);
   }
@@ -2849,6 +3048,9 @@ picture {
   }
   .max-sm\:text-xl {
     font-size: var(--font-size-xl);
+  }
+  .max-sm\:text-2xl {
+    font-size: var(--font-size-2xl);
   }
   .max-sm\:font-thin {
     font-weight: var(--font-weight-thin);
@@ -2923,6 +3125,9 @@ picture {
   .max-md\:font-default {
     font-family: var(--font-family-default);
   }
+  .max-md\:font-serif {
+    font-family: var(--font-family-serif);
+  }
   .max-md\:text-xs {
     font-size: var(--font-size-xs);
   }
@@ -2937,6 +3142,9 @@ picture {
   }
   .max-md\:text-xl {
     font-size: var(--font-size-xl);
+  }
+  .max-md\:text-2xl {
+    font-size: var(--font-size-2xl);
   }
   .max-md\:font-thin {
     font-weight: var(--font-weight-thin);
@@ -3011,6 +3219,9 @@ picture {
   .max-lg\:font-default {
     font-family: var(--font-family-default);
   }
+  .max-lg\:font-serif {
+    font-family: var(--font-family-serif);
+  }
   .max-lg\:text-xs {
     font-size: var(--font-size-xs);
   }
@@ -3025,6 +3236,9 @@ picture {
   }
   .max-lg\:text-xl {
     font-size: var(--font-size-xl);
+  }
+  .max-lg\:text-2xl {
+    font-size: var(--font-size-2xl);
   }
   .max-lg\:font-thin {
     font-weight: var(--font-weight-thin);
@@ -3099,6 +3313,9 @@ picture {
   .max-xl\:font-default {
     font-family: var(--font-family-default);
   }
+  .max-xl\:font-serif {
+    font-family: var(--font-family-serif);
+  }
   .max-xl\:text-xs {
     font-size: var(--font-size-xs);
   }
@@ -3113,6 +3330,9 @@ picture {
   }
   .max-xl\:text-xl {
     font-size: var(--font-size-xl);
+  }
+  .max-xl\:text-2xl {
+    font-size: var(--font-size-2xl);
   }
   .max-xl\:font-thin {
     font-weight: var(--font-weight-thin);

@@ -49,7 +49,8 @@ $colors: (
 // Font family
 // prettier-ignore
 $font-family: (
-	"default": ("Montserrat", Arial, Helvetica, sans-serif),
+	"default": ("Montserrat", sans-serif),
+	"serif": ("Great Vibes", serif),
 );
 
 @function font-family($type) {
@@ -62,7 +63,8 @@ $font-sizes: (
 	"sm": 0.875rem,
 	"base": 1rem,
 	"lg": 1.125rem,
-	"xl": 2rem,
+	"xl": 1.25rem,
+	"2xl": 2rem,
 );
 
 @function font-size($size) {

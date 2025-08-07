@@ -1,0 +1,13 @@
+/* Partners styles */
+
+.partners {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.25rem;
+	width: min(100%, 80rem);
+
+	> * {
+		width: min(100%, 17.5rem);
+	}
+}

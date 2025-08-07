@@ -31,4 +31,8 @@
 		color: var(--color-neutral-400);
 		font-size: var(--font-size-sm);
 	}
+
+	&__input:checked ~ &__text {
+		color: currentColor;
+	}
 }

@@ -1,0 +1,16 @@
+@use "../helpers/mixins" as *;
+
+/* Services styles */
+
+.services {
+	display: grid;
+	grid-template-columns: repeat(3, 17.5rem);
+	justify-content: space-evenly;
+	gap: 1.25rem;
+	padding-block: 1.25rem;
+	width: min(100%, 64rem);
+
+	@include max-media("md") {
+		grid-template-columns: repeat(1, min(48rem, 100%));
+	}
+}

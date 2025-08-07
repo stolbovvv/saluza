@@ -18,9 +18,9 @@ block content
 	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
 
 	main.main
-		section.section
+		section.section.section--pb-none
 			.container.section__container
-				.section__head
+				.section__body
 					.filters
 						ul.filters__list
 							li.filters__item
@@ -34,6 +34,22 @@ block content
 						button.filters__button
 							+icon({ className: 'catalog-filters__button-icon', icon: 'filter' })
 							span.filters__button-text Фильтр
+		section.section
+			.container.section__container
+				.section__body
+					.catalog-grid
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-2.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-3.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-4.jpg', price: '35.000 ₽' })
+		section.section(class=['section--lg:fullscreen', 'bg-neutral-75'])
+			.container.section__container
+				.section__body.section__body--items-center.section__body--justify-center
+					.preview
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
+		section.section
+			.container.section__container
 				.section__body
 					.catalog-grid
 						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
@@ -50,3 +66,15 @@ block content
 					.preview
 						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
 						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
+		section.section
+			.container.section__container
+				.section__body
+					.catalog-grid
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-2.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-3.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-4.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-2.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-3.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-4.jpg', price: '35.000 ₽' })

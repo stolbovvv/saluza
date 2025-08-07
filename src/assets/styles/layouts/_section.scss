@@ -16,6 +16,10 @@
 		padding-block: 1.25rem;
 	}
 
+	&--pb-none {
+		padding-block-end: 0 !important;
+	}
+
 	&--grow {
 		flex-grow: 1;
 	}

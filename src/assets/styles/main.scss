@@ -21,9 +21,12 @@
 @use "layouts/filters";
 @use "layouts/blog-grid";
 @use "layouts/catalog-grid";
+@use "layouts/partners-grid";
 @use "layouts/preview";
 @use "layouts/product";
 @use "layouts/contact";
+@use "layouts/services";
+@use "layouts/banner";
 @use "layouts/not-found";
 
 /* Components */
@@ -40,8 +43,10 @@
 @use "components/select-color";
 @use "components/select-size";
 @use "components/form-auth";
-@use "components/card-product";
 @use "components/card-blog";
+@use "components/card-product";
+@use "components/card-service";
+@use "components/card-partner";
 @use "components/slider-fullscreen";
 @use "components/article";
 

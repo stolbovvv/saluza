@@ -1,0 +1,5 @@
+mixin card-service({ className, heading, image, text } = {})
+	.card-service(class=className)
+		img.card-service__image(src=image, alt=heading)
+		p.card-service__heading #{ heading }
+		p.card-service__text #{ text }
