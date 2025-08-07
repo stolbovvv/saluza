@@ -1,0 +1,31 @@
+@use "../helpers/mixins" as *;
+
+/* Filed styles */
+
+.field {
+	display: flex;
+	column-gap: 0.625rem;
+
+	&__label {
+		flex: 0 0 auto;
+		align-self: center;
+		width: 12.5rem;
+		line-height: 1.2;
+
+		&--required {
+			&::after {
+				content: " *";
+				color: hsl(9, 100%, 64%);
+				font-size: var(--font-size-lg);
+			}
+		}
+
+		@include max-media("xs") {
+			display: none;
+		}
+	}
+
+	&__input {
+		flex: 1 1 auto;
+	}
+}

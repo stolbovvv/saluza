@@ -58,16 +58,16 @@
                 </div>
                 <div class="header__btns"><a class="icon-link" href="/search.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754568623692#search"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754572451779#search"></use>
                         </svg></a><a class="icon-link" href="/account.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754568623692#user"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754572451779#user"></use>
                         </svg></a><a class="icon-link" href="/favorite.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754568623692#heart"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754572451779#heart"></use>
                         </svg></a><a class="icon-link" href="/cart.html"><span class="icon-link__badge">3</span>
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754568623692#bag"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754572451779#bag"></use>
                         </svg></a>
                 </div>
             </div>
@@ -86,92 +86,92 @@
                         <h1 class="text-2x font-base">Оформление заказа</h1>
                     </div>
                     <div class="section__body">
-                        <form class="form-order">
+                        <form class="order" action="#">
                             <h2 class="text-2x font-base">Платежные данные</h2>
-                            <div class="form-order__body">
-                                <div class="form-order__field-group">
-                                    <div class="form-order__field">
-                                        <label class="form-order__label form-order__label--required text-sm">ФИО</label>
-                                        <input class="input form-order__input" type="text" name="order_full_name" placeholder="ФИО" required>
+                            <div class="order__body">
+                                <div class="order__field-group">
+                                    <div class="field">
+                                        <label class="field__label field__label--required text-sm">ФИО</label>
+                                        <input class="input field__input" type="text" name="order_full_name" placeholder="ФИО" required>
                                     </div>
-                                    <div class="form-order__field">
-                                        <label class="form-order__label form-order__label--required text-sm">Страна</label>
-                                        <input class="input form-order__input" type="text" name="order_country" placeholder="Страна" required>
+                                    <div class="field">
+                                        <label class="field__label field__label--required text-sm">Страна</label>
+                                        <input class="input field__input" type="text" name="order_country" placeholder="Страна" required>
                                     </div>
-                                    <div class="form-order__field">
-                                        <label class="form-order__label form-order__label--required text-sm">Город</label>
-                                        <select class="select form-order__input" type="text" name="order_city" placeholder="Город" required>
+                                    <div class="field">
+                                        <label class="field__label field__label--required text-sm">Город</label>
+                                        <select class="select field__input" type="text" name="order_city" placeholder="Город" required>
                                             <option value="" disabled selected>Город</option>
                                             <option value="Пермь">Пермь</option>
                                             <option value="Москва">Москва</option>
                                             <option value="Санкт-Петербург">Санкт-Петербург</option>
                                         </select>
                                     </div>
-                                    <div class="form-order__field">
-                                        <label class="form-order__label form-order__label--required text-sm">Адрес</label>
-                                        <input class="input form-order__input" type="text" name="order_address" placeholder="Адрес" required>
+                                    <div class="field">
+                                        <label class="field__label field__label--required text-sm">Адрес</label>
+                                        <input class="input field__input" type="text" name="order_address" placeholder="Адрес" required>
                                     </div>
-                                    <div class="form-order__field">
-                                        <label class="form-order__label form-order__label--required text-sm">Индекс</label>
-                                        <input class="input form-order__input" type="text" name="order_zip_code" placeholder="Индекс" required>
+                                    <div class="field">
+                                        <label class="field__label field__label--required text-sm">Индекс</label>
+                                        <input class="input field__input" type="text" name="order_zip_code" placeholder="Индекс" required>
                                     </div>
-                                    <div class="form-order__field">
-                                        <label class="form-order__label form-order__label--required text-sm">Телефон</label>
-                                        <input class="input form-order__input" type="tel" name="order_phone" placeholder="Телефон" required>
+                                    <div class="field">
+                                        <label class="field__label field__label--required text-sm">Телефон</label>
+                                        <input class="input field__input" type="tel" name="order_phone" placeholder="Телефон" required>
                                     </div>
-                                    <div class="form-order__field">
-                                        <label class="form-order__label form-order__label--required text-sm">E-mail</label>
-                                        <input class="input form-order__input" type="email" name="order_email" placeholder="E-mail" required>
+                                    <div class="field">
+                                        <label class="field__label field__label--required text-sm">E-mail</label>
+                                        <input class="input field__input" type="email" name="order_email" placeholder="E-mail" required>
                                     </div>
                                 </div>
                             </div>
                             <h2 class="text-2x font-base">Ваш заказ</h2>
-                            <div class="form-order__body">
-                                <div class="form-order__table">
-                                    <div class="form-order__table-row">
-                                        <div class="form-order__table-cell"><span>Andromeda Saluza</span></div>
-                                        <div class="form-order__table-cell"><span class="form-order__table-label">Кол-во</span><span>х1</span></div>
-                                        <div class="form-order__table-cell"><span class="form-order__table-label">Цена</span><span>35.000 ₽</span></div>
+                            <div class="order__body">
+                                <div class="order__table">
+                                    <div class="order__table-row">
+                                        <div class="order__table-cell"><span>Andromeda Saluza</span></div>
+                                        <div class="order__table-cell"><span class="order__table-label">Кол-во</span><span>х1</span></div>
+                                        <div class="order__table-cell"><span class="order__table-label">Цена</span><span>35.000 ₽</span></div>
                                     </div>
-                                    <div class="form-order__table-row">
-                                        <div class="form-order__table-cell"><span>Iphromeda Saluza</span></div>
-                                        <div class="form-order__table-cell"><span class="form-order__table-label">Кол-во</span><span>х2</span></div>
-                                        <div class="form-order__table-cell"><span class="form-order__table-label">Цена</span><span>70.000 ₽</span></div>
+                                    <div class="order__table-row">
+                                        <div class="order__table-cell"><span>Iphromeda Saluza</span></div>
+                                        <div class="order__table-cell"><span class="order__table-label">Кол-во</span><span>х2</span></div>
+                                        <div class="order__table-cell"><span class="order__table-label">Цена</span><span>70.000 ₽</span></div>
                                     </div>
-                                    <div class="form-order__table-row">
-                                        <div class="form-order__table-cell"><span>Andromeda Saluza</span></div>
-                                        <div class="form-order__table-cell"><span class="form-order__table-label">Кол-во</span><span>х1</span></div>
-                                        <div class="form-order__table-cell"><span class="form-order__table-label">Цена</span><span>35.000 ₽</span></div>
+                                    <div class="order__table-row">
+                                        <div class="order__table-cell"><span>Andromeda Saluza</span></div>
+                                        <div class="order__table-cell"><span class="order__table-label">Кол-во</span><span>х1</span></div>
+                                        <div class="order__table-cell"><span class="order__table-label">Цена</span><span>35.000 ₽</span></div>
                                     </div>
-                                    <div class="form-order__table-row">
-                                        <div class="form-order__table-cell"><span>Индивидуальный пошив</span></div>
-                                        <div class="form-order__table-cell"><span></span></div>
-                                        <div class="form-order__table-cell"><span class="form-order__table-label">Цена</span><span>4.500 ₽</span></div>
+                                    <div class="order__table-row">
+                                        <div class="order__table-cell"><span>Индивидуальный пошив</span></div>
+                                        <div class="order__table-cell"><span></span></div>
+                                        <div class="order__table-cell"><span class="order__table-label">Цена</span><span>4.500 ₽</span></div>
                                     </div>
-                                    <div class="form-order__table-row">
-                                        <div class="form-order__table-cell"><span>Итого</span></div>
-                                        <div class="form-order__table-cell"><span></span></div>
-                                        <div class="form-order__table-cell"><span class="form-order__table-label">Стоимость</span><span>144.500 ₽</span></div>
+                                    <div class="order__table-row">
+                                        <div class="order__table-cell"><span>Итого</span></div>
+                                        <div class="order__table-cell"><span></span></div>
+                                        <div class="order__table-cell"><span class="order__table-label">Стоимость</span><span>144.500 ₽</span></div>
                                     </div>
-                                    <div class="form-order__payment">
-                                        <h3 class="form-order__payment-label">Способ оплаты</h3>
-                                        <div class="form-order__payment-types">
+                                    <div class="order__payment">
+                                        <h3 class="order__payment-label">Способ оплаты</h3>
+                                        <div class="order__payment-types">
                                             <label class="input-checkbox">
                                                 <input class="input-checkbox__input" type="radio" name="order_payment_type" value="1" />
                                                 <svg class="icon input-checkbox__icon">
-                                                    <use href="./assets/icons/sprite.svg?v=1754568623692#check"></use>
+                                                    <use href="./assets/icons/sprite.svg?v=1754572451779#check"></use>
                                                 </svg><span class="input-checkbox__text">Оплата онлайн банковской картой</span>
                                             </label>
                                             <label class="input-checkbox">
                                                 <input class="input-checkbox__input" type="radio" name="order_payment_type" value="2" />
                                                 <svg class="icon input-checkbox__icon">
-                                                    <use href="./assets/icons/sprite.svg?v=1754568623692#check"></use>
+                                                    <use href="./assets/icons/sprite.svg?v=1754572451779#check"></use>
                                                 </svg><span class="input-checkbox__text">Оплата при доставке</span>
                                             </label>
                                             <label class="input-checkbox">
                                                 <input class="input-checkbox__input" type="radio" name="order_payment_type" value="3" />
                                                 <svg class="icon input-checkbox__icon">
-                                                    <use href="./assets/icons/sprite.svg?v=1754568623692#check"></use>
+                                                    <use href="./assets/icons/sprite.svg?v=1754572451779#check"></use>
                                                 </svg><span class="input-checkbox__text">Самовывоз</span>
                                             </label>
                                         </div>
@@ -223,19 +223,19 @@
                 <div class="footer__foot">
                     <div class="footer__social"><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754568623692#facebook-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754572451779#facebook-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754568623692#instagram-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754572451779#instagram-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754568623692#pinterest-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754572451779#pinterest-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754568623692#twitter-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754572451779#twitter-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754568623692#google-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754572451779#google-logo"></use>
                             </svg></a></div>
                 </div>
             </div>

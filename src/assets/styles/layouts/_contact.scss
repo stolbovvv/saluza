@@ -11,7 +11,7 @@
 
 	@include max-media("md") {
 		flex-direction: column;
-		padding: 1.875rem;
+		padding: 1.25rem;
 	}
 
 	@include max-media("sm") {

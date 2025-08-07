@@ -1,6 +1,7 @@
 extends ./layouts/page.pug
 
 include ./mixins/page-navbar.pug
+include ./mixins/ui/button.pug
 
 block head
 	-
@@ -16,3 +17,42 @@ block content
 	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
 
 	main.main
+		section.section
+			.container.section__container
+				.section__body
+					.account
+						nav.account__menu
+							a.account__menu-link.is-current(href='/account.html') Личный кабинет
+							a.account__menu-link(href='/orders.html') Заказы
+							a.account__menu-link(href='/address.html') Адрес
+							a.account__menu-link(href='/favorite.html') Избранное
+							button.account__menu-link Выйти
+						.account__body
+							h1.text-2xl.font-base Личный кабинет
+							form.account__form(action='#')
+								.account__filed-group
+									.field
+										label.field__label.text-sm ФИО
+										input.input.field__input(type='text', name='user_full_name', placeholder='ФИО', required)
+									.field
+										label.field__label.text-sm Отображаемое имя
+										input.input.field__input(type='text', name='user_account_name', placeholder='Отображаемое имя', required)
+									.field
+										label.field__label.text-sm E-mail
+										input.input.field__input(type='email', name='user_email', placeholder='E-mail', required)
+								h2.text-2xl.font-base Пароль
+								.account__filed-group
+									.field
+										label.field__label.text-sm Текущий пароль
+										input.input.field__input(type='password', name='user_password', placeholder='Пароль', required)
+									.field
+										label.field__label.text-sm Новый пароль
+										input.input.field__input(
+											type='password',
+											name='user_new_password',
+											placeholder='Оставьте поле пустым, чтобы оставить без изменений'
+										)
+									.field
+										label.field__label.text-sm Подтвердите пароль
+										input.input.field__input(type='password', name='user_repeat_password', placeholder='')
+								+button({ type: 'submit', text: 'Сохранить изменения' })

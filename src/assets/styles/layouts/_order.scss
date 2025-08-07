@@ -2,7 +2,7 @@
 
 /* Form order styles */
 
-.form-order {
+.order {
 	display: flex;
 	flex-direction: column;
 	row-gap: 1.875rem;
@@ -36,32 +36,6 @@
 		flex-direction: column;
 		row-gap: 0.625rem;
 		width: min(100%, 42rem);
-	}
-
-	&__field {
-		display: flex;
-		align-items: center;
-	}
-
-	&__label {
-		flex: 0 0 auto;
-		width: 6.25rem;
-
-		&--required {
-			&::after {
-				content: " *";
-				color: hsl(9, 100%, 64%);
-				font-size: var(--font-size-lg);
-			}
-		}
-
-		@include max-media("xs") {
-			display: none;
-		}
-	}
-
-	&__input {
-		flex: 1 1 auto;
 	}
 
 	&__table {

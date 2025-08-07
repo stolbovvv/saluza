@@ -24,84 +24,84 @@ block content
 				.section__head
 					h1.text-2x.font-base Оформление заказа
 				.section__body
-					form.form-order
+					form.order(action='#')
 						h2.text-2x.font-base Платежные данные
-						.form-order__body
-							.form-order__field-group
-								.form-order__field
-									label.form-order__label.form-order__label--required.text-sm ФИО
-									input.input.form-order__input(type='text', name='order_full_name', placeholder='ФИО', required)
-								.form-order__field
-									label.form-order__label.form-order__label--required.text-sm Страна
-									input.input.form-order__input(type='text', name='order_country', placeholder='Страна', required)
-								.form-order__field
-									label.form-order__label.form-order__label--required.text-sm Город
-									select.select.form-order__input(type='text', name='order_city', placeholder='Город', required)
+						.order__body
+							.order__field-group
+								.field
+									label.field__label.field__label--required.text-sm ФИО
+									input.input.field__input(type='text', name='order_full_name', placeholder='ФИО', required)
+								.field
+									label.field__label.field__label--required.text-sm Страна
+									input.input.field__input(type='text', name='order_country', placeholder='Страна', required)
+								.field
+									label.field__label.field__label--required.text-sm Город
+									select.select.field__input(type='text', name='order_city', placeholder='Город', required)
 										option(value='', disabled, selected) Город
 										option(value='Пермь') Пермь
 										option(value='Москва') Москва
 										option(value='Санкт-Петербург') Санкт-Петербург
-								.form-order__field
-									label.form-order__label.form-order__label--required.text-sm Адрес
-									input.input.form-order__input(type='text', name='order_address', placeholder='Адрес', required)
-								.form-order__field
-									label.form-order__label.form-order__label--required.text-sm Индекс
-									input.input.form-order__input(type='text', name='order_zip_code', placeholder='Индекс', required)
-								.form-order__field
-									label.form-order__label.form-order__label--required.text-sm Телефон
-									input.input.form-order__input(type='tel', name='order_phone', placeholder='Телефон', required)
-								.form-order__field
-									label.form-order__label.form-order__label--required.text-sm E-mail
-									input.input.form-order__input(type='email', name='order_email', placeholder='E-mail', required)
+								.field
+									label.field__label.field__label--required.text-sm Адрес
+									input.input.field__input(type='text', name='order_address', placeholder='Адрес', required)
+								.field
+									label.field__label.field__label--required.text-sm Индекс
+									input.input.field__input(type='text', name='order_zip_code', placeholder='Индекс', required)
+								.field
+									label.field__label.field__label--required.text-sm Телефон
+									input.input.field__input(type='tel', name='order_phone', placeholder='Телефон', required)
+								.field
+									label.field__label.field__label--required.text-sm E-mail
+									input.input.field__input(type='email', name='order_email', placeholder='E-mail', required)
 						h2.text-2x.font-base Ваш заказ
-						.form-order__body
-							.form-order__table
-								.form-order__table-row
-									.form-order__table-cell
+						.order__body
+							.order__table
+								.order__table-row
+									.order__table-cell
 										span Andromeda Saluza
-									.form-order__table-cell
-										span.form-order__table-label Кол-во
+									.order__table-cell
+										span.order__table-label Кол-во
 										span х1
-									.form-order__table-cell
-										span.form-order__table-label Цена
+									.order__table-cell
+										span.order__table-label Цена
 										span 35.000 ₽
-								.form-order__table-row
-									.form-order__table-cell
+								.order__table-row
+									.order__table-cell
 										span Iphromeda Saluza
-									.form-order__table-cell
-										span.form-order__table-label Кол-во
+									.order__table-cell
+										span.order__table-label Кол-во
 										span х2
-									.form-order__table-cell
-										span.form-order__table-label Цена
+									.order__table-cell
+										span.order__table-label Цена
 										span 70.000 ₽
-								.form-order__table-row
-									.form-order__table-cell
+								.order__table-row
+									.order__table-cell
 										span Andromeda Saluza
-									.form-order__table-cell
-										span.form-order__table-label Кол-во
+									.order__table-cell
+										span.order__table-label Кол-во
 										span х1
-									.form-order__table-cell
-										span.form-order__table-label Цена
+									.order__table-cell
+										span.order__table-label Цена
 										span 35.000 ₽
-								.form-order__table-row
-									.form-order__table-cell
+								.order__table-row
+									.order__table-cell
 										span Индивидуальный пошив
-									.form-order__table-cell
+									.order__table-cell
 										span
-									.form-order__table-cell
-										span.form-order__table-label Цена
+									.order__table-cell
+										span.order__table-label Цена
 										span 4.500 ₽
-								.form-order__table-row
-									.form-order__table-cell
+								.order__table-row
+									.order__table-cell
 										span Итого
-									.form-order__table-cell
+									.order__table-cell
 										span
-									.form-order__table-cell
-										span.form-order__table-label Стоимость
+									.order__table-cell
+										span.order__table-label Стоимость
 										span 144.500 ₽
-								.form-order__payment
-									h3.form-order__payment-label Способ оплаты
-									.form-order__payment-types
+								.order__payment
+									h3.order__payment-label Способ оплаты
+									.order__payment-types
 										+input-checkbox({ label: 'Оплата онлайн банковской картой', type: 'radio', name: 'order_payment_type', value: '1' })
 										+input-checkbox({ label: 'Оплата при доставке', type: 'radio', name: 'order_payment_type', value: '2' })
 										+input-checkbox({ label: 'Самовывоз', type: 'radio', name: 'order_payment_type', value: '3' })

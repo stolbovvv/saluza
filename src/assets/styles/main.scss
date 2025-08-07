@@ -27,6 +27,8 @@
 @use "layouts/contact";
 @use "layouts/services";
 @use "layouts/banner";
+@use "layouts/order";
+@use "layouts/account";
 @use "layouts/not-found";
 
 /* Components */
@@ -43,9 +45,9 @@
 @use "components/input-counter";
 @use "components/select-color";
 @use "components/select-size";
+@use "components/field";
 @use "components/form-auth";
 @use "components/form-cart";
-@use "components/form-order";
 @use "components/card-blog";
 @use "components/card-product";
 @use "components/card-service";

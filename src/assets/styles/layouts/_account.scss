@@ -1,0 +1,77 @@
+@use "../helpers/mixins" as *;
+
+/* Account styles */
+
+.account {
+	display: grid;
+	grid-template-columns: 12.5rem 1fr;
+	align-items: start;
+	gap: 1.875rem;
+
+	@include max-media("lg") {
+		gap: 1.875rem;
+	}
+
+	@include max-media("sm") {
+		gap: 1.25rem;
+	}
+
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: 0.625rem;
+		padding: 1.25rem;
+		background-color: var(--color-neutral-100);
+	}
+
+	&__menu-link {
+		color: var(--color-neutral-600);
+		font-size: var(--font-size-sm);
+		text-decoration: none;
+
+		&:is(button) {
+			padding: 0;
+			border: none;
+			background: none;
+			cursor: pointer;
+		}
+
+		&.is-current {
+			color: var(--color-black);
+			font-weight: 500;
+			pointer-events: none;
+		}
+
+		@include hover {
+			color: var(--color-black);
+			text-decoration: underline;
+			text-underline-offset: 0.25em;
+		}
+	}
+
+	&__body,
+	&__form {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.875rem;
+
+		@include max-media("lg") {
+			row-gap: 1.875rem;
+		}
+
+		@include max-media("sm") {
+			row-gap: 1.25rem;
+		}
+	}
+
+	&__form {
+		width: min(100%, 42rem);
+	}
+
+	&__filed-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.625rem;
+	}
+}
