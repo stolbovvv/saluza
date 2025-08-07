@@ -1,6 +1,10 @@
 extends ./layouts/page.pug
 
 include ./mixins/page-navbar.pug
+include ./mixins/ui/icon.pug
+include ./mixins/ui/button.pug
+include ./mixins/ui/input-checkbox.pug
+include ./mixins/ui/input-counter.pug
 
 block head
 	-
@@ -16,3 +20,119 @@ block content
 	+page-navbar({ className: 'offset-header', heading: heading, links: breadcrumbs })
 
 	main.main
+		section.section
+			.container.section__container
+				.section__body
+					.table-cart
+						.table-cart__head
+							.table-cart__head-row
+								.table-cart__head-col
+									span Товар
+								.table-cart__head-col
+									span Цена
+								.table-cart__head-col
+									span Количество
+								.table-cart__head-col
+									span Итого
+								.table-cart__head-col
+						.table-cart__body
+							.table-cart__body-row
+								.table-cart__body-col
+									img(src='/assets/images/catalog-product-1.jpg', alt='')
+									span Andromeda Saluza
+								.table-cart__body-col
+									span.table-cart__body-col-label Цена
+									span 35.000 ₽
+								.table-cart__body-col
+									span(class='max-md:hidden') Кол-во:
+									+input-counter({ name: 'cart_product_id_1' })
+								.table-cart__body-col
+									span.table-cart__body-col-label Итого
+									span 35.000 ₽
+								.table-cart__body-col
+									button.button-icon
+										+icon({ className: 'button-icon__icon', icon: 'trash' })
+							.table-cart__body-row
+								.table-cart__body-col
+									img(src='/assets/images/catalog-product-2.jpg', alt='')
+									span Andromeda Saluza
+								.table-cart__body-col
+									span.table-cart__body-col-label Цена
+									span 35.000 ₽
+								.table-cart__body-col
+									span(class='max-md:hidden') Кол-во:
+									+input-counter({ name: 'cart_product_id_2' })
+								.table-cart__body-col
+									span.table-cart__body-col-label Итого
+									span 35.000 ₽
+								.table-cart__body-col
+									button.button-icon
+										+icon({ className: 'button-icon__icon', icon: 'trash' })
+							.table-cart__body-row
+								.table-cart__body-col
+									img(src='/assets/images/catalog-product-3.jpg', alt='')
+									span Andromeda Saluza
+								.table-cart__body-col
+									span.table-cart__body-col-label Цена
+									span 35.000 ₽
+								.table-cart__body-col
+									span(class='max-md:hidden') Кол-во:
+									+input-counter({ name: 'cart_product_id_3' })
+								.table-cart__body-col
+									span.table-cart__body-col-label Итого
+									span 35.000 ₽
+								.table-cart__body-col
+									button.button-icon
+										+icon({ className: 'button-icon__icon', icon: 'trash' })
+							.table-cart__body-row
+								.table-cart__body-col
+									img(src='/assets/images/catalog-product-4.jpg', alt='')
+									span Andromeda Saluza
+								.table-cart__body-col
+									span.table-cart__body-col-label Цена
+									span 35.000 ₽
+								.table-cart__body-col
+									span(class='max-md:hidden') Кол-во:
+									+input-counter({ name: 'cart_product_id_4' })
+								.table-cart__body-col
+									span.table-cart__body-col-label Итого
+									span 35.000 ₽
+								.table-cart__body-col
+									button.button-icon
+										+icon({ className: 'button-icon__icon', icon: 'trash' })
+
+		section.section
+			.container.section__container
+				.section__body
+					.form-cart
+						.form-cart__head
+							p Промокод
+						form.form-cart__body(action='#')
+							.form-cart__body-row
+								.form-cart__body-col
+									input.input(type='text', placeholder='Промокод', name='cart_promo_code')
+								.form-cart__body-col
+									button.button-input Применить промокод
+							+button({ type: 'submit', text: 'Обновить корзину' })(disabled)
+					.form-cart
+						.form-cart__head
+							p Детали корзины
+						form.form-cart__body(action='#')
+							.form-cart__body-row.form-cart__body-row--border
+								.form-cart__body-col
+									span Итого
+								.form-cart__body-col
+									span 140.000 ₽
+							.form-cart__body-row.form-cart__body-row--border
+								.form-cart__body-col
+									span Доставка
+								.form-cart__body-col
+									+input-checkbox({ label: 'Бесплатная доствка', type: 'radio', name: 'cart_delivery', value: '1' })
+									+input-checkbox({ label: 'СДЭК 3.450 ₽', type: 'radio', name: 'cart_delivery', value: '2' })
+									+input-checkbox({ label: 'Самовывоз', type: 'radio', name: 'cart_delivery', value: '3' })
+							.form-cart__body-row
+								.form-cart__body-col
+									span Общая стоимость
+								.form-cart__body-col
+									span 143.450 ₽
+							+button({ type: 'submit', text: 'Перейти к оформлению' })
