@@ -2,6 +2,7 @@ import { create } from 'browser-sync';
 import { deleteAsync, deleteSync } from 'del';
 import { dest, parallel, series, src, watch } from 'gulp';
 import beautify from 'gulp-beautify';
+import concat from 'gulp-concat';
 import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import pag from 'gulp-pug';
@@ -73,7 +74,12 @@ const PATH = {
 	scripts: {
 		src: `${DIR.src}/assets/scripts/*.js`,
 		dist: `${DIR.build}/assets/scripts`,
-		watch: `${DIR.src}/assets/scripts/**/*.js`,
+		watch: `${DIR.src}/assets/scripts/*.js`,
+	},
+	scriptsLibs: {
+		src: `${DIR.src}/assets/scripts/libs/*.js`,
+		dist: `${DIR.build}/assets/scripts`,
+		watch: `${DIR.src}/assets/scripts/libs/*.js`,
 	},
 	styles: {
 		src: `${DIR.src}/assets/styles/*.scss`,
@@ -172,6 +178,14 @@ function handleScripts() {
 		.pipe(server.stream());
 }
 
+function handleScriptsLibs() {
+	return src(PATH.scriptsLibs.src, { sourcemaps: MODE.dev })
+		.pipe(plumber())
+		.pipe(concat('vendor.js'))
+		.pipe(dest(PATH.scriptsLibs.dist, { sourcemaps: '.' }))
+		.pipe(server.stream());
+}
+
 function handleStyles() {
 	return src(PATH.styles.src, { sourcemaps: MODE.dev })
 		.pipe(plumber())
@@ -181,7 +195,7 @@ function handleStyles() {
 		.pipe(server.stream());
 }
 
-const handleFunctions = [handlePages, handleStyles, handleScripts, handleIcons];
+const handleFunctions = [handlePages, handleStyles, handleScripts, handleScriptsLibs, handleIcons];
 
 /**
  * Copy functions

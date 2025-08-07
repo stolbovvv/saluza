@@ -1,7 +1,7 @@
-/**
- * Main scripts file
- */
+/* globals Swiper */
 
 window.addEventListener('DOMContentLoaded', () => {
-	// Custom script
+	new Swiper('.slider-fullscreen', {
+		direction: 'vertical',
+	});
 });

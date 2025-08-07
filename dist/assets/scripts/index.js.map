@@ -1,1 +1,1 @@
-{"version":3,"names":[],"mappings":"","sources":["index.js"],"sourcesContent":["/**\n * Main scripts file\n */\n\nwindow.addEventListener('DOMContentLoaded', () => {\n\t// Custom script\n});\n"],"file":"index.js"}
+{"version":3,"names":[],"mappings":"","sources":["index.js"],"sourcesContent":["/* globals Swiper */\n\nwindow.addEventListener('DOMContentLoaded', () => {\n\tnew Swiper('.slider-fullscreen', {\n\t\tdirection: 'vertical',\n\t});\n});\n"],"file":"index.js"}
