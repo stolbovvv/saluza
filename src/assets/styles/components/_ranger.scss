@@ -1,0 +1,62 @@
+/* stylelint-disable selector-class-pattern */
+
+/* Ranger */
+
+.ranger {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.625rem;
+	padding-inline: 0.625rem;
+
+	&__slider {
+		&.noUi-target {
+			height: 0.25rem;
+			box-shadow: none;
+			border: none;
+			background: none;
+		}
+
+		.noUi-base {
+			height: 0.25rem;
+		}
+
+		.noUi-connects {
+			height: 100%;
+			border-radius: 999rem;
+			background-color: var(--color-neutral-400);
+		}
+
+		.noUi-connect {
+			height: 100%;
+			background-color: currentColor;
+		}
+
+		.noUi-handle {
+			width: 1rem;
+			height: 1rem;
+			box-shadow: none;
+			border: none;
+			border-radius: 50%;
+			background-color: currentColor;
+			transform: translateX(-50%);
+
+			&::before,
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	&__input {
+		position: absolute;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	&__value {
+		color: var(--color-neutral-400);
+		font-size: var(--font-size-sm);
+		text-align: center;
+	}
+}

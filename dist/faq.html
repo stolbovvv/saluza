@@ -19,32 +19,33 @@
 
 <body>
     <div class="wrapper">
-        <header class="header">
-            <div class="container header__container"><a class="header__logo" href="/"><img class="header__logo-image" src="/assets/images/logo-black.svg" alt=""></a>
-                <div class="header__menu">
+        <header class="header js-header">
+            <div class="container header__container"><a class="header__logo" href="/">SALUZA</a>
+                <button class="header__burger burger js-menu-burger md:hidden"><span></span><span></span><span></span></button>
+                <div class="header__menu js-menu">
                     <ul class="header__menu-list">
-                        <li class="header__menu-item"><a class="link header__menu-link" href="/catalog.html">Каталог</a>
+                        <li class="header__menu-item js-menu__hover-trigger"><a class="link header__menu-link" href="/catalog.html">Каталог</a>
                             <div class="header__submenu">
                                 <ul class="header__submenu-list">
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Смотреть все</a></li>
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Новые поступления</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Смотреть все</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Новые поступления</a></li>
                                 </ul>
                                 <ul class="header__submenu-list">
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Платья</a></li>
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Платья-макси</a></li>
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Платья-мини</a></li>
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Коктейльные-платья</a></li>
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Топы</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Платья</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Платья-макси</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Платья-мини</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Коктейльные-платья</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Топы</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="header__menu-item"><a class="link header__menu-link" href="/catalog.html">Коллекции</a>
+                        <li class="header__menu-item js-menu__hover-trigger"><a class="link header__menu-link" href="/catalog.html">Коллекции</a>
                             <div class="header__submenu">
                                 <ul class="header__submenu-list">
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Вечерняя коллекция</a></li>
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Свадебная коллекция</a></li>
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Spring-summer 25</a></li>
-                                    <li class="header__submenu-item"><a class="link header__submenu-link" href="./catalog.html">Fall-Winter 24-25</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Вечерняя коллекция</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Свадебная коллекция</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Spring-summer 25</a></li>
+                                    <li class="header__submenu-item"><a class="link header__submenu-link js-menu__hide-trigger" href="./catalog.html">Fall-Winter 24-25</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -58,16 +59,16 @@
                 </div>
                 <div class="header__btns"><a class="icon-link" href="/search.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754590661671#search"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754851487812#search"></use>
                         </svg></a><a class="icon-link" href="/account.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754590661671#user"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754851487812#user"></use>
                         </svg></a><a class="icon-link" href="/favorite.html"><span class="icon-link__badge">2</span>
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754590661671#heart"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754851487812#heart"></use>
                         </svg></a><a class="icon-link" href="/cart.html"><span class="icon-link__badge">4</span>
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1754590661671#bag"></use>
+                            <use href="./assets/icons/sprite.svg?v=1754851487812#bag"></use>
                         </svg></a>
                 </div>
             </div>
@@ -87,18 +88,18 @@
                     </div>
                     <div class="section__body">
                         <div class="flow-text">
-                            <div class="detail-faq">
-                                <button class="detail-faq__button" type="button"><span class="detail-faq__heading">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</span><span class="detail-faq__icon"><span></span><span></span></span></button>
-                                <div class="detail-faq__body">
+                            <div class="detail-faq js-detail" data-detail-initial-state="show">
+                                <button class="detail-faq__button js-detail__button" type="button"><span class="detail-faq__heading">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</span><span class="detail-faq__icon"><span></span><span></span></span></button>
+                                <div class="detail-faq__body js-detail__body">
                                     <div class="detail-faq__content">
                                         <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Всемогущая от всех, lorem знаках своего запятой безопасную текст она грамматики!</p>
                                         <p>Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Большого ее злых это путь пустился? Которое, рыбного даль своих первую всеми живет, дороге, они злых меня сбить толку инициал?</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="detail-faq">
-                                <button class="detail-faq__button" type="button"><span class="detail-faq__heading">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</span><span class="detail-faq__icon"><span></span><span></span></span></button>
-                                <div class="detail-faq__body">
+                            <div class="detail-faq js-detail">
+                                <button class="detail-faq__button js-detail__button" type="button"><span class="detail-faq__heading">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</span><span class="detail-faq__icon"><span></span><span></span></span></button>
+                                <div class="detail-faq__body js-detail__body">
                                     <div class="detail-faq__content">
                                         <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Всемогущая от всех, lorem знаках своего запятой безопасную текст она грамматики!</p>
                                         <p>Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Большого ее злых это путь пустился? Которое, рыбного даль своих первую всеми живет, дороге, они злых меня сбить толку инициал?</p>
@@ -106,17 +107,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="detail-faq">
-                                <button class="detail-faq__button" type="button"><span class="detail-faq__heading">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</span><span class="detail-faq__icon"><span></span><span></span></span></button>
-                                <div class="detail-faq__body">
+                            <div class="detail-faq js-detail">
+                                <button class="detail-faq__button js-detail__button" type="button"><span class="detail-faq__heading">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</span><span class="detail-faq__icon"><span></span><span></span></span></button>
+                                <div class="detail-faq__body js-detail__body">
                                     <div class="detail-faq__content">
                                         <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Всемогущая от всех, lorem знаках своего запятой безопасную текст она грамматики!</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="detail-faq">
-                                <button class="detail-faq__button" type="button"><span class="detail-faq__heading">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</span><span class="detail-faq__icon"><span></span><span></span></span></button>
-                                <div class="detail-faq__body">
+                            <div class="detail-faq js-detail">
+                                <button class="detail-faq__button js-detail__button" type="button"><span class="detail-faq__heading">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</span><span class="detail-faq__icon"><span></span><span></span></span></button>
+                                <div class="detail-faq__body js-detail__body">
                                     <div class="detail-faq__content">
                                         <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Всемогущая от всех, lorem знаках своего запятой безопасную текст она грамматики!</p>
                                         <p>Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Большого ее злых это путь пустился? Которое, рыбного даль своих первую всеми живет, дороге, они злых меня сбить толку инициал?</p>
@@ -166,19 +167,19 @@
                 <div class="footer__foot">
                     <div class="footer__social"><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754590661672#facebook-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754851487813#facebook-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754590661672#instagram-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754851487813#instagram-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754590661672#pinterest-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754851487813#pinterest-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754590661672#twitter-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754851487813#twitter-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1754590661672#google-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1754851487813#google-logo"></use>
                             </svg></a></div>
                 </div>
             </div>

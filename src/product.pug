@@ -29,42 +29,72 @@ block content
 			.container.section__container
 				.section__body
 					.product
-						.product__gallery
-							a.product__gallery-slide
-								video(src='./assets/media/catalog-preview-1.mp4', poster='./assets/images/catalog-preview-1.jpg', controls)
-							a.product__gallery-slide
-								img(src='./assets/images/catalog-product-1.jpg', alt='')
-							a.product__gallery-slide
-								img(src='./assets/images/catalog-product-2.jpg', alt='')
-							a.product__gallery-slide
-								img(src='./assets/images/catalog-product-3.jpg', alt='')
+						.product__gallery.js-product-gallery
+							.product__gallery-slider.js-product-gallery__main-slider.keen-slider
+								a.product__gallery-slider-slide.keen-slider__slide(
+									data-fancybox='product-gallery',
+									data-aspect-ratio='4 / 5',
+									data-thumb='/assets/images/catalog-preview-1.jpg',
+									href='/assets/media/catalog-preview-1.mp4'
+								)
+									video(
+										src='/assets/media/catalog-preview-1.mp4',
+										poster='/assets/images/catalog-preview-1.jpg',
+										autoplay,
+										muted,
+										loop
+									)
+								a.product__gallery-slider-slide.keen-slider__slide(
+									data-fancybox='product-gallery',
+									href='/assets/images/catalog-product-1.jpg'
+								)
+									img(src='/assets/images/catalog-product-1.jpg', alt='')
+								a.product__gallery-slider-slide.keen-slider__slide(
+									data-fancybox='product-gallery',
+									href='/assets/images/catalog-product-2.jpg'
+								)
+									img(src='/assets/images/catalog-product-2.jpg', alt='')
+								a.product__gallery-slider-slide.keen-slider__slide(
+									data-fancybox='product-gallery',
+									href='/assets/images/catalog-product-3.jpg'
+								)
+									img(src='/assets/images/catalog-product-3.jpg', alt='')
+							.product__gallery-thumb.js-product-gallery__thumb-slider.keen-slider
+								.product__gallery-thumb-slide.keen-slider__slide
+									img(src='/assets/images/catalog-preview-1.jpg', alt='')
+								.product__gallery-thumb-slide.keen-slider__slide
+									img(src='/assets/images/catalog-product-1.jpg', alt='')
+								.product__gallery-thumb-slide.keen-slider__slide
+									img(src='/assets/images/catalog-product-2.jpg', alt='')
+								.product__gallery-thumb-slide.keen-slider__slide
+									img(src='/assets/images/catalog-product-3.jpg', alt='')
 						.product__content
 							.product__content-container
-								h1.text-2xl.text-center.font-light Andromeda Saluza
-								.product__description.text-sm.text-neutral-400
+								h1.text-xl.text-center.font-light Andromeda Saluza
+								.product__description.text-xs.text-neutral-400
 									p Легкое и элегантное платье из мягкой ткани с идеальной посадкой. Подходит для повседневной носки и особых случаев. Подчеркивает фигуру и обеспечивает комфорт весь день.
 								.product__rating
-									+icon({ className: 'fill-gold', icon: 'star-fill' })
-									+icon({ className: 'fill-gold', icon: 'star-fill' })
-									+icon({ className: 'fill-gold', icon: 'star-fill' })
-									+icon({ className: 'fill-gold', icon: 'star-fill' })
-									+icon({ className: 'fill-gold', icon: 'star' })
-								p.product__review.text-sm.text-center (2 отзыва)
-								p.product__price.text-2xl.text-center 35.000 ₽
+									+icon({ className: ['product__rating-icon', 'fill-gold'], icon: 'star-fill' })
+									+icon({ className: ['product__rating-icon', 'fill-gold'], icon: 'star-fill' })
+									+icon({ className: ['product__rating-icon', 'fill-gold'], icon: 'star-fill' })
+									+icon({ className: ['product__rating-icon', 'fill-gold'], icon: 'star-fill' })
+									+icon({ className: ['product__rating-icon', 'fill-gold'], icon: 'star' })
+								p.product__review.text-xs.text-center (2 отзыва)
+								p.product__price.text-center 35.000 ₽
 								form.product__form(action='#')
 									.product__form-row
 										+input-counter({ name: 'product_count' })
 										+button({ icon: 'bag', text: 'Добавить в корзину', type: 'submit' })
-										+button({ icon: 'heart', variant: 'outline' })
+										+button({ icon: 'heart-fill', variant: 'outline' })
 									div
 										+input-checkbox({ label: 'Индивидуальный пошив', name: 'individual_tailoring' })
 										.text-xs.text-neutral-400
 											p Короткая информация о функции “Индивидуальный пошив”. Рассказать для чего может использоваться, в каких случаях и т.д.
-									+detail({ heading: 'Материалы и их качество' })
-										p Платье выполнено из легкой, дышащей ткани, обеспечивающей комфорт в жаркую погоду и элегантный силуэт.
+									+detail({ className: 'text-sm', heading: 'Материалы и их качество' })
+										p.text-xs Платье выполнено из легкой, дышащей ткани, обеспечивающей комфорт в жаркую погоду и элегантный силуэт.
 									+select-color({ name: 'product_color', colors: ['#cecece', '#ffffff', '#003254'] })
 									+select-size({ name: 'product_size', sizes: ['L', 'M', 'S'] })
-									.product__form-category
+									.product__form-category.text-xs
 										span Категория: #{ ' ' }
 										span.font-semibold вечерние платья
 									.product__form-social

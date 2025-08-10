@@ -1,14 +1,18 @@
-/* Slider fullscreen styles */
+/* Fullscreen slider styles */
 
-.slider-fullscreen {
-	display: flex;
-	flex-direction: column;
+.fullscreen-slider {
+	width: 100%;
+	height: 100vh;
+	height: 100dvh;
+
+	&__wrapper {
+		height: 100%;
+	}
 
 	&__slide {
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		width: 100%;
 		height: 100vh;
 		height: 100dvh;
 	}
@@ -31,6 +35,12 @@
 		align-items: center;
 	}
 
+	&__slide-heading {
+		font-family: var(--font-family-accent);
+		font-size: clamp(3rem, 16.36vi + -1.09rem, 12rem);
+		font-weight: 400;
+	}
+
 	&__slide-header-image {
 		width: min(43.75rem, 90%);
 	}
@@ -42,5 +52,27 @@
 		margin-block-start: auto;
 		padding-block: 1.25rem;
 		text-align: center;
+	}
+
+	&__footer {
+		padding-top: 5.25rem;
+		width: 100%;
+		height: 100vh;
+		height: 100dvh;
+		overflow: hidden;
+	}
+
+	&__footer-wrapper {
+		width: 100%;
+		height: auto;
+		-webkit-overflow-scrolling: touch;
+
+		.footer {
+			height: auto;
+
+			&__container {
+				justify-content: space-between;
+			}
+		}
 	}
 }

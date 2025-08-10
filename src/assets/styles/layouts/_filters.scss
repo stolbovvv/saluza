@@ -3,6 +3,7 @@
 /* Filters styles */
 
 .filters {
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -55,6 +56,23 @@
 		@include hover {
 			outline: 1px solid currentColor;
 			outline-offset: 0.5rem;
+		}
+	}
+
+	&__popup {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: var(--z-dropdown);
+		width: 23rem;
+
+		@include max-media("sm") {
+			position: fixed;
+			padding-top: 5.875rem !important;
+			width: 100vw;
+			height: 100vh;
+			height: 100dvh;
+			overflow: hidden auto;
 		}
 	}
 }

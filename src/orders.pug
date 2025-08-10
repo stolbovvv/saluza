@@ -22,16 +22,17 @@ block content
 				.section__body
 					.account
 						.account__menu
-							.account__menu-head
-								button.account__menu-button
+							.account__menu.js-detail
+								button.account__menu-button.js-detail__button
 									span.account__menu-button-text Меню
 									+icon({ className: 'account__menu-button-icon', icon: 'caret-right' })
-							nav.account__menu-body
-								a.account__menu-link(href='/account.html') Личный кабинет
-								a.account__menu-link.is-current(href='/orders.html') Заказы
-								a.account__menu-link(href='/address.html') Адрес
-								a.account__menu-link(href='/favorite.html') Избранное
-								button.account__menu-link Выйти
+								nav.account__menu-body.js-detail__body
+									.account__menu-list
+										a.account__menu-link(href='/account.html') Личный кабинет
+										a.account__menu-link.is-current(href='/orders.html') Заказы
+										a.account__menu-link(href='/address.html') Адрес
+										a.account__menu-link(href='/favorite.html') Избранное
+										button.account__menu-link Выйти
 						.account__body
 							h1.text-2xl.font-base Заказы
 								.table-orders

@@ -1,13 +1,13 @@
 include ./icon.pug
 
-mixin detail-faq({ className, heading } = {})
-	.detail-faq(class=className)
-		button.detail-faq__button(type='button')
+mixin detail-faq({ className, heading, initialState } = {})
+	.detail-faq.js-detail(class=className, data-detail-initial-state=initialState)
+		button.detail-faq__button.js-detail__button(type='button')
 			span.detail-faq__heading #{ heading }
 			span.detail-faq__icon
 				span
 				span
-		.detail-faq__body
+		.detail-faq__body.js-detail__body
 			.detail-faq__content
 				if block
 					block

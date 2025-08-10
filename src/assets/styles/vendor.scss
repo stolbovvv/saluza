@@ -1,3 +1,5 @@
+/* stylelint-disable selector-class-pattern */
+
 /* Vendor style file
 
 	01.Libraries
@@ -6,6 +8,9 @@
 */
 
 /* 01.Libraries */
+@forward "libs/fancybox.min.css";
+@forward "libs/nouislider.min.css";
+@forward "libs/keen-slider.min.css";
 @forward "libs/swiper-bundle.min.css";
 
-/* 00.Overrides */
+/* 02.Overrides */

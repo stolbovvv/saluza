@@ -76,9 +76,18 @@
 		}
 	}
 
+	&__button:is(.is-active) &__icon {
+		> span {
+			&:nth-child(1) {
+				transform: translate(-50%, -50%) rotate(0.5turn);
+			}
+		}
+	}
+
 	&__body {
 		display: flex;
 		flex-direction: column;
+		overflow: hidden;
 	}
 
 	&__content {

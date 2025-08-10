@@ -15,27 +15,77 @@
 
 	@include max-media("md") {
 		grid-template-columns: repeat(1, 1fr);
-		gap: 0.625rem;
+		gap: 1.875rem;
 	}
 
 	&__gallery {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.25rem;
+		row-gap: 1.25rem;
 
-		@include max-media("lg") {
-			grid-template-columns: repeat(1, 1fr);
+		@include max-media("md") {
+			row-gap: 0.625rem;
+			margin-inline: auto;
+			width: min(100%, 35rem);
 		}
 	}
 
-	&__gallery-slide {
+	&__gallery-slider {
+		display: grid;
+		row-gap: 1.25rem;
+
+		@include max-media("md") {
+			position: relative;
+			row-gap: 0.625rem;
+			aspect-ratio: 4/5;
+			width: 100%;
+			overflow: hidden;
+		}
+	}
+
+	&__gallery-slider-slide {
 		position: relative;
 		aspect-ratio: 4/5;
 		width: 100%;
 		overflow: hidden;
+		cursor: zoom-in;
 
-		> img,
-		> video {
+		> a {
+			width: 100%;
+			height: 100%;
+			text-decoration: none;
+		}
+
+		img,
+		video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+
+		@include max-media("md") {
+			position: absolute !important;
+			inset: 0;
+		}
+	}
+
+	&__gallery-thumb {
+		@include media("md") {
+			display: none !important;
+		}
+	}
+
+	&__gallery-thumb-slide {
+		outline: 1px solid transparent;
+		outline-offset: -1px;
+		transition: all var(--transition-ease-200) 0s;
+		cursor: pointer;
+
+		&.active {
+			outline-color: currentColor;
+		}
+
+		img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
@@ -46,6 +96,11 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
+
+		@include media("md") {
+			position: sticky;
+			top: 5.25rem;
+		}
 	}
 
 	&__content-container {
@@ -68,6 +123,11 @@
 		display: flex;
 		align-items: center;
 		margin-block-start: 0.625rem;
+
+		& > &-icon {
+			width: 1rem;
+			height: 1rem;
+		}
 	}
 
 	&__review {
@@ -76,14 +136,19 @@
 	}
 
 	&__price {
-		margin-block-start: 1.25rem;
+		margin-block-start: 1rem;
+		font-size: 1.5rem;
 	}
 
 	&__form {
 		display: flex;
 		flex-direction: column;
-		row-gap: 1.25rem;
-		margin-block-start: 1.25rem;
+		row-gap: 0.875rem;
+		margin-block-start: 1rem;
+
+		@include max-media("md") {
+			row-gap: 1.25rem;
+		}
 	}
 
 	&__form-row {
@@ -103,8 +168,19 @@
 		}
 	}
 
+	&__form-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 0.625rem;
+
+		@include max-media("md") {
+			grid-template-columns: repeat(1, 1fr);
+			row-gap: 1.25rem;
+		}
+	}
+
 	&__form-category {
-		padding-block: 1.875rem;
+		padding-block: 0.875rem;
 		border-top: 1px solid var(--color-neutral-400);
 		border-bottom: 1px solid var(--color-neutral-400);
 		text-align: center;

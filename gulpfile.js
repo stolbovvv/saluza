@@ -250,6 +250,7 @@ export const runWatch = () => {
 	const images = watch(PATH.images.watch);
 	const styles = watch(PATH.styles.watch);
 	const scripts = watch(PATH.scripts.watch);
+	const scriptsLibs = watch(PATH.scriptsLibs.watch);
 
 	const deleteFiles = (path) => {
 		deleteSync(path.replace(DIR.src, DIR.build));
@@ -265,6 +266,10 @@ export const runWatch = () => {
 
 	scripts.on('all', async () => {
 		handleScripts();
+	});
+
+	scriptsLibs.on('all', async () => {
+		handleScriptsLibs();
 	});
 
 	fonts.on('all', () => {

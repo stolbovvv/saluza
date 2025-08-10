@@ -2,7 +2,7 @@
 
 	01.Montserrat
 	02.Great Vibes
-
+	03.Florentia
 */
 
 /* Montserrat */
@@ -87,4 +87,30 @@
 	font-style: normal;
 	font-weight: 400;
 	src: url("../fonts/great-vibes/great-vibes-400.woff2") format("woff2");
+}
+
+/* Florentia */
+
+@font-face {
+	font-display: swap;
+	font-family: "Florentia";
+	font-style: normal;
+	font-weight: 200;
+	src: url("../fonts/florentia/florentia-200.woff2") format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Florentia";
+	font-style: normal;
+	font-weight: 300;
+	src: url("../fonts/florentia/florentia-300.woff2") format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Florentia";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/florentia/florentia-400.woff2") format("woff2");
 }
