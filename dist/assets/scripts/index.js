@@ -70,7 +70,7 @@ class Menu {
 		this.menuBurger.classList.add('is-active');
 		this.header.classList.add('is-active');
 		this.menu.classList.add('is-active');
-		this.body.classList.add('is-lock');
+		document.body.classList.add('is-lock');
 	}
 
 	hide() {
@@ -78,7 +78,7 @@ class Menu {
 		this.menuBurger.classList.remove('is-active');
 		this.header.classList.remove('is-active');
 		this.menu.classList.remove('is-active');
-		this.body.classList.remove('is-lock');
+		document.body.classList.remove('is-lock');
 	}
 }
 

@@ -260,6 +260,9 @@ body {
   font-weight: var(--font-weight-base);
   line-height: 1.5;
 }
+body.is-lock {
+  overflow: hidden;
+}
 
 /* Typography */
 h1,
