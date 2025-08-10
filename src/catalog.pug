@@ -2,6 +2,10 @@ extends ./layouts/page.pug
 
 include ./mixins/page-navbar.pug
 include ./mixins/card-product.pug
+include ./mixins/ui/select-color.pug
+include ./mixins/ui/select-size.pug
+include ./mixins/ui/input-checkbox.pug
+include ./mixins/ui/button.pug
 include ./mixins/ui/icon.pug
 
 block head
@@ -31,9 +35,30 @@ block content
 								a.link.filters__link(href='#') Новое поступление
 							li.filters__item
 								a.link.filters__link(href='#') Скидки
-						button.filters__button
+						button.filters__button.js-filters-popup-show
 							+icon({ className: 'catalog-filters__button-icon', icon: 'filter' })
 							span.filters__button-text Фильтр
+						.filters__popup.filters-popup.js-filters-popup
+							.filters-popup__head
+								span.text-lg Фильтр
+								button.filters-popup__button-close.js-filters-popup-hide
+									span
+									span
+							form.filters-popup__form
+								.filters-popup__label Категории
+								.filters-popup__group
+									+input-checkbox({ label: 'Аксессуары', name: 'filter_category' })(checked)
+									+input-checkbox({ label: 'Вечерние платья', name: 'filter_category' })
+									+input-checkbox({ label: 'Свадебные платья', name: 'filter_category' })
+								+select-color({ name: 'filter_color', colors: ['#cecece', '#ffffff', '#003254', '#833869', '#FFA057', '#277F70', '#E5484D', '#FF977D', '#246854'] })
+								+select-size({ name: 'filter_size', sizes: ['L', 'M', 'S'] })
+								.filters-popup__label.text-center Цена
+								.ranger.js-ranger
+									input.ranger__input.js-ranger__input-min(type='number', name='filter_price_min', value='1000')
+									input.ranger__input.js-ranger__input-max(type='number', name='filter_price_max', value='35000')
+									.ranger__slider.js-ranger__slider
+									.ranger__value.js-ranger__value
+								+button({ className: 'filters-popup__button-submit', text: 'Применить', type: 'submit' })
 		section.section
 			.container.section__container
 				.section__body
@@ -47,7 +72,7 @@ block content
 				.section__body.section__body--items-center.section__body--justify-center
 					.preview
 						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
-						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', video: './assets/media/catalog-preview-1.mp4', poster: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
 		section.section
 			.container.section__container
 				.section__body
@@ -65,7 +90,7 @@ block content
 				.section__body.section__body--items-center.section__body--justify-center
 					.preview
 						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
-						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
+						+card-product({ name: 'Andromeda Saluza', video: './assets/media/catalog-preview-1.mp4', poster: './assets/images/catalog-preview-1.jpg', price: '35.000 ₽' })
 		section.section
 			.container.section__container
 				.section__body

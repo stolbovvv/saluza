@@ -18,6 +18,7 @@
 @use "layouts/navbar";
 @use "layouts/footer";
 @use "layouts/section";
+@use "layouts/fullscreen-slider";
 @use "layouts/filters";
 @use "layouts/blog-grid";
 @use "layouts/catalog-grid";
@@ -41,10 +42,12 @@
 @use "components/input";
 @use "components/select";
 @use "components/textarea";
+@use "components/ranger";
 @use "components/input-checkbox";
 @use "components/input-counter";
 @use "components/select-color";
 @use "components/select-size";
+@use "components/filter-popup";
 @use "components/field";
 @use "components/form-auth";
 @use "components/form-cart";
@@ -55,7 +58,6 @@
 @use "components/table-cart";
 @use "components/table-orders";
 @use "components/table-favorite";
-@use "components/slider-fullscreen";
 @use "components/article";
 
 /* Utility */

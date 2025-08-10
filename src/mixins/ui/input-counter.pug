@@ -1,7 +1,7 @@
 mixin input-counter({ className, value = '0', name } = {})
-	.input-counter
-		button.input-counter__button(type='button')
+	.input-counter.js-counter
+		button.input-counter__button.js-counter__decrease(type='button')
 			span.input-counter__button-text -
-		input.input-counter__input(id=id, type='text', value=value, name=name, readonly)
-		button.input-counter__button(type='button')
+		input.input-counter__input.js-counter__value(id=id, type='text', value=value, name=name, readonly)
+		button.input-counter__button.js-counter__increase(type='button')
 			span.input-counter__button-text +

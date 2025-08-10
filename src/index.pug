@@ -1,23 +1,47 @@
-extends ./layouts/page.pug
+doctype html
 
-block head
-	-
-		var title = 'SALUZA';
+html(lang='ru')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(name='mobile-web-app-capable', content='yes')
+		meta(name='HandheldFriendly', content='true')
+		meta(name='MobileOptimized', content='width')
 
-block content
-	main.main
-		section.slider-fullscreen
-			.slider-fullscreen__slide
-				img.slider-fullscreen__slide-image(src='./assets/images/home-slide-1.jpg', alt='')
-				.slider-fullscreen__slide-body
-					img.slider-fullscreen__slide-header-image(src='./assets/images/logo-black.svg', alt='SALUZA')
-			.slider-fullscreen__slide
-				img.slider-fullscreen__slide-image(src='./assets/images/home-slide-2.jpg', alt='')
-				.slider-fullscreen__slide-foot.text-white
-					p.text-lg.font-semibold.uppercase ВЕЧЕРНИЕ ПЛАТЬЯ
-					a.link.uppercase(href='/catalog.html') Подробнее
-			.slider-fullscreen__slide
-				img.slider-fullscreen__slide-image(src='./assets/images/home-slide-3.jpg', alt='')
-				.slider-fullscreen__slide-foot.text-white
-					p.text-lg.font-semibold.uppercase СВАДЕБНЫЕ ПЛАТЬЯ
-					a.link.uppercase(href='/catalog.html') Подробнее
+		title SALUZA
+
+		link(rel='apple-touch-icon', sizes='180x180', href='./apple-touch-icon.png')
+		link(rel='icon', type='image/png', sizes='32x32', href='./favicon-32x32.png')
+		link(rel='icon', type='image/png', sizes='16x16', href='./favicon-16x16.png')
+		link(rel='icon', type='image/svg+xml', href='./favicon.svg')
+		link(rel='manifest', href='./site.webmanifest')
+		link(rel='stylesheet', href='./assets/styles/vendor.css')
+		link(rel='stylesheet', href='./assets/styles/main.css')
+
+	body
+		.wrapper
+			include ./includes/page-header.pug
+			section#fullscreen-slider.swiper.fullscreen-slider
+				.swiper-wrapper.fullscreen-slider__wrapper
+					.swiper-slide.fullscreen-slider__slide
+						img.fullscreen-slider__slide-image(src='/assets/images/home-slide-1.jpg', alt='')
+						.fullscreen-slider__slide-body
+							h1.fullscreen-slider__slide-heading SALUZA
+					.swiper-slide.fullscreen-slider__slide(data-header-color='white')
+						img.fullscreen-slider__slide-image(src='/assets/images/home-slide-2.jpg', alt='')
+						.fullscreen-slider__slide-foot.text-white
+							p.text-lg.font-semibold.uppercase ВЕЧЕРНИЕ ПЛАТЬЯ
+							a.link.uppercase(href='/catalog.html') Подробнее
+					.swiper-slide.fullscreen-slider__slide(data-header-color='white')
+						img.fullscreen-slider__slide-image(src='/assets/images/home-slide-3.jpg', alt='')
+						.fullscreen-slider__slide-foot.text-white
+							p.text-lg.font-semibold.uppercase СВАДЕБНЫЕ ПЛАТЬЯ
+							a.link.uppercase(href='/catalog.html') Подробнее
+					.swiper-slide.fullscreen-slider__slide.bg-white
+						#fullscreen-slider-footer.swiper.fullscreen-slider__footer
+							.swiper-wrapper.fullscreen-slider__footer-wrapper
+								.swiper-slide.fullscreen-slider__footer-slide
+									include ./includes/page-footer.pug
+
+		script(src='./assets/scripts/vendor.js')
+		script(src='./assets/scripts/index.js')

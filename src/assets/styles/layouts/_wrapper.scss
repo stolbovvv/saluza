@@ -11,11 +11,7 @@
 		flex: 0 0 auto;
 
 		& + .offset-header {
-			margin-top: 6.5rem;
-
-			@include max-media("md") {
-				margin-top: 5.25rem;
-			}
+			margin-top: 5.25rem;
 		}
 	}
 

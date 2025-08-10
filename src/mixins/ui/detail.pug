@@ -1,12 +1,12 @@
 include ./icon.pug
 
-mixin detail({ className, heading, content } = {})
-	.detail(class=className)
-		button.detail__button(type='button')
+mixin detail({ className, heading, content, initialState } = {})
+	.detail.js-detail(class=className, data-detail-initial-state=initialState)
+		button.detail__button.js-detail__button(type='button')
 			span.detail__heading #{ heading }
 			span.detail__arrow
 				+icon({ icon: 'arrow-right' })
-		.detail__body
+		.detail__body.js-detail__body
 			.detail__content
 				if block
 					block

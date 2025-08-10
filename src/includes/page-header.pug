@@ -52,14 +52,17 @@
 
 include ../mixins/ui/icon.pug
 
-header.header
+header.header.js-header
 	.container.header__container
-		a.header__logo(href='/')
-			img.header__logo-image(src='/assets/images/logo-black.svg', alt='')
-		.header__menu
+		a.header__logo(href='/') SALUZA
+		button.header__burger.burger.js-menu-burger(class='md:hidden')
+			span
+			span
+			span
+		.header__menu.js-menu
 			ul.header__menu-list
 				each item in menu
-					li.header__menu-item
+					li.header__menu-item(class={ 'js-menu__hover-trigger': item.menu })
 						a.link.header__menu-link(href=item.href) #{ item.text }
 						if item.menu
 							.header__submenu
@@ -68,7 +71,7 @@ header.header
 										ul.header__submenu-list
 											each link in links
 												li.header__submenu-item
-													a.link.header__submenu-link(href=link.href) #{ link.text }
+													a.link.header__submenu-link.js-menu__hide-trigger(href=link.href) #{ link.text }
 		.header__btns
 			each btn in btns
 				a.icon-link(href=btn.href)

@@ -3,28 +3,48 @@
 @use "../helpers/mixins" as *;
 
 .header {
-	--header-h: 6.25rem;
+	--header-h: 5.25rem;
 
 	position: fixed;
 	top: 0;
 	z-index: var(--z-sticky);
-	padding-block: 2.5rem;
+	padding-block: 1.875rem;
 	width: 100%;
 	height: var(--header-h);
-	backdrop-filter: blur(5px);
+	transition: all var(--transition-ease-100) 0s;
+
+	&--white:not(.is-hovered, .is-active) {
+		color: var(--color-white);
+
+		.icon-link {
+			color: var(--color-white);
+
+			&__badge {
+				background-color: var(--color-white);
+				color: var(--color-black);
+			}
+		}
+	}
+
+	&.is-scrolled:not(.is-hovered, .is-active) {
+		backdrop-filter: blur(5px);
+
+		&::before {
+			position: absolute;
+			inset: 0;
+			box-shadow:
+				0 4px 6px -1px rgb(0, 0, 0, 0.1),
+				0 2px 4px -2px rgb(0, 0, 0, 0.1);
+			background-color: var(--color-white);
+			opacity: 0.5;
+			content: "";
+		}
+	}
 
 	@include max-media("md") {
 		--header-h: 5.25rem;
 
 		padding-block: 1.875rem;
-	}
-
-	&::before {
-		position: absolute;
-		inset: 0;
-		background-color: var(--color-white);
-		opacity: 0.25;
-		content: "";
 	}
 
 	&__container {
@@ -38,6 +58,11 @@
 		z-index: var(--z-banner);
 		display: inline-flex;
 		flex: 0 0 auto;
+		color: currentColor;
+		font-family: var(--font-family-accent);
+		font-size: var(--font-size-xl);
+		line-height: 1;
+		text-decoration: none;
 	}
 
 	&__logo-image {
@@ -45,6 +70,12 @@
 		height: 1.25rem;
 		object-fit: contain;
 		object-position: center;
+	}
+
+	&__burger {
+		position: relative;
+		z-index: var(--z-banner);
+		flex: 0 0 auto;
 	}
 
 	&__menu {
@@ -109,16 +140,13 @@
 	&__menu-link {
 		display: inline-flex;
 		color: currentColor;
+		font-size: var(--font-size-xs);
 		font-weight: 600;
 		text-transform: uppercase;
 
 		@include media("md") {
 			position: relative;
 			z-index: 1;
-		}
-
-		@include max-media("lg") {
-			font-size: var(--font-size-sm);
 		}
 	}
 
@@ -145,6 +173,17 @@
 					0 2px 4px -2px rgb(0, 0, 0, 0.1);
 				background: var(--color-white);
 				opacity: 0.875;
+				content: "";
+			}
+
+			&::after {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: -1;
+				width: 100vw;
+				height: min(100vh, 20rem);
+				backdrop-filter: blur(5px);
 				content: "";
 			}
 		}

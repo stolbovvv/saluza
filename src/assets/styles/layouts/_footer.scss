@@ -3,10 +3,13 @@
 /* Footer styles */
 
 .footer {
+	display: flex;
+	flex-direction: column;
 	padding-block: 2.5rem;
 
 	&__container {
 		display: flex;
+		flex: 1 1 auto;
 		flex-direction: column;
 		row-gap: 6.25rem;
 

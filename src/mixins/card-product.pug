@@ -1,8 +1,11 @@
-mixin card-product({ className, image, name, price })
+mixin card-product({ className, image, video, poster, name, price } = {})
 	.card-product(class=className)
 		.card-product__head
 			a(href='/product.html')
-				img(src=image, alt=name)
+				if image
+					img(src=image, alt=name)
+				if video
+					video(src=video, poster=poster, autoplay, muted, loop)
 		.card-product__body
 			a.link.card-product__link(href='/product.html') #{ name }
 			p.card-product__price #{ price }

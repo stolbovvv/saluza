@@ -9,7 +9,7 @@
 	&__button {
 		display: flex;
 		flex: 0 0 auto;
-		padding: 1.25rem;
+		padding: 0.875rem;
 		border: none;
 		background-color: transparent;
 		transition: all var(--transition-ease-100) 0s;
@@ -23,10 +23,6 @@
 		&:active {
 			border-color: var(--color-neutral-600);
 			background-color: var(--color-neutral-600);
-		}
-
-		@include max-media("md") {
-			padding: 0.875rem;
 		}
 	}
 
