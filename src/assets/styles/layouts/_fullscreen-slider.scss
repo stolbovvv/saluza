@@ -17,6 +17,7 @@
 		height: 100dvh;
 	}
 
+	&__slide-video,
 	&__slide-image {
 		position: absolute;
 		inset: 0;
@@ -36,9 +37,10 @@
 	}
 
 	&__slide-heading {
+		margin-top: 0.5em;
 		font-family: var(--font-family-accent);
-		font-size: clamp(3rem, 16.36vi + -1.09rem, 12rem);
-		font-weight: 400;
+		font-size: clamp(4rem, 12vi + 1.6rem, 16rem);
+		font-weight: 300;
 	}
 
 	&__slide-header-image {

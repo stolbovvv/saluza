@@ -31,12 +31,7 @@ block content
 					.product
 						.product__gallery.js-product-gallery
 							.product__gallery-slider.js-product-gallery__main-slider.keen-slider
-								a.product__gallery-slider-slide.keen-slider__slide(
-									data-fancybox='product-gallery',
-									data-aspect-ratio='4 / 5',
-									data-thumb='/assets/images/catalog-preview-1.jpg',
-									href='/assets/media/catalog-preview-1.mp4'
-								)
+								span#product-slide-1.product__gallery-slider-slide.keen-slider__slide
 									video(
 										src='/assets/media/catalog-preview-1.mp4',
 										poster='/assets/images/catalog-preview-1.jpg',
@@ -44,30 +39,35 @@ block content
 										muted,
 										loop
 									)
-								a.product__gallery-slider-slide.keen-slider__slide(
-									data-fancybox='product-gallery',
-									href='/assets/images/catalog-product-1.jpg'
+								a#product-slide-2.product__gallery-slider-slide.keen-slider__slide(
+									data-fancybox,
+									href='/assets/images/catalog-product-zoom.jpg'
 								)
 									img(src='/assets/images/catalog-product-1.jpg', alt='')
-								a.product__gallery-slider-slide.keen-slider__slide(
-									data-fancybox='product-gallery',
-									href='/assets/images/catalog-product-2.jpg'
+								a#product-slide-3.product__gallery-slider-slide.keen-slider__slide(
+									data-fancybox,
+									href='/assets/images/catalog-product-zoom.jpg'
 								)
 									img(src='/assets/images/catalog-product-2.jpg', alt='')
-								a.product__gallery-slider-slide.keen-slider__slide(
-									data-fancybox='product-gallery',
-									href='/assets/images/catalog-product-3.jpg'
+								a#product-slide-4.product__gallery-slider-slide.keen-slider__slide(
+									data-fancybox,
+									href='/assets/images/catalog-product-zoom.jpg'
 								)
 									img(src='/assets/images/catalog-product-3.jpg', alt='')
-							.product__gallery-thumb.js-product-gallery__thumb-slider.keen-slider
-								.product__gallery-thumb-slide.keen-slider__slide
-									img(src='/assets/images/catalog-preview-1.jpg', alt='')
-								.product__gallery-thumb-slide.keen-slider__slide
-									img(src='/assets/images/catalog-product-1.jpg', alt='')
-								.product__gallery-thumb-slide.keen-slider__slide
-									img(src='/assets/images/catalog-product-2.jpg', alt='')
-								.product__gallery-thumb-slide.keen-slider__slide
-									img(src='/assets/images/catalog-product-3.jpg', alt='')
+							.product__gallery-thumb-wrapper
+								.product__gallery-thumb.js-product-gallery__thumb-slider.keen-slider
+									.product__gallery-thumb-slide.keen-slider__slide
+										a.product__gallery-thumb-link.js-link-anchor(href='#product-slide-1')
+											img(src='/assets/images/catalog-preview-1.jpg', alt='')
+									.product__gallery-thumb-slide.keen-slider__slide
+										a.product__gallery-thumb-link.js-link-anchor(href='#product-slide-2')
+											img(src='/assets/images/catalog-product-1.jpg', alt='')
+									.product__gallery-thumb-slide.keen-slider__slide
+										a.product__gallery-thumb-link.js-link-anchor(href='#product-slide-3')
+											img(src='/assets/images/catalog-product-2.jpg', alt='')
+									.product__gallery-thumb-slide.keen-slider__slide
+										a.product__gallery-thumb-link.js-link-anchor(href='#product-slide-4')
+											img(src='/assets/images/catalog-product-3.jpg', alt='')
 						.product__content
 							.product__content-container
 								h1.text-xl.text-center.font-light Andromeda Saluza
@@ -110,6 +110,8 @@ block content
 											+icon({ icon: 'google-logo' })
 		section.section
 			.container.section__container
+				.section__head
+					h2.text-2xl.font-light Вам может понравится
 				.section__body
 					.catalog-grid
 						+card-product({ name: 'Andromeda Saluza', image: './assets/images/catalog-product-1.jpg', price: '35.000 ₽' })
