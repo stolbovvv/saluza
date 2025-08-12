@@ -81,7 +81,7 @@
 
 		&:nth-child(2) {
 			@include max-media("sm") {
-				grid-row-start: 4;
+				grid-row-start: 3;
 			}
 		}
 

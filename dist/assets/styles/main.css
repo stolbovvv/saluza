@@ -2810,7 +2810,7 @@ picture {
 }
 @media (max-width: 47.999rem) {
   .table-cart__body-col:nth-child(2) {
-    grid-row-start: 4;
+    grid-row-start: 3;
   }
 }
 @media (max-width: 63.999rem) {
@@ -4663,4 +4663,4 @@ picture {
   .lg\:max-xl\:hidden {
     display: none;
   }
-}
+}/*# sourceMappingURL=main.css.map */
