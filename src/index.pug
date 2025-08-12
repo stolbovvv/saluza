@@ -25,7 +25,14 @@ html(lang='ru')
 				.swiper-wrapper.fullscreen-slider__wrapper
 					.swiper-slide.fullscreen-slider__slide
 						//- img.fullscreen-slider__slide-image(src='/assets/images/home-slide-1.jpg', alt='')
-						video.fullscreen-slider__slide-video(poster=poster, autoplay, muted, loop)
+						video.fullscreen-slider__slide-video(
+							preload='auto',
+							poster='',
+							loop='true',
+							muted='muted',
+							autoplay='true',
+							playsinline
+						)
 							source(src='/assets/media/catalog-preview-1.mp4', type='video/mp4', media='(max-width: 48rem)')
 							source(src='/assets/media/catalog-preview-1.mp4', type='video/mp4', media='(min-width: 48rem)')
 						.fullscreen-slider__slide-body
