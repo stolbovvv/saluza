@@ -4,10 +4,11 @@
  * Components
  *
  * 01.Menu
- * 02.Detail
- * 03.Counter
- * 04.Product gallery
- * 05.Fullscreen slider
+ * 02.Tabs
+ * 03.Detail
+ * 04.Counter
+ * 05.Product gallery
+ * 06.Fullscreen slider
  * 07.Filters popup
  */
 
@@ -79,6 +80,48 @@ class Menu {
 		this.header.classList.remove('is-active');
 		this.menu.classList.remove('is-active');
 		document.body.classList.remove('is-lock');
+	}
+}
+
+// Tabs component
+class Tabs {
+	constructor(target = '.js-tabs') {
+		this.tabs = target instanceof HTMLElement ? target : document.querySelector(target);
+		if (!this.tabs) return;
+
+		this.buttons = this.tabs.querySelectorAll('.js-tabs-button');
+		this.content = this.tabs.querySelectorAll('.js-tabs-content');
+
+		this.change = this.change.bind(this);
+		this.changeActiveClass = this.changeActiveClass.bind(this);
+
+		this.init();
+	}
+
+	init() {
+		console.log(this.buttons[0].getAttribute('data-tab-id'));
+
+		if (this.buttons.length) {
+			this.change(this.buttons[0].getAttribute('data-tab-id'));
+		}
+
+		this.buttons.forEach((button) => {
+			button.addEventListener('click', () => {
+				this.change(button.getAttribute('data-tab-id'));
+			});
+		});
+	}
+
+	change(id) {
+		this.buttons.forEach((item) => this.changeActiveClass(item, id));
+		this.content.forEach((item) => this.changeActiveClass(item, id));
+	}
+
+	changeActiveClass(item, id) {
+		console.log(item, id);
+
+		if (item.getAttribute('data-tab-id' === id)) item.classList.add('is-active');
+		if (item.getAttribute('data-tab-id' !== id)) item.classList.remove('is-active');
 	}
 }
 
@@ -457,6 +500,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	new ProductGallery();
 	new FullscreenSlider('#fullscreen-slider', '#fullscreen-slider-footer');
 
+	document.querySelectorAll('.js-tabs').forEach((elem) => new Tabs(elem));
 	document.querySelectorAll('.js-detail').forEach((elem) => new Detail(elem));
 	document.querySelectorAll('.js-counter').forEach((elem) => new Counter(elem));
 
