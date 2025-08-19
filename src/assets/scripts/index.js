@@ -93,35 +93,27 @@ class Tabs {
 		this.content = this.tabs.querySelectorAll('.js-tabs-content');
 
 		this.change = this.change.bind(this);
-		this.changeActiveClass = this.changeActiveClass.bind(this);
 
 		this.init();
 	}
 
 	init() {
-		console.log(this.buttons[0].getAttribute('data-tab-id'));
-
-		if (this.buttons.length) {
-			this.change(this.buttons[0].getAttribute('data-tab-id'));
-		}
+		if (this.buttons[0]) this.change(this.buttons[0].getAttribute('data-tab-id'));
 
 		this.buttons.forEach((button) => {
-			button.addEventListener('click', () => {
-				this.change(button.getAttribute('data-tab-id'));
-			});
+			button.addEventListener('click', () => this.change(button.getAttribute('data-tab-id')));
 		});
 	}
 
 	change(id) {
-		this.buttons.forEach((item) => this.changeActiveClass(item, id));
-		this.content.forEach((item) => this.changeActiveClass(item, id));
-	}
-
-	changeActiveClass(item, id) {
-		console.log(item, id);
-
-		if (item.getAttribute('data-tab-id' === id)) item.classList.add('is-active');
-		if (item.getAttribute('data-tab-id' !== id)) item.classList.remove('is-active');
+		this.buttons.forEach((item) => {
+			if (item.getAttribute('data-tab-id') === id) item.classList.add('is-active');
+			if (item.getAttribute('data-tab-id') !== id) item.classList.remove('is-active');
+		});
+		this.content.forEach((item) => {
+			if (item.getAttribute('data-tab-id') === id) item.classList.add('is-active');
+			if (item.getAttribute('data-tab-id') !== id) item.classList.remove('is-active');
+		});
 	}
 }
 

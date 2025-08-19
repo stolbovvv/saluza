@@ -1,0 +1,64 @@
+@use "../helpers/mixins" as *;
+
+/* Tabs product styles */
+
+.tabs-product {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.625rem;
+	margin-block: 2.5rem;
+	padding-block: 2.5rem;
+	border-block: 1px solid currentColor;
+
+	@include max-media("lg") {
+		margin-block: 1.875rem;
+		padding-block: 1.875rem;
+	}
+
+	@include max-media("md") {
+		margin-block: 1.25rem;
+		padding-block: 1.25rem;
+	}
+
+	@include max-media("sm") {
+		margin-block: 0.625rem;
+		padding-block: 0.625rem;
+	}
+
+	&__buttons {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: 0.625rem 1rem;
+	}
+
+	&__button {
+		padding: 0;
+		border: none;
+		background: none;
+		opacity: 0.5;
+		color: inherit;
+		font-weight: var(--font-weight-semibold);
+		text-underline-offset: 0.25em;
+		cursor: pointer;
+
+		@include hover {
+			text-decoration: underline;
+		}
+
+		&.is-active {
+			opacity: 1;
+			text-decoration: underline;
+		}
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__content:not(.is-active) {
+		display: none;
+	}
+}
