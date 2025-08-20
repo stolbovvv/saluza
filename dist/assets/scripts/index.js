@@ -464,12 +464,12 @@ class ProductGallery extends Component {
 /** FullscreenSlider */
 
 class FullscreenSlider {
-	constructor(targetSelector, footerSelector) {
-		this.targetSelector = targetSelector;
+	constructor(mainSelector, footerSelector) {
+		this.mainSelector = mainSelector;
 		this.footerSelector = footerSelector;
 		this.mainSwiper = null;
 		this.footerSwiper = null;
-		this.headingAnimation = null;
+		this.headingAnimation = null; // Храним анимацию
 
 		this.init();
 	}
@@ -666,3 +666,4 @@ window.addEventListener('DOMContentLoaded', () => {
 	initSmoothScrollLinks();
 	initHeaderScrolling();
 });
+//# sourceMappingURL=index.js.map
