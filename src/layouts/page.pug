@@ -1,3 +1,6 @@
+include ../mixins/ui/modal.pug
+include ../mixins/ui/button.pug
+
 doctype html
 
 html(lang='ru')
@@ -12,13 +15,13 @@ html(lang='ru')
 
 		title #{ title || 'SALUZA' }
 
-		link(rel='apple-touch-icon', sizes='180x180', href='./apple-touch-icon.png')
-		link(rel='icon', type='image/png', sizes='32x32', href='./favicon-32x32.png')
-		link(rel='icon', type='image/png', sizes='16x16', href='./favicon-16x16.png')
-		link(rel='icon', type='image/svg+xml', href='./favicon.svg')
-		link(rel='manifest', href='./site.webmanifest')
-		link(rel='stylesheet', href='./assets/styles/vendor.css')
-		link(rel='stylesheet', href='./assets/styles/main.css')
+		link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon.png')
+		link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32.png')
+		link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16.png')
+		link(rel='icon', type='image/svg+xml', href='/favicon.svg')
+		link(rel='manifest', href='/site.webmanifest')
+		link(rel='stylesheet', href='/assets/styles/vendor.css')
+		link(rel='stylesheet', href='/assets/styles/main.css')
 
 	body
 		.wrapper
@@ -26,5 +29,32 @@ html(lang='ru')
 			block content
 			include ../includes/page-footer.pug
 
-		script(src='./assets/scripts/vendor.js')
-		script(src='./assets/scripts/index.js')
+		+modal({ size: 'small', heading: 'Избранное' })#add-favorite.js-modal
+			p.text-base.text-neutral-500 Товар добавлен в избранное
+
+		+modal({ size: 'small', heading: 'Избранное' })#del-favorite.js-modal
+			p.text-base.text-neutral-500 Товар удален из избранного
+
+		+modal({ size: 'small', heading: 'Корзина' })#add-cart.js-modal
+			p.text-base.text-neutral-500 Товар добавлен в корзину
+
+		+modal({ size: 'small', heading: 'Корзина' })#del-cart.js-modal
+			p.text-base.text-neutral-500 Товар удален из корзины
+
+		+modal({ heading: 'Подпишись, чтобы не упустить новое' })#del-cart.js-modal(data-timeout='30000')
+			form.form-subscribe
+				.form-subscribe__head
+					img.form-subscribe__image(src='/assets/images/article-1.jpg')
+				.form-subscribe__body
+					p.text-neutral-500 Далеко-далеко за словесными горами в стране.
+					.form-subscribe__fields
+						.field
+							input.input.field__input(type='text', name='user_full_name', placeholder='ФИО', required)
+						.field
+							input.input.field__input(type='email', name='user_email', placeholder='E-mail', required)
+					+button({ className: 'form-subscribe__submit-button', type: 'submit', text: 'Подписаться' })
+					p.text-xs Нажимая кнопку отправить, я соглашаюсь с#{ ' ' }
+						a(href='/privacy-policy.html') политикой конфиденциальности
+
+		script(src='/assets/scripts/vendor.js')
+		script(src='/assets/scripts/index.js')

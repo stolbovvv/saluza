@@ -3,7 +3,7 @@ include ./icon.pug
 mixin button({ className, variant, icon, text, type = 'button', disabled } = {})
 	- var classVariant = `${variant ? `button--${variant}` : ''}`;
 
-	button.button(class=[className, classVariant], type=type, disabled=attributes.disabled)
+	button.button(class=[className, classVariant], type=type, disabled=attributes.disabled)&attributes(attributes)
 		if icon
 			+icon({ className: `button__icon`, icon: icon })
 		if text

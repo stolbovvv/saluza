@@ -1,0 +1,14 @@
+mixin modal({ heading, text, size } = {})
+	- var dialogSizeClass = size ? `modal__dialog--${size}` : '';
+
+	.modal(data-hide-modal='')&attributes(attributes)
+		.modal__dialog(class=[dialogSizeClass])
+			.modal__dialog-head
+				if heading
+					p.modal__dialog-heading #{ heading }
+				button.modal__dialog-hide-button(data-hide-modal='')
+					span
+					span
+			.modal__dialog-body
+				if block
+					block

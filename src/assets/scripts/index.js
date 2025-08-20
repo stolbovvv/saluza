@@ -1,6 +1,86 @@
 /* globals anime, KeenSlider, Swiper, noUiSlider, Fancybox */
 
 /**
+ * Utility
+ *
+ * 01.initFancyboxProductGallery - запуск модуля Fancybox для продукта
+ * 02.initSmoothScrollLinks - запуск модуля ссылок якорей
+ * 03.initHeaderScrolling - запуск модуля плавающего Header
+ */
+
+/** initFancyboxProductGallery */
+
+function initFancyboxProductGallery() {
+	Fancybox.bind('[data-fancybox]', {
+		Carousel: {
+			Thumbs: false,
+			Toolbar: {
+				display: {
+					left: [],
+					middle: [],
+					right: ['close'],
+				},
+			},
+			Zoomable: {
+				Panzoom: {
+					minScale: 0.5,
+					clickAction: 'toggleCover',
+					mouseMoveFactor: 1,
+					startScale: 'cover',
+				},
+			},
+			Video: {
+				html5videoTpl: `
+					<video class="f-html5video" playsinline loop muted poster="{{poster}}">
+						<source src="{{src}}" type="{{format}}" />Sorry, your browser doesn't support embedded videos.
+					</video>
+				`,
+			},
+		},
+	});
+}
+
+/** initSmoothScrollLinks */
+
+function initSmoothScrollLinks() {
+	document.addEventListener('click', function (e) {
+		const link = e.target.closest('a.js-link-anchor[href^="#"]');
+		if (!link) return;
+
+		const targetId = link.getAttribute('href').substring(1);
+		if (!targetId) return;
+
+		const targetElement = document.getElementById(targetId);
+		if (!targetElement) return;
+
+		e.preventDefault();
+
+		targetElement.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		});
+	});
+}
+
+/** initHeaderScrolling */
+
+function initHeaderScrolling() {
+	const header = document.querySelector('.js-header');
+
+	const setIsScrolled = () => {
+		if (window.scrollY > 5) {
+			header.classList.add('is-scrolled');
+		} else {
+			header.classList.remove('is-scrolled');
+		}
+	};
+
+	setIsScrolled();
+
+	window.addEventListener('scroll', setIsScrolled);
+}
+
+/**
  * Components
  *
  * 00.Component - базовый класс компонента
@@ -135,6 +215,7 @@ class Modal extends Component {
 
 		if (!this.component) return;
 
+		this.showTimeout = Number(this.component.getAttribute('data-timeout'));
 		this.showTriggers = document.querySelectorAll(`[data-show-modal="${this.component.id}"]`);
 		this.hideTriggers = document.querySelectorAll(`[data-hide-modal="${this.component.id}"]`);
 
@@ -148,6 +229,10 @@ class Modal extends Component {
 		this.component.addEventListener('click', ({ target }) => {
 			if (target && target.hasAttribute('data-hide-modal')) this.hide();
 		});
+
+		if (!Number.isNaN(this.showTimeout) && this.showTimeout) {
+			setTimeout(this.show, this.showTimeout);
+		}
 	}
 
 	show = () => {
@@ -563,83 +648,6 @@ class Ranger extends Component {
 }
 
 /**
- * Utility
- *
- * 01.initFancyboxProductGallery - запуск модуля Fancybox для продукта
- * 02.initSmoothScrollLinks - запуск модуля ссылок якорей
- * 03.initHeaderScrolling - запуск модуля плавающего Header
- */
-
-/** initFancyboxProductGallery */
-function initFancyboxProductGallery() {
-	Fancybox.bind('[data-fancybox]', {
-		Carousel: {
-			Thumbs: false,
-			Toolbar: {
-				display: {
-					left: [],
-					middle: [],
-					right: ['close'],
-				},
-			},
-			Zoomable: {
-				Panzoom: {
-					minScale: 0.5,
-					clickAction: 'toggleCover',
-					mouseMoveFactor: 1,
-					startScale: 'cover',
-				},
-			},
-			Video: {
-				html5videoTpl: `
-					<video class="f-html5video" playsinline loop muted poster="{{poster}}">
-						<source src="{{src}}" type="{{format}}" />Sorry, your browser doesn't support embedded videos.
-					</video>
-				`,
-			},
-		},
-	});
-}
-
-/** initSmoothScrollLinks */
-function initSmoothScrollLinks() {
-	document.addEventListener('click', function (e) {
-		const link = e.target.closest('a.js-link-anchor[href^="#"]');
-		if (!link) return;
-
-		const targetId = link.getAttribute('href').substring(1);
-		if (!targetId) return;
-
-		const targetElement = document.getElementById(targetId);
-		if (!targetElement) return;
-
-		e.preventDefault();
-
-		targetElement.scrollIntoView({
-			behavior: 'smooth',
-			block: 'start',
-		});
-	});
-}
-
-/** initHeaderScrolling */
-function initHeaderScrolling() {
-	const header = document.querySelector('.js-header');
-
-	const setIsScrolled = () => {
-		if (window.scrollY > 5) {
-			header.classList.add('is-scrolled');
-		} else {
-			header.classList.remove('is-scrolled');
-		}
-	};
-
-	setIsScrolled();
-
-	window.addEventListener('scroll', setIsScrolled);
-}
-
-/**
  * Main function
  */
 window.addEventListener('DOMContentLoaded', () => {
@@ -648,12 +656,11 @@ window.addEventListener('DOMContentLoaded', () => {
 	new ProductGallery();
 	new FullscreenSlider('#fullscreen-slider', '#fullscreen-slider-footer');
 
-	new Modal();
-
 	document.querySelectorAll('.js-tabs').forEach((elem) => new Tabs(elem));
 	document.querySelectorAll('.js-detail').forEach((elem) => new Detail(elem));
 	document.querySelectorAll('.js-counter').forEach((elem) => new Counter(elem));
 	document.querySelectorAll('.js-ranger').forEach((elem) => new Ranger(elem));
+	document.querySelectorAll('.js-modal').forEach((elem) => new Modal(elem));
 
 	initFancyboxProductGallery();
 	initSmoothScrollLinks();

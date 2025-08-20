@@ -57,8 +57,10 @@ block content
 										.table-favorite__body-col
 											span В наличии
 										.table-favorite__body-col
-											+button({ className: 'button--sm:max-lg:text-hidden', text: 'Добавить в корзину', icon: 'bag' })
-											button.button-icon
+											+button({ className: 'button--sm:max-lg:text-hidden', text: 'Добавить в корзину', icon: 'bag' })(
+												data-show-modal='add-cart'
+											)
+											button.button-icon(data-show-modal='del-favorite')
 												+icon({ className: 'button-icon__icon', icon: 'trash' })
 									.table-favorite__body-row
 										.table-favorite__body-col
@@ -70,6 +72,8 @@ block content
 										.table-favorite__body-col
 											span Нет в наличии
 										.table-favorite__body-col
-											+button({ className: 'button--sm:max-lg:text-hidden', text: 'Добавить в корзину', icon: 'bag' })
-											button.button-icon
+											+button({ className: 'button--sm:max-lg:text-hidden', text: 'Добавить в корзину', icon: 'bag' })(
+												data-show-modal='add-cart'
+											)
+											button.button-icon(data-show-modal='del-favorite')
 												+icon({ className: 'button-icon__icon', icon: 'trash' })

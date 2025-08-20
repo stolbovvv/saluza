@@ -236,7 +236,7 @@ function runServe() {
 	server.init({
 		server: MODE.prod ? [DIR.build] : [DIR.build, DIR.public],
 		notify: false,
-		port: 3030,
+		port: 3000,
 		open: true,
 		cors: true,
 		ui: false,

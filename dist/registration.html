@@ -8,13 +8,13 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="MobileOptimized" content="width">
     <title>Регистрация - SALUZA</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-    <link rel="manifest" href="./site.webmanifest">
-    <link rel="stylesheet" href="./assets/styles/vendor.css">
-    <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/assets/styles/vendor.css">
+    <link rel="stylesheet" href="/assets/styles/main.css">
 </head>
 
 <body>
@@ -59,16 +59,16 @@
                 </div>
                 <div class="header__btns"><a class="icon-link" href="/search.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1755676223962#search"></use>
+                            <use href="./assets/icons/sprite.svg?v=1755719279139#search"></use>
                         </svg></a><a class="icon-link" href="/account.html">
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1755676223962#user"></use>
+                            <use href="./assets/icons/sprite.svg?v=1755719279139#user"></use>
                         </svg></a><a class="icon-link" href="/favorite.html"><span class="icon-link__badge">2</span>
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1755676223962#heart"></use>
+                            <use href="./assets/icons/sprite.svg?v=1755719279139#heart"></use>
                         </svg></a><a class="icon-link" href="/cart.html"><span class="icon-link__badge">4</span>
                         <svg class="icon icon-link__image">
-                            <use href="./assets/icons/sprite.svg?v=1755676223962#bag"></use>
+                            <use href="./assets/icons/sprite.svg?v=1755719279139#bag"></use>
                         </svg></a>
                 </div>
             </div>
@@ -128,26 +128,97 @@
                 <div class="footer__foot">
                     <div class="footer__social"><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1755676223962#facebook-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1755719279139#facebook-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1755676223962#instagram-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1755719279139#instagram-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1755676223962#pinterest-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1755719279139#pinterest-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1755676223962#twitter-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1755719279139#twitter-logo"></use>
                             </svg></a><a class="icon-link footer__social-link" href="#">
                             <svg class="icon footer__social-icon">
-                                <use href="./assets/icons/sprite.svg?v=1755676223962#google-logo"></use>
+                                <use href="./assets/icons/sprite.svg?v=1755719279139#google-logo"></use>
                             </svg></a></div>
                 </div>
             </div>
         </footer>
     </div>
-    <script src="./assets/scripts/vendor.js"></script>
-    <script src="./assets/scripts/index.js"></script>
+    <div class="modal js-modal" data-hide-modal="" id="add-favorite">
+        <div class="modal__dialog modal__dialog--small">
+            <div class="modal__dialog-head">
+                <p class="modal__dialog-heading">Избранное</p>
+                <button class="modal__dialog-hide-button" data-hide-modal=""><span></span><span></span></button>
+            </div>
+            <div class="modal__dialog-body">
+                <p class="text-base text-neutral-500">Товар добавлен в избранное</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal js-modal" data-hide-modal="" id="del-favorite">
+        <div class="modal__dialog modal__dialog--small">
+            <div class="modal__dialog-head">
+                <p class="modal__dialog-heading">Избранное</p>
+                <button class="modal__dialog-hide-button" data-hide-modal=""><span></span><span></span></button>
+            </div>
+            <div class="modal__dialog-body">
+                <p class="text-base text-neutral-500">Товар удален из избранного</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal js-modal" data-hide-modal="" id="add-cart">
+        <div class="modal__dialog modal__dialog--small">
+            <div class="modal__dialog-head">
+                <p class="modal__dialog-heading">Корзина</p>
+                <button class="modal__dialog-hide-button" data-hide-modal=""><span></span><span></span></button>
+            </div>
+            <div class="modal__dialog-body">
+                <p class="text-base text-neutral-500">Товар добавлен в корзину</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal js-modal" data-hide-modal="" id="del-cart">
+        <div class="modal__dialog modal__dialog--small">
+            <div class="modal__dialog-head">
+                <p class="modal__dialog-heading">Корзина</p>
+                <button class="modal__dialog-hide-button" data-hide-modal=""><span></span><span></span></button>
+            </div>
+            <div class="modal__dialog-body">
+                <p class="text-base text-neutral-500">Товар удален из корзины</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal js-modal" data-hide-modal="" id="del-cart" data-timeout="30000">
+        <div class="modal__dialog">
+            <div class="modal__dialog-head">
+                <p class="modal__dialog-heading">Подпишись, чтобы не упустить новое</p>
+                <button class="modal__dialog-hide-button" data-hide-modal=""><span></span><span></span></button>
+            </div>
+            <div class="modal__dialog-body">
+                <form class="form-subscribe">
+                    <div class="form-subscribe__head"><img class="form-subscribe__image" src="/assets/images/article-1.jpg"></div>
+                    <div class="form-subscribe__body">
+                        <p class="text-neutral-500">Далеко-далеко за словесными горами в стране.</p>
+                        <div class="form-subscribe__fields">
+                            <div class="field">
+                                <input class="input field__input" type="text" name="user_full_name" placeholder="ФИО" required>
+                            </div>
+                            <div class="field">
+                                <input class="input field__input" type="email" name="user_email" placeholder="E-mail" required>
+                            </div>
+                        </div>
+                        <button class="button form-subscribe__submit-button" type="submit"><span class="button__text">Подписаться</span>
+                        </button>
+                        <p class="text-xs">Нажимая кнопку отправить, я соглашаюсь с <a href="/privacy-policy.html">политикой конфиденциальности</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/scripts/vendor.js"></script>
+    <script src="/assets/scripts/index.js"></script>
 </body>
 
 </html>

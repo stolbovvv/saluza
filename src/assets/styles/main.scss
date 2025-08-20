@@ -19,6 +19,7 @@
 @use "layouts/footer";
 @use "layouts/section";
 @use "layouts/fullscreen-slider";
+@use "layouts/from-subscribe";
 @use "layouts/filters";
 @use "layouts/blog-grid";
 @use "layouts/catalog-grid";
@@ -59,6 +60,7 @@
 @use "components/table-cart";
 @use "components/table-orders";
 @use "components/table-favorite";
+@use "components/modal";
 @use "components/article";
 
 /* Utility */

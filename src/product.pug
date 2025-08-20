@@ -87,7 +87,7 @@ block content
 									.product__form-row
 										+input-counter({ name: 'product_count' })
 										+button({ icon: 'bag', text: 'Добавить в корзину', type: 'submit' })
-										+button({ icon: 'heart-fill', variant: 'outline' })
+										+button({ icon: 'heart', variant: 'outline' })(data-show-modal='add-favorite')
 									div
 										+input-checkbox({ label: 'Индивидуальный пошив', name: 'individual_tailoring' })
 										.text-xs.text-neutral-400

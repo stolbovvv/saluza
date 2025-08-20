@@ -1,0 +1,42 @@
+@use "../helpers/mixins" as *;
+
+/* From subscribe styles */
+
+.form-subscribe {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.25rem;
+	min-height: 20rem;
+
+	@include max-media("sm") {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	&__head {
+		flex: 0 0 auto;
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.625rem;
+	}
+
+	&__fields {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.625rem;
+		margin-block-start: auto;
+	}
+
+	&__submit-button {
+		margin-block-start: auto;
+	}
+}
