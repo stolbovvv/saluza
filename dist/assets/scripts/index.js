@@ -1,47 +1,57 @@
-/* globals KeenSlider, noUiSlider, Fancybox, Swiper, anime */
+/* globals anime, KeenSlider, Swiper, noUiSlider, Fancybox */
 
 /**
  * Components
  *
- * 01.Menu
- * 02.Tabs
- * 03.Detail
- * 04.Counter
- * 05.Product gallery
- * 06.Fullscreen slider
- * 07.Filters popup
+ * 00.Component - базовый класс компонента
+ * 01.Menu - компонент меню
+ * 02.Tabs - компонент табов
+ * 03.Modal - компонент модального окна
+ * 04.Detail - компонент деталей
+ * 05.Counter - компонент счетчика
+ * 06.ProductGallery - компонент галериеи продукта
+ * 07.FullscreenSlider - компонент полноэкранного слайдера
+ * 08.FiltersPopup - компонент попапа фильтров
+ * 09.Ranger - компонент диапазона
  */
 
-// Menu component
-class Menu {
+/**
+ * Component
+ */
+
+class Component {
+	constructor(target) {
+		this.component = target instanceof HTMLElement ? target : document.querySelector(target);
+	}
+}
+
+/** Menu */
+
+class Menu extends Component {
 	constructor(target = '.js-menu') {
-		this.menu = target instanceof HTMLElement ? target : document.querySelector(target);
-		if (!this.menu) return;
+		super(target);
+
+		if (!this.component) return;
 
 		this.state = {
 			isShow: false,
 		};
 
-		this.menuHoverTriggers = this.menu.querySelectorAll('.js-menu__hover-trigger');
-		this.menuHideTriggers = this.menu.querySelectorAll('.js-menu__hide-trigger');
-		this.menuBurger = document.querySelector('.js-menu-burger');
+		this.hoverTriggers = this.component.querySelectorAll('.js-menu__hover-trigger');
+		this.hideTriggers = this.component.querySelectorAll('.js-menu__hide-trigger');
+		this.burger = document.querySelector('.js-menu-burger');
 		this.header = document.querySelector('.js-header');
-
-		this.destroy = this.destroy.bind(this);
-		this.toggle = this.toggle.bind(this);
-		this.show = this.show.bind(this);
-		this.hide = this.hide.bind(this);
 
 		this.init();
 	}
 
 	init() {
-		this?.menuBurger.addEventListener('click', this.toggle);
-		this?.menuHideTriggers.forEach((trigger) => {
+		this?.burger.addEventListener('click', this.toggle);
+		this?.hideTriggers.forEach((trigger) => {
 			trigger.addEventListener('click', this.hide);
 		});
 
-		this?.menuHoverTriggers.forEach((trigger) => {
+		this?.hoverTriggers.forEach((trigger) => {
 			trigger.addEventListener('mouseenter', () => {
 				if (this.header) this.header.classList.add('is-hovered');
 			});
@@ -52,47 +62,47 @@ class Menu {
 	}
 
 	destroy() {
-		this?.menuBurger.removeEventListener('click', this.toggle);
-		this?.menuHideTriggers.forEach((trigger) => {
+		this?.burger.removeEventListener('click', this.toggle);
+		this?.hideTriggers.forEach((trigger) => {
 			trigger.removeEventListener('click', this.hide);
 		});
 	}
 
-	toggle() {
+	toggle = () => {
 		if (this.state.isShow) {
 			this.hide();
 		} else {
 			this.show();
 		}
-	}
+	};
 
-	show() {
+	show = () => {
 		this.state.isShow = true;
-		this.menuBurger.classList.add('is-active');
+		this.burger.classList.add('is-active');
 		this.header.classList.add('is-active');
-		this.menu.classList.add('is-active');
+		this.component.classList.add('is-active');
 		document.body.classList.add('is-lock');
-	}
+	};
 
-	hide() {
+	hide = () => {
 		this.state.isShow = false;
-		this.menuBurger.classList.remove('is-active');
+		this.burger.classList.remove('is-active');
 		this.header.classList.remove('is-active');
-		this.menu.classList.remove('is-active');
+		this.component.classList.remove('is-active');
 		document.body.classList.remove('is-lock');
-	}
+	};
 }
 
-// Tabs component
-class Tabs {
+/** Tabs */
+
+class Tabs extends Component {
 	constructor(target = '.js-tabs') {
-		this.tabs = target instanceof HTMLElement ? target : document.querySelector(target);
-		if (!this.tabs) return;
+		super(target);
 
-		this.buttons = this.tabs.querySelectorAll('.js-tabs-button');
-		this.content = this.tabs.querySelectorAll('.js-tabs-content');
+		if (!this.component) return;
 
-		this.change = this.change.bind(this);
+		this.buttons = this.component.querySelectorAll('.js-tabs-button');
+		this.content = this.component.querySelectorAll('.js-tabs-content');
 
 		this.init();
 	}
@@ -105,7 +115,7 @@ class Tabs {
 		});
 	}
 
-	change(id) {
+	change = (id) => {
 		this.buttons.forEach((item) => {
 			if (item.getAttribute('data-tab-id') === id) item.classList.add('is-active');
 			if (item.getAttribute('data-tab-id') !== id) item.classList.remove('is-active');
@@ -114,134 +124,166 @@ class Tabs {
 			if (item.getAttribute('data-tab-id') === id) item.classList.add('is-active');
 			if (item.getAttribute('data-tab-id') !== id) item.classList.remove('is-active');
 		});
-	}
+	};
 }
 
-// Detail component
-class Detail {
+/** Modal */
+
+class Modal extends Component {
+	constructor(target = '.js-molal') {
+		super(target);
+
+		if (!this.component) return;
+
+		this.showTriggers = document.querySelectorAll(`[data-show-modal="${this.component.id}"]`);
+		this.hideTriggers = document.querySelectorAll(`[data-hide-modal="${this.component.id}"]`);
+
+		this.init();
+	}
+
+	init() {
+		this.showTriggers.forEach((trigger) => trigger.addEventListener('click', this.show));
+		this.hideTriggers.forEach((trigger) => trigger.addEventListener('click', this.hide));
+
+		this.component.addEventListener('click', ({ target }) => {
+			if (target && target.hasAttribute('data-hide-modal')) this.hide();
+		});
+	}
+
+	show = () => {
+		this.component.classList.add('is-active');
+		document.body.classList.add('is-lock');
+	};
+
+	hide = () => {
+		this.component.classList.remove('is-active');
+		document.body.classList.remove('is-lock');
+	};
+}
+
+/** Detail */
+
+class Detail extends Component {
 	constructor(target = '.js-detail') {
-		this.detail = target instanceof HTMLElement ? target : document.querySelector(target);
-		if (!this.detail) return;
+		super(target);
+
+		if (!this.component) return;
 
 		this.state = {
 			isShow: false,
 		};
 
-		this.detailButton = this.detail.querySelector('.js-detail__button');
-		this.detailBody = this.detail.querySelector('.js-detail__body');
-
-		this.destroy = this.destroy.bind(this);
-		this.toggle = this.toggle.bind(this);
-		this.show = this.show.bind(this);
-		this.hide = this.hide.bind(this);
+		this.trigger = this.component.querySelector('.js-detail__button');
+		this.content = this.component.querySelector('.js-detail__body');
 
 		this.init();
 	}
 
 	init() {
-		if (this.detail.getAttribute('data-detail-initial-state') === 'show') {
+		if (this.component.getAttribute('data-detail-initial-state') === 'show') {
 			setTimeout(() => this.show(0), 200);
 		} else {
 			this.hide(0);
 		}
 
-		this.detailButton.addEventListener('click', this.toggle);
+		this.trigger.addEventListener('click', this.toggle);
 	}
 
 	destroy() {
-		anime.animate(this.detailBody, {
+		anime.animate(this.content, {
 			height: (elem) => elem.scrollHeight,
 			duration: 0,
 		});
 
-		this.detailButton.removeEventListener('click', this.toggle);
+		this.trigger.removeEventListener('click', this.toggle);
 	}
 
-	toggle() {
+	toggle = () => {
 		if (this.state.isShow) {
 			this.hide();
 		} else {
 			this.show();
 		}
-	}
+	};
 
-	hide(duration = 200) {
+	show = (duration = 200) => {
 		this.state.isShow = false;
-		this.detailButton.classList.remove('is-active');
-		this.detailBody.classList.remove('is-active');
+		this.trigger.classList.remove('is-active');
+		this.content.classList.remove('is-active');
 
-		anime.animate(this.detailBody, {
+		anime.animate(this.content, {
 			height: 0,
 			duration,
 		});
-	}
+	};
 
-	show(duration = 200) {
+	hide = (duration = 200) => {
 		this.state.isShow = true;
-		this.detailButton.classList.add('is-active');
-		this.detailBody.classList.add('is-active');
+		this.trigger.classList.add('is-active');
+		this.content.classList.add('is-active');
 
-		anime.animate(this.detailBody, {
+		anime.animate(this.content, {
 			height: (elem) => elem.scrollHeight,
 			duration,
 		});
-	}
+	};
 }
 
-// Counter component
-class Counter {
+/** Counter */
+
+class Counter extends Component {
 	constructor(target = '.js-counter') {
-		this.counter = target instanceof HTMLElement ? target : document.querySelector(target);
-		if (!this.counter) return;
+		super(target);
+
+		if (!this.component) return;
 
 		this.state = {
 			value: 0,
 		};
 
-		this.counterIncrease = this.counter.querySelector('.js-counter__increase');
-		this.counterDecrease = this.counter.querySelector('.js-counter__decrease');
-		this.counterValue = this.counter.querySelector('.js-counter__value');
-
-		this.increase = this.increase.bind(this);
-		this.decrease = this.decrease.bind(this);
+		this.increaseButton = this.component.querySelector('.js-counter__increase');
+		this.decreaseButton = this.component.querySelector('.js-counter__decrease');
+		this.valueContainer = this.component.querySelector('.js-counter__value');
 
 		this.init();
 	}
 
 	init() {
-		if (!this.counterValue) return;
+		if (!this.valueContainer) return;
 
-		this.state.value = Number(this.counterValue.value) || 0;
+		this.state.value = Number(this.valueContainer.value) || 0;
 
-		this?.counterIncrease?.addEventListener('click', this.increase);
-		this?.counterDecrease?.addEventListener('click', this.decrease);
+		this?.increaseButton?.addEventListener('click', this.increase);
+		this?.decreaseButton?.addEventListener('click', this.decrease);
 	}
 
 	destroy() {
-		this?.counterIncrease?.removeEventListener('click', this.increase);
-		this?.counterDecrease?.removeEventListener('click', this.decrease);
+		this?.increaseButton?.removeEventListener('click', this.increase);
+		this?.decreaseButton?.removeEventListener('click', this.decrease);
 	}
 
-	increase() {
-		if (!this.counterValue) return;
+	increase = () => {
+		if (!this.valueContainer) return;
 
 		this.state.value += 1;
-		this.counterValue.value = this.state.value;
-	}
+		this.valueContainer.value = this.state.value;
+	};
 
-	decrease() {
-		if (!this.counterValue || this.state.value <= 0) return;
+	decrease = () => {
+		if (!this.valueContainer || this.state.value <= 0) return;
 
 		this.state.value -= 1;
-		this.counterValue.value = this.state.value;
-	}
+		this.valueContainer.value = this.state.value;
+	};
 }
 
-// Product gallery component
-class ProductGallery {
+/** ProductGallery */
+
+class ProductGallery extends Component {
 	constructor(target = '.js-product-gallery') {
-		this.gallery = target instanceof HTMLElement ? target : document.querySelector(target);
-		if (!this.gallery) return;
+		super(target);
+
+		if (!this.component) return;
 
 		this.mainSlider = null;
 		this.thumbSlider = null;
@@ -250,8 +292,8 @@ class ProductGallery {
 	}
 
 	init() {
-		const mainSliderElement = this.gallery.querySelector('.js-product-gallery__main-slider');
-		const thumbSliderElement = this.gallery.querySelector('.js-product-gallery__thumb-slider');
+		const mainSliderElement = this.component?.querySelector('.js-product-gallery__main-slider');
+		const thumbSliderElement = this.component?.querySelector('.js-product-gallery__thumb-slider');
 
 		if (!mainSliderElement) return;
 
@@ -334,14 +376,15 @@ class ProductGallery {
 	}
 }
 
-// Fullscreen slider
+/** FullscreenSlider */
+
 class FullscreenSlider {
-	constructor(mainSelector, footerSelector) {
-		this.mainSelector = mainSelector;
+	constructor(targetSelector, footerSelector) {
+		this.targetSelector = targetSelector;
 		this.footerSelector = footerSelector;
 		this.mainSwiper = null;
 		this.footerSwiper = null;
-		this.headingAnimation = null; // Храним анимацию
+		this.headingAnimation = null;
 
 		this.init();
 	}
@@ -425,79 +468,110 @@ class FullscreenSlider {
 	}
 }
 
-// Filters popup
-class FiltersPopup {
+/** FiltersPopup */
+
+class FiltersPopup extends Component {
 	constructor(target = '.js-filters-popup') {
-		this.popup = target instanceof HTMLElement ? target : document.querySelector(target);
-		if (!this.popup) return;
+		super(target);
+
+		if (!this.component) return;
 
 		this.showTrigger = document.querySelector('.js-filters-popup-show');
 		this.hideTrigger = document.querySelector('.js-filters-popup-hide');
-
-		this.show = this.show.bind(this);
-		this.hide = this.hide.bind(this);
 
 		this.init();
 	}
 
 	init() {
-		this.showTrigger.addEventListener('click', this.show);
-		this.hideTrigger.addEventListener('click', this.hide);
+		this.showTrigger?.addEventListener('click', this.show);
+		this.hideTrigger?.addEventListener('click', this.hide);
 	}
 
 	destroy() {
-		this.showTrigger.removeEventListener('click', this.show);
-		this.hideTrigger.removeEventListener('click', this.hide);
+		this.showTrigger?.removeEventListener('click', this.show);
+		this.hideTrigger?.removeEventListener('click', this.hide);
 	}
 
-	show() {
-		this.popup.classList.add('is-active');
-	}
+	show = () => {
+		this.component.classList.add('is-active');
+	};
 
-	hide() {
-		this.popup.classList.remove('is-active');
-	}
+	hide = () => {
+		this.component.classList.remove('is-active');
+	};
 }
 
-/**
- * Utility functions
- */
+/** Ranger */
+class Ranger extends Component {
+	constructor(target = '.js-ranger') {
+		super(target);
 
-function initSmoothScrollLinks() {
-	document.addEventListener('click', function (e) {
-		const link = e.target.closest('a.js-link-anchor[href^="#"]');
-		if (!link) return;
+		if (!this.component) return;
 
-		const targetId = link.getAttribute('href').substring(1);
-		if (!targetId) return;
+		this.state = {
+			minValue: 0,
+			maxValue: 100,
+		};
 
-		const targetElement = document.getElementById(targetId);
-		if (!targetElement) return;
+		this.slider = this.component.querySelector('.js-ranger__slider');
+		this.value = this.component.querySelector('.js-ranger__value');
+		this.inputMin = this.component.querySelector('.js-ranger__input-min');
+		this.inputMax = this.component.querySelector('.js-ranger__input-max');
 
-		e.preventDefault();
+		this.init();
+	}
 
-		targetElement.scrollIntoView({
-			behavior: 'smooth',
-			block: 'start',
+	init() {
+		this.state.minValue = Number(this.inputMin.value);
+		this.state.minValue = Number(this.inputMax.value);
+
+		noUiSlider.create(this.slider, {
+			start: [this.state.minValue, this.state.maxValue],
+			connect: true,
+			range: {
+				min: this.state.minValue,
+				max: this.state.maxValue,
+			},
 		});
-	});
+
+		this.slider.noUiSlider.on('update', (values) => {
+			const min = Math.round(values[0]);
+			const max = Math.round(values[1]);
+
+			this.value.textContent = `Цены: ${min} ₽ – ${max} ₽`;
+
+			this.inputMin.value = min;
+			this.inputMax.value = max;
+		});
+
+		this.inputMin.addEventListener('change', () => {
+			let val = Number(this.inputMin.value);
+			let maxVal = Number(this.inputMax.value);
+			if (val < 0) val = 0;
+			if (val > maxVal) val = maxVal;
+			this.slider.noUiSlider.set([val, null]);
+		});
+
+		this.inputMax.addEventListener('change', () => {
+			let val = Number(this.inputMax.value);
+			let minVal = Number(this.inputMin.value);
+			if (val > 100) val = 100;
+			if (val < minVal) val = minVal;
+			this.slider.noUiSlider.set([null, val]);
+		});
+	}
 }
 
 /**
- * Main function
+ * Utility
+ *
+ * 01.initFancyboxProductGallery - запуск модуля Fancybox для продукта
+ * 02.initSmoothScrollLinks - запуск модуля ссылок якорей
+ * 03.initHeaderScrolling - запуск модуля плавающего Header
  */
-window.addEventListener('DOMContentLoaded', () => {
-	new Menu();
-	new FiltersPopup();
-	new ProductGallery();
-	new FullscreenSlider('#fullscreen-slider', '#fullscreen-slider-footer');
 
-	document.querySelectorAll('.js-tabs').forEach((elem) => new Tabs(elem));
-	document.querySelectorAll('.js-detail').forEach((elem) => new Detail(elem));
-	document.querySelectorAll('.js-counter').forEach((elem) => new Counter(elem));
-
-	initSmoothScrollLinks();
-
+/** initFancyboxProductGallery */
+function initFancyboxProductGallery() {
 	Fancybox.bind('[data-fancybox]', {
 		Carousel: {
 			Thumbs: false,
@@ -525,61 +599,64 @@ window.addEventListener('DOMContentLoaded', () => {
 			},
 		},
 	});
+}
 
-	window.addEventListener('scroll', () => {
-		const header = document.querySelector('.js-header');
+/** initSmoothScrollLinks */
+function initSmoothScrollLinks() {
+	document.addEventListener('click', function (e) {
+		const link = e.target.closest('a.js-link-anchor[href^="#"]');
+		if (!link) return;
+
+		const targetId = link.getAttribute('href').substring(1);
+		if (!targetId) return;
+
+		const targetElement = document.getElementById(targetId);
+		if (!targetElement) return;
+
+		e.preventDefault();
+
+		targetElement.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		});
+	});
+}
+
+/** initHeaderScrolling */
+function initHeaderScrolling() {
+	const header = document.querySelector('.js-header');
+
+	const setIsScrolled = () => {
 		if (window.scrollY > 5) {
 			header.classList.add('is-scrolled');
 		} else {
 			header.classList.remove('is-scrolled');
 		}
-	});
+	};
 
-	/**
-	 * Ranger
-	 */
-	document.querySelectorAll('.js-ranger').forEach((ranger) => {
-		const rangerSlider = ranger.querySelector('.js-ranger__slider');
-		const rangerValue = ranger.querySelector('.js-ranger__value');
-		const rangerInputMin = ranger.querySelector('.js-ranger__input-min');
-		const rangerInputMax = ranger.querySelector('.js-ranger__input-max');
+	setIsScrolled();
 
-		const startMin = Number(rangerInputMin.value) || 0;
-		const startMax = Number(rangerInputMax.value) || 100;
+	window.addEventListener('scroll', setIsScrolled);
+}
 
-		noUiSlider.create(rangerSlider, {
-			start: [startMin, startMax],
-			connect: true,
-			range: {
-				min: startMin,
-				max: startMax,
-			},
-		});
+/**
+ * Main function
+ */
+window.addEventListener('DOMContentLoaded', () => {
+	new Menu();
+	new FiltersPopup();
+	new ProductGallery();
+	new FullscreenSlider('#fullscreen-slider', '#fullscreen-slider-footer');
 
-		rangerSlider.noUiSlider.on('update', (values) => {
-			const min = Math.round(values[0]);
-			const max = Math.round(values[1]);
+	new Modal();
 
-			rangerValue.textContent = `Цены: ${min} ₽ – ${max} ₽`;
+	document.querySelectorAll('.js-tabs').forEach((elem) => new Tabs(elem));
+	document.querySelectorAll('.js-detail').forEach((elem) => new Detail(elem));
+	document.querySelectorAll('.js-counter').forEach((elem) => new Counter(elem));
+	document.querySelectorAll('.js-ranger').forEach((elem) => new Ranger(elem));
 
-			rangerInputMin.value = min;
-			rangerInputMax.value = max;
-		});
-
-		rangerInputMin.addEventListener('change', () => {
-			let val = Number(rangerInputMin.value);
-			let maxVal = Number(rangerInputMax.value);
-			if (val < 0) val = 0;
-			if (val > maxVal) val = maxVal;
-			rangerSlider.noUiSlider.set([val, null]);
-		});
-
-		rangerInputMax.addEventListener('change', () => {
-			let val = Number(rangerInputMax.value);
-			let minVal = Number(rangerInputMin.value);
-			if (val > 100) val = 100;
-			if (val < minVal) val = minVal;
-			rangerSlider.noUiSlider.set([null, val]);
-		});
-	});
+	initFancyboxProductGallery();
+	initSmoothScrollLinks();
+	initHeaderScrolling();
 });
+//# sourceMappingURL=index.js.map

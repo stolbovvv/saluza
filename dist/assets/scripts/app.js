@@ -22,6 +22,7 @@
 class Component {
 	constructor(target) {
 		this.component = target instanceof HTMLElement ? target : document.querySelector(target);
+		if (!this.component) return;
 	}
 }
 
@@ -30,8 +31,6 @@ class Component {
 class Menu extends Component {
 	constructor(target = '.js-menu') {
 		super(target);
-
-		if (!this.component) return;
 
 		this.state = {
 			isShow: false,
@@ -99,8 +98,6 @@ class Tabs extends Component {
 	constructor(target = '.js-tabs') {
 		super(target);
 
-		if (!this.component) return;
-
 		this.buttons = this.component.querySelectorAll('.js-tabs-button');
 		this.content = this.component.querySelectorAll('.js-tabs-content');
 
@@ -133,8 +130,6 @@ class Modal extends Component {
 	constructor(target = '.js-molal') {
 		super(target);
 
-		if (!this.component) return;
-
 		this.showTriggers = document.querySelectorAll(`[data-show-modal="${this.component.id}"]`);
 		this.hideTriggers = document.querySelectorAll(`[data-hide-modal="${this.component.id}"]`);
 
@@ -166,8 +161,6 @@ class Modal extends Component {
 class Detail extends Component {
 	constructor(target = '.js-detail') {
 		super(target);
-
-		if (!this.component) return;
 
 		this.state = {
 			isShow: false,
@@ -235,8 +228,6 @@ class Counter extends Component {
 	constructor(target = '.js-counter') {
 		super(target);
 
-		if (!this.component) return;
-
 		this.state = {
 			value: 0,
 		};
@@ -282,8 +273,6 @@ class Counter extends Component {
 class ProductGallery extends Component {
 	constructor(target = '.js-product-gallery') {
 		super(target);
-
-		if (!this.component) return;
 
 		this.mainSlider = null;
 		this.thumbSlider = null;
@@ -474,8 +463,6 @@ class FiltersPopup extends Component {
 	constructor(target = '.js-filters-popup') {
 		super(target);
 
-		if (!this.component) return;
-
 		this.showTrigger = document.querySelector('.js-filters-popup-show');
 		this.hideTrigger = document.querySelector('.js-filters-popup-hide');
 
@@ -505,8 +492,6 @@ class FiltersPopup extends Component {
 class Ranger extends Component {
 	constructor(target = '.js-ranger') {
 		super(target);
-
-		if (!this.component) return;
 
 		this.state = {
 			minValue: 0,
@@ -648,8 +633,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	new ProductGallery();
 	new FullscreenSlider('#fullscreen-slider', '#fullscreen-slider-footer');
 
-	new Modal();
-
 	document.querySelectorAll('.js-tabs').forEach((elem) => new Tabs(elem));
 	document.querySelectorAll('.js-detail').forEach((elem) => new Detail(elem));
 	document.querySelectorAll('.js-counter').forEach((elem) => new Counter(elem));
@@ -659,3 +642,4 @@ window.addEventListener('DOMContentLoaded', () => {
 	initSmoothScrollLinks();
 	initHeaderScrolling();
 });
+//# sourceMappingURL=app.js.map
