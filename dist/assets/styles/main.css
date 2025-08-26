@@ -1127,9 +1127,14 @@ picture {
 }
 @media (max-width: 63.999rem) {
   .product__gallery {
-    row-gap: 0.625rem;
+    display: block;
     margin-inline: auto;
-    width: min(100%, 35rem);
+    width: 100%;
+    max-width: 35rem;
+    overflow: hidden;
+  }
+  .product__gallery > * + * {
+    margin-top: 0.625rem;
   }
 }
 .product__gallery-slider {
