@@ -14,6 +14,9 @@ block head
 	-
 		var title = 'Andromeda Saluza - SALUZA';
 
+block styles
+	link(rel='stylesheet', href='/assets/styles/custom.css')
+
 block content
 	-
 		var heading = 'Andromeda Saluza';
@@ -84,7 +87,7 @@ block content
 								p.product__review.text-xs.text-center (2 отзыва)
 								p.product__price.text-center 35.000 ₽
 								form.product__form(action='#')
-									.product__form-row
+									.product__form-row.product__form-row--fixed
 										+input-counter({ name: 'product_count' })
 										+button({ icon: 'bag', text: 'Добавить в корзину', type: 'submit' })
 										+button({ icon: 'heart', variant: 'outline' })(data-show-modal='add-favorite')

@@ -1,0 +1,20 @@
+/* Custom styles */
+@media (max-width: 63.999rem) {
+  .product__form-row.product__form-row--fixed {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-sticky);
+    padding: 0.625rem;
+    width: 100%;
+    box-shadow: 0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -4px rgba(0, 0, 0, 0.1);
+    background: var(--color-white);
+  }
+}
+
+@media (max-width: 63.999rem) {
+  .footer {
+    padding-bottom: 10rem;
+  }
+}/*# sourceMappingURL=custom.css.map */

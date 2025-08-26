@@ -1,0 +1,25 @@
+@use "./helpers/mixins" as *;
+
+/* Custom styles */
+
+.product__form-row.product__form-row--fixed {
+	@include max-media("md") {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: var(--z-sticky);
+		padding: 0.625rem;
+		width: 100%;
+		box-shadow:
+			0 -10px 15px -3px rgb(0, 0, 0, 0.1),
+			0 -4px 6px -4px rgb(0, 0, 0, 0.1);
+		background: var(--color-white);
+	}
+}
+
+.footer {
+	@include max-media("md") {
+		padding-bottom: 10rem;
+	}
+}
