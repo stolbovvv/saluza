@@ -29,6 +29,10 @@ block content
 								.table-cart__head-col
 									span Товар
 								.table-cart__head-col
+									span Размер
+								.table-cart__head-col
+									span Цвет
+								.table-cart__head-col
 									span Цена
 								.table-cart__head-col
 									span Количество
@@ -41,10 +45,16 @@ block content
 									img(src='/assets/images/catalog-product-1.jpg', alt='')
 									span Andromeda Saluza
 								.table-cart__body-col
+									span.table-cart__body-col-label Размер
+									span M
+								.table-cart__body-col
+									span.table-cart__body-col-label Цвет
+									span Черный
+								.table-cart__body-col
 									span.table-cart__body-col-label Цена
 									span 35.000 ₽
 								.table-cart__body-col
-									span(class='max-md:hidden') Кол-во:
+									span(class='max-lg:hidden') Кол-во:
 									+input-counter({ name: 'cart_product_id_1', value: '1' })
 								.table-cart__body-col
 									span.table-cart__body-col-label Итого
@@ -54,14 +64,20 @@ block content
 										+icon({ className: 'button-icon__icon', icon: 'trash' })
 							.table-cart__body-row
 								.table-cart__body-col
-									img(src='/assets/images/catalog-product-2.jpg', alt='')
+									img(src='/assets/images/catalog-product-1.jpg', alt='')
 									span Andromeda Saluza
+								.table-cart__body-col
+									span.table-cart__body-col-label Размер
+									span M
+								.table-cart__body-col
+									span.table-cart__body-col-label Цвет
+									span Черный
 								.table-cart__body-col
 									span.table-cart__body-col-label Цена
 									span 35.000 ₽
 								.table-cart__body-col
-									span(class='max-md:hidden') Кол-во:
-									+input-counter({ name: 'cart_product_id_2', value: '1' })
+									span(class='max-lg:hidden') Кол-во:
+									+input-counter({ name: 'cart_product_id_1', value: '1' })
 								.table-cart__body-col
 									span.table-cart__body-col-label Итого
 									span 35.000 ₽
@@ -70,14 +86,20 @@ block content
 										+icon({ className: 'button-icon__icon', icon: 'trash' })
 							.table-cart__body-row
 								.table-cart__body-col
-									img(src='/assets/images/catalog-product-3.jpg', alt='')
+									img(src='/assets/images/catalog-product-1.jpg', alt='')
 									span Andromeda Saluza
+								.table-cart__body-col
+									span.table-cart__body-col-label Размер
+									span M
+								.table-cart__body-col
+									span.table-cart__body-col-label Цвет
+									span Черный
 								.table-cart__body-col
 									span.table-cart__body-col-label Цена
 									span 35.000 ₽
 								.table-cart__body-col
-									span(class='max-md:hidden') Кол-во:
-									+input-counter({ name: 'cart_product_id_3', value: '1' })
+									span(class='max-lg:hidden') Кол-во:
+									+input-counter({ name: 'cart_product_id_1', value: '1' })
 								.table-cart__body-col
 									span.table-cart__body-col-label Итого
 									span 35.000 ₽
@@ -86,21 +108,26 @@ block content
 										+icon({ className: 'button-icon__icon', icon: 'trash' })
 							.table-cart__body-row
 								.table-cart__body-col
-									img(src='/assets/images/catalog-product-4.jpg', alt='')
+									img(src='/assets/images/catalog-product-1.jpg', alt='')
 									span Andromeda Saluza
+								.table-cart__body-col
+									span.table-cart__body-col-label Размер
+									span M
+								.table-cart__body-col
+									span.table-cart__body-col-label Цвет
+									span Черный
 								.table-cart__body-col
 									span.table-cart__body-col-label Цена
 									span 35.000 ₽
 								.table-cart__body-col
-									span(class='max-md:hidden') Кол-во:
-									+input-counter({ name: 'cart_product_id_4', value: '1' })
+									span(class='max-lg:hidden') Кол-во:
+									+input-counter({ name: 'cart_product_id_1', value: '1' })
 								.table-cart__body-col
 									span.table-cart__body-col-label Итого
 									span 35.000 ₽
 								.table-cart__body-col
 									button.button-icon(data-show-modal='del-cart')
 										+icon({ className: 'button-icon__icon', icon: 'trash' })
-
 		section.section
 			.container.section__container
 				.section__body

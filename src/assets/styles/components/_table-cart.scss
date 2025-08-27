@@ -12,13 +12,13 @@
 
 	&__head-row {
 		display: grid;
-		grid-template-columns: 25rem 6.25rem 1fr 6.25rem 3.125rem;
+		grid-template-columns: 25rem 6.25rem 6.25rem 6.25rem 1fr 6.25rem 3.125rem;
 		column-gap: 0.625rem;
 		padding: 0 0.625rem 0.625rem;
 		border-bottom: 1px solid var(--color-neutral-100);
 
 		@include max-media("lg") {
-			grid-template-columns: 20rem 6.25rem 1fr 6.25rem 3.125rem;
+			grid-template-columns: 15rem 6.25rem 6.25rem 6.25rem 1fr 6.25rem 3.125rem;
 		}
 
 		@include max-media("md") {
@@ -40,20 +40,16 @@
 	&__body-row {
 		position: relative;
 		display: grid;
-		grid-template-columns: 25rem 6.25rem 1fr 6.25rem 3.125rem;
+		grid-template-columns: 25rem 6.25rem 6.25rem 6.25rem 1fr 6.25rem 3.125rem;
 		column-gap: 0.625rem;
 		padding: 0.625rem;
 		border-bottom: 1px solid var(--color-neutral-100);
 
 		@include max-media("lg") {
-			grid-template-columns: 20rem 6.25rem 1fr 6.25rem 3.125rem;
+			grid-template-columns: 15rem 6.25rem 6.25rem 6.25rem 1fr 6.25rem 3.125rem;
 		}
 
 		@include max-media("md") {
-			grid-template-columns: 17.5rem 6.25rem 1fr 6.25rem;
-		}
-
-		@include max-media("sm") {
 			grid-template-columns: 1fr;
 			row-gap: 0.625rem;
 		}
@@ -79,13 +75,13 @@
 			}
 		}
 
-		&:nth-child(2) {
-			@include max-media("sm") {
-				grid-row-start: 3;
+		&:nth-child(5) {
+			@include max-media("md") {
+				grid-row-start: 2;
 			}
 		}
 
-		&:nth-child(5) {
+		&:last-child {
 			@include max-media("md") {
 				position: absolute;
 				top: 0.625rem;
@@ -97,7 +93,7 @@
 	&__body-col-label {
 		display: none;
 
-		@include max-media("sm") {
+		@include max-media("md") {
 			display: flex;
 			flex: 1 1 auto;
 
