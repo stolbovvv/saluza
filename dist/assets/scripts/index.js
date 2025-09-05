@@ -684,4 +684,3 @@ window.addEventListener('DOMContentLoaded', () => {
 	initSmoothScrollLinks();
 	initHeaderScrolling();
 });
-//# sourceMappingURL=index.js.map
