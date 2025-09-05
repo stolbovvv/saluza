@@ -1,0 +1,195 @@
+@use "../helpers/mixins" as *;
+
+/* Modal styles */
+.popover {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	z-index: var(--z-sticky);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding: 0.625rem;
+
+	&__dialog {
+		position: absolute;
+		right: 0.625rem;
+		bottom: calc(100%);
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.25rem;
+		padding: 1.25rem;
+		width: min(100vw - 1.25rem, 22.5rem);
+		box-shadow:
+			0 10px 15px -3px rgb(0, 0, 0, 0.1),
+			0 4px 6px -4px rgb(0, 0, 0, 0.1);
+		border: 1px solid var(--color-neutral-100);
+		background-color: var(--color-white);
+		transform-origin: right bottom;
+		transition: all var(--transition-ease-100);
+	}
+
+	&.is-active &__dialog {
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1);
+	}
+
+	&:not(.is-active) &__dialog {
+		opacity: 0;
+		visibility: hidden;
+		transform: scale(0.75);
+	}
+
+	&__dialog-head {
+		text-align: center;
+		text-wrap: balance;
+	}
+
+	&__dialog-heading {
+		font-size: 1.875rem;
+		font-weight: 400;
+
+		@include max-media("md") {
+			font-size: 1.5rem;
+		}
+	}
+
+	&__dialog-body {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.25rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--color-neutral-200);
+	}
+
+	&__dialog-item {
+		display: flex;
+		align-items: center;
+		column-gap: 0.625rem;
+		font-size: var(--font-size-sm);
+	}
+
+	&__dialog-item-head {
+		display: flex;
+		flex: 0 0 auto;
+		justify-content: center;
+		align-items: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		background-color: var(--color-black);
+	}
+
+	&__dialog-item-icon {
+		fill: var(--color-white);
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	&__dialog-item-body {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.125rem;
+	}
+
+	&__button {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		width: 3.75rem;
+		height: 3.75rem;
+		overflow: hidden;
+		box-shadow:
+			0 10px 15px -3px rgb(0, 0, 0, 0.1),
+			0 4px 6px -4px rgb(0, 0, 0, 0.1);
+		border: none;
+		border-radius: 50%;
+		background-color: var(--color-black);
+		color: var(--color-white);
+		transition: all var(--transition-ease-100) 0s;
+		cursor: pointer;
+
+		@include hover {
+			border-color: var(--color-neutral-700);
+			background-color: var(--color-neutral-700);
+		}
+
+		&:active {
+			border-color: var(--color-neutral-600);
+			background-color: var(--color-neutral-600);
+		}
+
+		&:disabled {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
+		@include max-media("md") {
+			width: 2.5rem;
+			height: 2.5rem;
+		}
+	}
+
+	&__button-icon {
+		position: absolute;
+		left: 50%;
+		width: 1.875rem;
+		height: 1.875rem;
+		transition: all var(--transition-ease-100);
+
+		@include max-media("md") {
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+	}
+
+	&.is-active &__button-icon--open {
+		top: 150%;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.5);
+	}
+
+	&:not(.is-active) &__button-icon--open {
+		top: 50%;
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	&.is-active &__button-icon--close {
+		top: 50%;
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	&:not(.is-active) &__button-icon--close {
+		top: -50%;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.5);
+	}
+
+	&__dialog-foot {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.625rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--color-neutral-200);
+	}
+
+	&__dialog-social {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		column-gap: 1.25rem;
+	}
+
+	&__social-link {
+		flex: 0 0 auto;
+	}
+
+	&__social-icon {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+}

@@ -1,3 +1,4 @@
+include ../mixins/ui/icon.pug
 include ../mixins/ui/modal.pug
 include ../mixins/ui/button.pug
 
@@ -30,6 +31,39 @@ html(lang='ru')
 			include ../includes/page-header.pug
 			block content
 			include ../includes/page-footer.pug
+
+		#popover-contact-us.popover.js-popover
+			.popover__dialog
+				.popover__dialog-head
+					h2.popover__dialog-heading Свяжитесь с нами
+				.popover__dialog-body
+					.popover__dialog-item
+						.popover__dialog-item-head
+							+icon({ className: 'popover__dialog-item-icon', icon: 'email' })
+						.popover__dialog-item-body
+							span.text-neutral-500 Email
+							a.link(href='#') example@email.com
+					.popover__dialog-item
+						.popover__dialog-item-head
+							+icon({ className: 'popover__dialog-item-icon', icon: 'phone' })
+						.popover__dialog-item-body
+							span.text-neutral-500 Телефон
+							a.link(href='#') +7 (600) 500 43 21
+				.popover__dialog-foot
+					.popover__dialog-social
+						a.icon-link.popover__social-link(href='#')
+							+icon({ className: 'popover__social-icon', icon: 'facebook-logo' })
+						a.icon-link.popover__social-link(href='#')
+							+icon({ className: 'popover__social-icon', icon: 'instagram-logo' })
+						a.icon-link.popover__social-link(href='#')
+							+icon({ className: 'popover__social-icon', icon: 'pinterest-logo' })
+						a.icon-link.popover__social-link(href='#')
+							+icon({ className: 'popover__social-icon', icon: 'twitter-logo' })
+						a.icon-link.popover__social-link(href='#')
+							+icon({ className: 'popover__social-icon', icon: 'google-logo' })
+			button.popover__button.js-popover__button
+				+icon({ className: 'popover__button-icon popover__button-icon--open', icon: 'phone' })
+				+icon({ className: 'popover__button-icon popover__button-icon--close', icon: 'x' })
 
 		+modal({ size: 'small', heading: 'Избранное' })#add-favorite.js-modal
 			p.text-base.text-neutral-500 Товар добавлен в избранное

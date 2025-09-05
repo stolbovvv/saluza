@@ -106,7 +106,6 @@ class Component {
 }
 
 /** Menu */
-
 class Menu extends Component {
 	constructor(target = '.js-menu') {
 		super(target);
@@ -174,7 +173,6 @@ class Menu extends Component {
 }
 
 /** Tabs */
-
 class Tabs extends Component {
 	constructor(target = '.js-tabs') {
 		super(target);
@@ -208,7 +206,6 @@ class Tabs extends Component {
 }
 
 /** Modal */
-
 class Modal extends Component {
 	constructor(target = '.js-molal') {
 		super(target);
@@ -246,8 +243,32 @@ class Modal extends Component {
 	};
 }
 
-/** Detail */
+/** Popover */
+class Popover extends Component {
+	constructor(target = '.js-molal') {
+		super(target);
 
+		if (!this.component) return;
+
+		this.button = this.component.querySelector('.js-popover__button');
+
+		this.init();
+	}
+
+	init() {
+		this.button?.addEventListener('click', () => {
+			this.component.classList.toggle('is-active');
+		});
+
+		document.body.addEventListener('click', (e) => {
+			if (this.component.classList.contains('is-active') && !this.component.contains(e.target)) {
+				this.component.classList.remove('is-active');
+			}
+		});
+	}
+}
+
+/** Detail */
 class Detail extends Component {
 	constructor(target = '.js-detail') {
 		super(target);
@@ -315,7 +336,6 @@ class Detail extends Component {
 }
 
 /** Counter */
-
 class Counter extends Component {
 	constructor(target = '.js-counter') {
 		super(target);
@@ -363,7 +383,6 @@ class Counter extends Component {
 }
 
 /** ProductGallery */
-
 class ProductGallery extends Component {
 	constructor(target = '.js-product-gallery') {
 		super(target);
@@ -462,7 +481,6 @@ class ProductGallery extends Component {
 }
 
 /** FullscreenSlider */
-
 class FullscreenSlider {
 	constructor(mainSelector, footerSelector) {
 		this.mainSelector = mainSelector;
@@ -554,7 +572,6 @@ class FullscreenSlider {
 }
 
 /** FiltersPopup */
-
 class FiltersPopup extends Component {
 	constructor(target = '.js-filters-popup') {
 		super(target);
@@ -655,6 +672,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	new FiltersPopup();
 	new ProductGallery();
 	new FullscreenSlider('#fullscreen-slider', '#fullscreen-slider-footer');
+	new Popover('#popover-contact-us');
 
 	document.querySelectorAll('.js-tabs').forEach((elem) => new Tabs(elem));
 	document.querySelectorAll('.js-detail').forEach((elem) => new Detail(elem));

@@ -3098,6 +3098,178 @@ picture {
 }
 
 /* Modal styles */
+.popover {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0.625rem;
+}
+.popover__dialog {
+  position: absolute;
+  right: 0.625rem;
+  bottom: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+  padding: 1.25rem;
+  width: min(100vw - 1.25rem, 22.5rem);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-neutral-100);
+  background-color: var(--color-white);
+  transform-origin: right bottom;
+  transition: all var(--transition-ease-100);
+}
+.popover.is-active .popover__dialog {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+.popover:not(.is-active) .popover__dialog {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.75);
+}
+.popover__dialog-head {
+  text-align: center;
+  text-wrap: balance;
+}
+.popover__dialog-heading {
+  font-size: 1.875rem;
+  font-weight: 400;
+}
+@media (max-width: 63.999rem) {
+  .popover__dialog-heading {
+    font-size: 1.5rem;
+  }
+}
+.popover__dialog-body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-neutral-200);
+}
+.popover__dialog-item {
+  display: flex;
+  align-items: center;
+  column-gap: 0.625rem;
+  font-size: var(--font-size-sm);
+}
+.popover__dialog-item-head {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--color-black);
+}
+.popover__dialog-item-icon {
+  fill: var(--color-white);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.popover__dialog-item-body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.125rem;
+}
+.popover__button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 3.75rem;
+  height: 3.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  transition: all var(--transition-ease-100) 0s;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .popover__button:hover {
+    border-color: var(--color-neutral-700);
+    background-color: var(--color-neutral-700);
+  }
+}
+.popover__button:active {
+  border-color: var(--color-neutral-600);
+  background-color: var(--color-neutral-600);
+}
+.popover__button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+@media (max-width: 63.999rem) {
+  .popover__button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+.popover__button-icon {
+  position: absolute;
+  left: 50%;
+  width: 1.875rem;
+  height: 1.875rem;
+  transition: all var(--transition-ease-100);
+}
+@media (max-width: 63.999rem) {
+  .popover__button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.popover.is-active .popover__button-icon--open {
+  top: 150%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+.popover:not(.is-active) .popover__button-icon--open {
+  top: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popover.is-active .popover__button-icon--close {
+  top: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popover:not(.is-active) .popover__button-icon--close {
+  top: -50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+.popover__dialog-foot {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.625rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-neutral-200);
+}
+.popover__dialog-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1.25rem;
+}
+.popover__social-link {
+  flex: 0 0 auto;
+}
+.popover__social-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Modal styles */
 .modal {
   position: fixed;
   inset: 0;
@@ -4874,4 +5046,4 @@ picture {
   .lg\:max-xl\:hidden {
     display: none;
   }
-}
+}/*# sourceMappingURL=main.css.map */
